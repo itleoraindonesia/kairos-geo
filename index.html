@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kairos Geo | Geosynthetics & Environmental Solutions</title>
+    <meta
+      name="description"
+      content="Kairos Geo menyediakan produk geosintetik, konsultasi teknis, dukungan instalasi, dan solusi lingkungan untuk kebutuhan proyek infrastruktur dan pengelolaan air."
+    />
+    <link rel="icon" type="image/jpeg" href="./Kairoslogo.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui"],
+              display: ["Manrope", "ui-sans-serif", "system-ui"],
+            },
+            colors: {
+              kairos: {
+                950: "#0a0618",
+                900: "#120928",
+                850: "#171032",
+                800: "#201043",
+                700: "#32145d",
+                600: "#53228c",
+                500: "#6b2bd0",
+                400: "#8d55f6",
+                300: "#b79aff",
+                200: "#e6dcff",
+                100: "#f4f0ff",
+              },
+            },
+            boxShadow: {
+              panel: "0 18px 45px rgba(18, 9, 40, 0.08)",
+              hero: "0 30px 80px rgba(8, 5, 20, 0.35)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        color-scheme: light;
+        --kairos-line: rgba(255, 255, 255, 0.08);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at top, rgba(141, 85, 246, 0.07), transparent 30%),
+          linear-gradient(180deg, #fbfaff 0%, #ffffff 24%, #fbfbff 100%);
+      }
+
+      .hero-grid {
+        background-image:
+          linear-gradient(to right, var(--kairos-line) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--kairos-line) 1px, transparent 1px);
+        background-size: 54px 54px;
+      }
+
+      .noise-overlay {
+        background-image: radial-gradient(rgba(255, 255, 255, 0.12) 0.6px, transparent 0.6px);
+        background-size: 12px 12px;
+      }
+    </style>
+  </head>
+  <body class="font-sans text-zinc-900 selection:bg-kairos-300/60 selection:text-kairos-950">
+    <div class="min-h-screen">
+      <section class="relative overflow-hidden bg-kairos-950 text-white shadow-hero">
+        <div class="absolute inset-0 hero-grid opacity-40" aria-hidden="true"></div>
+        <div
+          class="absolute inset-0 bg-cover bg-center"
+          style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2200&q=80');"
+          aria-hidden="true"
+        ></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-kairos-950 via-kairos-950/78 to-kairos-950/30" aria-hidden="true"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-kairos-950 via-kairos-950/25 to-kairos-950/60" aria-hidden="true"></div>
+        <div class="absolute inset-0 noise-overlay opacity-10 mix-blend-screen" aria-hidden="true"></div>
+
+        <div class="relative mx-auto max-w-7xl px-4 pt-4 pb-12 sm:px-6 lg:px-8">
+          <header class="flex items-center justify-between gap-6 py-5">
+            <a href="#" class="flex items-center gap-3">
+              <div class="grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-white/10 ring-1 ring-white/15 backdrop-blur">
+                <img src="./Kairoslogo.jpg" alt="Kairos Geo" class="h-full w-full object-cover" loading="eager" decoding="async" />
+              </div>
+              <div class="leading-tight">
+                <div class="font-display text-lg font-extrabold tracking-tight text-white">Kairos Geo</div>
+                <div class="text-[11px] text-white/75">Geosynthetics & Environmental Solutions</div>
+              </div>
+            </a>
+
+            <nav class="hidden items-center gap-7 text-sm font-semibold text-white/88 lg:flex">
+              <a href="#produk" class="transition hover:text-white">Produk</a>
+              <a href="#solusi" class="transition hover:text-white">Solusi</a>
+              <a href="#proyek" class="transition hover:text-white">Proyek</a>
+              <a href="#tentang" class="transition hover:text-white">Tentang Kami</a>
+              <a href="#resources" class="transition hover:text-white">Resources</a>
+              <a href="#kontak" class="transition hover:text-white">Kontak</a>
+            </nav>
+
+            <a
+              href="#kontak"
+              class="hidden items-center gap-3 rounded-xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-kairos-950/40 transition hover:brightness-110 lg:inline-flex"
+            >
+              Minta Penawaran
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h12" />
+                <path d="M13 6l6 6-6 6" />
+              </svg>
+            </a>
+
+            <button
+              type="button"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 lg:hidden"
+              aria-label="Open menu"
+            >
+              <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </header>
+
+          <div class="grid gap-12 pb-16 pt-8 mb-8 lg:grid-cols-[1.1fr_.9fr] lg:items-end lg:pb-20 lg:pt-12">
+            <div class="max-w-3xl">
+              <h1 class="font-display text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-[4.1rem] lg:leading-[1.05]">
+                Solusi Geosintetik untuk
+                <span class="block">Infrastruktur & Lingkungan</span>
+              </h1>
+
+              <p class="mt-6 max-w-2xl text-sm leading-7 text-white/80 sm:text-base">
+                Kami menyediakan produk geosintetik berkualitas, konsultasi teknis, dan dukungan instalasi untuk proyek containment,
+                filtrasi, stabilisasi, dan pengelolaan air.
+              </p>
+
+              <div class="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href="#kontak"
+                  class="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-kairos-950/40 transition hover:brightness-110"
+                >
+                  Konsultasi Proyek
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h12" />
+                    <path d="M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+
+                <a
+                  href="#resources"
+                  class="inline-flex items-center gap-3 rounded-xl border border-white/20 bg-white/8 px-5 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/14"
+                >
+                  Download Katalog
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3v12" />
+                    <path d="m7 10 5 5 5-5" />
+                    <path d="M5 21h14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="hidden lg:block">
+              <div class="ml-auto max-w-md rounded-[28px] bg-white/8 p-4 backdrop-blur-md">
+                <img
+                  src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80"
+                  alt="Dokumentasi pekerjaan lapangan"
+                  class="h-[280px] w-full rounded-[22px] object-cover"
+                  loading="lazy"
+                />
+                <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                  <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+                    <div class="font-bold text-white">Support Teknis</div>
+                    <div class="mt-1 text-xs leading-5 text-white/70">Bantu spesifikasi sejak tahap perencanaan.</div>
+                  </div>
+                  <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+                    <div class="font-bold text-white">QC Proyek</div>
+                    <div class="mt-1 text-xs leading-5 text-white/70">Dokumentasi kerja lebih rapi dan terukur.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid gap-px overflow-hidden rounded-[26px] border border-white/10 bg-white/10 backdrop-blur md:grid-cols-2 xl:grid-cols-4">
+            <div class="bg-kairos-950/55 px-5 py-6">
+              <div class="flex items-start gap-4">
+                <div class="grid h-11 w-11 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/10">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 21h18" />
+                    <path d="M5 21V7l7-4 7 4v14" />
+                    <path d="M9 12h.01" />
+                    <path d="M15 12h.01" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-bold text-white">Proyek Industri</div>
+                  <div class="mt-1 text-xs leading-5 text-white/70">Berpengalaman di berbagai sektor industri</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-kairos-950/55 px-5 py-6">
+              <div class="flex items-start gap-4">
+                <div class="grid h-11 w-11 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/10">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20h9" />
+                    <path d="M12 4h9" />
+                    <path d="M3 9h6" />
+                    <path d="M3 15h6" />
+                    <path d="M9 12h6" />
+                    <circle cx="7" cy="9" r="2" />
+                    <circle cx="17" cy="12" r="2" />
+                    <circle cx="7" cy="15" r="2" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-bold text-white">Dukungan Teknis</div>
+                  <div class="mt-1 text-xs leading-5 text-white/70">Tim ahli siap membantu sejak tahap perencanaan</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-kairos-950/55 px-5 py-6">
+              <div class="flex items-start gap-4">
+                <div class="grid h-11 w-11 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/10">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 17h4V5H2v12h3" />
+                    <path d="M14 8h4l4 4v5h-4" />
+                    <circle cx="7.5" cy="17.5" r="2.5" />
+                    <circle cx="17.5" cy="17.5" r="2.5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-bold text-white">Pengiriman Nasional</div>
+                  <div class="mt-1 text-xs leading-5 text-white/70">Jangkauan pengiriman ke seluruh Indonesia</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-kairos-950/55 px-5 py-6">
+              <div class="flex items-start gap-4">
+                <div class="grid h-11 w-11 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/10">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <path d="M14 2v6h6" />
+                    <path d="M8 13h8" />
+                    <path d="M8 17h5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-bold text-white">QC Terdokumentasi</div>
+                  <div class="mt-1 text-xs leading-5 text-white/70">Kualitas terjamin dengan dokumentasi lengkap</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main>
+        <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel">
+              <div class="flex items-center gap-4">
+                <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                  <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 21h18" />
+                    <path d="M5 21V8h14v13" />
+                    <path d="M9 12h.01" />
+                    <path d="M15 12h.01" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-display text-4xl font-extrabold text-kairos-900">100+</div>
+                  <div class="text-sm font-bold text-zinc-900">Proyek Didukung</div>
+                  <div class="text-xs text-zinc-500">Berbagai sektor industri</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel">
+              <div class="flex items-center gap-4">
+                <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                  <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 17h4V5H2v12h3" />
+                    <path d="M14 8h4l4 4v5h-4" />
+                    <circle cx="7.5" cy="17.5" r="2.5" />
+                    <circle cx="17.5" cy="17.5" r="2.5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-display text-4xl font-extrabold text-kairos-900">20+</div>
+                  <div class="text-sm font-bold text-zinc-900">Kota Pengiriman</div>
+                  <div class="text-xs text-zinc-500">Jangkauan seluruh Indonesia</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel">
+              <div class="flex items-center gap-4">
+                <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                  <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 7v5l3 3" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-bold text-zinc-900">Respon Cepat</div>
+                  <div class="text-xs text-zinc-500">Tim teknis siap merespon kebutuhan Anda</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel">
+              <div class="flex items-center gap-4">
+                <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                  <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+                    <circle cx="9.5" cy="7" r="4" />
+                    <path d="M20 8v6" />
+                    <path d="M23 11h-6" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-bold text-zinc-900">Tim Teknis Support</div>
+                  <div class="text-xs text-zinc-500">Ahli berpengalaman di bidangnya</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="produk" class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+              <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl">Produk Utama</h2>
+            </div>
+            <a href="#kontak" class="hidden text-sm font-bold text-kairos-500 transition hover:text-kairos-700 sm:inline-flex">
+              Lihat semua produk ->
+            </a>
+          </div>
+
+          <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <article class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <img
+                src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=900&q=80"
+                alt="Geomembran"
+                class="h-44 w-full rounded-2xl object-cover"
+                loading="lazy"
+              />
+              <h3 class="mt-5 text-lg font-extrabold text-zinc-950">Geomembran</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Lembaran kedap air performa tinggi untuk aplikasi containment.</p>
+              <ul class="mt-4 space-y-2 text-sm text-zinc-700">
+                <li>- Tahan kimia & sinar UV</li>
+                <li>- Kedap air & fleksibel</li>
+                <li>- Umur layanan panjang</li>
+              </ul>
+              <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-kairos-500">Lihat Detail -></a>
+            </article>
+
+            <article class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <img
+                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80"
+                alt="Geotextile"
+                class="h-44 w-full rounded-2xl object-cover"
+                loading="lazy"
+              />
+              <h3 class="mt-5 text-lg font-extrabold text-zinc-950">Geotextile</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Non woven & woven geotextile untuk filtrasi, separasi, dan stabilisasi.</p>
+              <ul class="mt-4 space-y-2 text-sm text-zinc-700">
+                <li>- Filtrasi & separasi efektif</li>
+                <li>- Perkuatan tanah & stabilisasi</li>
+                <li>- Berbagai gramasi tersedia</li>
+              </ul>
+              <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-kairos-500">Lihat Detail -></a>
+            </article>
+
+            <article class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <img
+                src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80"
+                alt="Hydroseeding"
+                class="h-44 w-full rounded-2xl object-cover"
+                loading="lazy"
+              />
+              <h3 class="mt-5 text-lg font-extrabold text-zinc-950">Hydroseeding</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Solusi revegetasi cepat untuk stabilisasi lereng dan reklamasi.</p>
+              <ul class="mt-4 space-y-2 text-sm text-zinc-700">
+                <li>- Menstabilkan lereng cepat</li>
+                <li>- Mendukung pertumbuhan vegetasi</li>
+                <li>- Cocok untuk area luas</li>
+              </ul>
+              <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-kairos-500">Lihat Detail -></a>
+            </article>
+
+            <article class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <img
+                src="https://images.unsplash.com/photo-1599707254554-027aeb4deacd?auto=format&fit=crop&w=900&q=80"
+                alt="Batu Kapur"
+                class="h-44 w-full rounded-2xl object-cover"
+                loading="lazy"
+              />
+              <h3 class="mt-5 text-lg font-extrabold text-zinc-950">Batu Kapur</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Material mineral untuk kebutuhan stabilisasi, penetralan, dan aplikasi konstruksi tertentu.</p>
+              <ul class="mt-4 space-y-2 text-sm text-zinc-700">
+                <li>- Cocok untuk kebutuhan proyek sipil</li>
+                <li>- Membantu stabilisasi material dasar</li>
+                <li>- Tersedia untuk suplai proyek</li>
+              </ul>
+              <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-kairos-500">Lihat Detail -></a>
+            </article>
+
+            <article class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <img
+                src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=900&q=80"
+                alt="Modular Tank"
+                class="h-44 w-full rounded-2xl object-cover"
+                loading="lazy"
+              />
+              <h3 class="mt-5 text-lg font-extrabold text-zinc-950">Modular Tank</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Sistem modular PP untuk penyimpanan air bersih, limbah, dan drainase.</p>
+              <ul class="mt-4 space-y-2 text-sm text-zinc-700">
+                <li>- Instalasi cepat & modular</li>
+                <li>- Kuat & tahan korosi</li>
+                <li>- Kapasitas fleksibel</li>
+              </ul>
+              <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-kairos-500">Lihat Detail -></a>
+            </article>
+
+            <article class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <img
+                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80"
+                alt="Geocell"
+                class="h-44 w-full rounded-2xl object-cover"
+                loading="lazy"
+              />
+              <h3 class="mt-5 text-lg font-extrabold text-zinc-950">Geocell</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Sistem honeycomb untuk stabilisasi tanah, perkuatan lereng, dan distribusi beban.</p>
+              <ul class="mt-4 space-y-2 text-sm text-zinc-700">
+                <li>- Meningkatkan stabilitas tanah</li>
+                <li>- Efektif untuk akses jalan & lereng</li>
+                <li>- Mengurangi pergerakan material</li>
+              </ul>
+              <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-kairos-500">Lihat Detail -></a>
+            </article>
+
+            <article class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel xl:col-span-2">
+              <img
+                src="https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=1200&q=80"
+                alt="Geopipe"
+                class="h-44 w-full rounded-2xl object-cover"
+                loading="lazy"
+              />
+              <h3 class="mt-5 text-lg font-extrabold text-zinc-950">Geopipe</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Pipa HDPE perforated corrugated untuk drainase bawah tanah dan pengumpulan aliran air.</p>
+              <ul class="mt-4 space-y-2 text-sm text-zinc-700">
+                <li>- Material HDPE dengan opsi single wall / double wall</li>
+                <li>- Tersedia full perforation, part perforation, dan non perforation</li>
+                <li>- Cocok untuk drainase, retaining wall, irigasi, jalan, dan lapangan</li>
+              </ul>
+              <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-kairos-500">Lihat Detail -></a>
+            </article>
+          </div>
+        </section>
+
+        <section id="solusi" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+              <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl">Solusi Berdasarkan Aplikasi</h2>
+            </div>
+            <a href="#kontak" class="hidden text-sm font-bold text-kairos-500 transition hover:text-kairos-700 sm:inline-flex">
+              Lihat semua produk ->
+            </a>
+          </div>
+
+          <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <article class="group relative overflow-hidden rounded-[28px] bg-kairos-950 text-white shadow-panel">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Kolam dan containment" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-kairos-950 via-kairos-950/35 to-transparent"></div>
+              <div class="relative flex min-h-[320px] flex-col justify-end p-6">
+                <div class="grid h-12 w-12 place-items-center rounded-full bg-white text-kairos-700 shadow-lg">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 0 7 3 7 7 0 5-7 11-7 11S5 15 5 10c0-4 3-7 7-7Z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                </div>
+                <h3 class="mt-5 text-xl font-extrabold">Kolam & Containment</h3>
+                <p class="mt-2 text-sm leading-6 text-white/80">Solusi kedap air untuk kolam limbah, IPAL, dan penampungan cairan.</p>
+                <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-white">Pelajari Selengkapnya -></a>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[28px] bg-kairos-950 text-white shadow-panel">
+              <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80" alt="Landfill dan tambang" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-kairos-950 via-kairos-950/35 to-transparent"></div>
+              <div class="relative flex min-h-[320px] flex-col justify-end p-6">
+                <div class="grid h-12 w-12 place-items-center rounded-full bg-white text-kairos-700 shadow-lg">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18" /><path d="M5 21V8l7-4 7 4v13" /><path d="M9 13h.01" /><path d="M15 13h.01" /></svg>
+                </div>
+                <h3 class="mt-5 text-xl font-extrabold">Landfill & Tambang</h3>
+                <p class="mt-2 text-sm leading-6 text-white/80">Pelapisan landfill, heap leach pad, dan area pertambangan.</p>
+                <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-white">Pelajari Selengkapnya -></a>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[28px] bg-kairos-950 text-white shadow-panel">
+              <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80" alt="Erosi dan revegetasi" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-kairos-950 via-kairos-950/35 to-transparent"></div>
+              <div class="relative flex min-h-[320px] flex-col justify-end p-6">
+                <div class="grid h-12 w-12 place-items-center rounded-full bg-white text-kairos-700 shadow-lg">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20c2-7 8-7 10-14" /><path d="M7 16c2-1 4-1 6 0" /><path d="M3 20h18" /></svg>
+                </div>
+                <h3 class="mt-5 text-xl font-extrabold">Erosi & Revegetasi</h3>
+                <p class="mt-2 text-sm leading-6 text-white/80">Pengendalian erosi dan pemulihan lahan dengan vegetasi.</p>
+                <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-white">Pelajari Selengkapnya -></a>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[28px] bg-kairos-950 text-white shadow-panel">
+              <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80" alt="Drainase dan sumur resapan" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-kairos-950 via-kairos-950/35 to-transparent"></div>
+              <div class="relative flex min-h-[320px] flex-col justify-end p-6">
+                <div class="grid h-12 w-12 place-items-center rounded-full bg-white text-kairos-700 shadow-lg">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18" /><path d="M7 8h10" /><path d="M7 16h10" /></svg>
+                </div>
+                <h3 class="mt-5 text-xl font-extrabold">Drainase & Sumur Resapan</h3>
+                <p class="mt-2 text-sm leading-6 text-white/80">Sistem drainase bawah tanah dan sumur resapan yang efisien.</p>
+                <a href="#kontak" class="mt-5 inline-flex text-sm font-bold text-white">Pelajari Selengkapnya -></a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="tentang" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div>
+            <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+            <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl">Mengapa Kairos Geo</h2>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="flex items-start gap-4">
+                <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                  <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M12 4h9" /><path d="M3 9h6" /><path d="M3 15h6" /><path d="M9 12h6" /></svg>
+                </div>
+                <div>
+                  <h3 class="text-base font-extrabold text-zinc-950">Konsultasi Teknis</h3>
+                  <p class="mt-2 text-sm leading-6 text-zinc-600">Analisis kebutuhan & rekomendasi spesifikasi oleh tim ahli berpengalaman.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="flex items-start gap-4">
+                <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                  <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V6l-8-4-8 4v6c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></svg>
+                </div>
+                <div>
+                  <h3 class="text-base font-extrabold text-zinc-950">Jaminan Kualitas</h3>
+                  <p class="mt-2 text-sm leading-6 text-zinc-600">Produk berkualitas tinggi dengan QC dan dokumentasi lengkap.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="flex items-start gap-4">
+                <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                  <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3" /><path d="M14 8h4l4 4v5h-4" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" /></svg>
+                </div>
+                <div>
+                  <h3 class="text-base font-extrabold text-zinc-950">Supply & Install</h3>
+                  <p class="mt-2 text-sm leading-6 text-zinc-600">Pengadaan hingga instalasi dikerjakan oleh tim profesional.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="flex items-start gap-4">
+                <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                  <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8" /><path d="M8 17h5" /></svg>
+                </div>
+                <div>
+                  <h3 class="text-base font-extrabold text-zinc-950">Dokumentasi Proyek</h3>
+                  <p class="mt-2 text-sm leading-6 text-zinc-600">Dokumentasi lengkap untuk mendukung pelaporan dan keberlanjutan proyek.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="mt-8 overflow-hidden rounded-[30px] bg-kairos-950 text-white shadow-hero">
+            <div class="relative grid gap-6 px-6 py-7 md:grid-cols-[1.15fr_.85fr] md:items-center md:px-8">
+              <div class="absolute inset-y-0 right-0 hidden w-2/3 bg-[radial-gradient(circle_at_center,rgba(141,85,246,.45),transparent_55%)] md:block" aria-hidden="true"></div>
+              <div class="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,.06),transparent_30%,transparent_70%,rgba(255,255,255,.05))]" aria-hidden="true"></div>
+              <div class="relative">
+                <div class="text-sm font-bold text-white/75">Punya kebutuhan proyek?</div>
+                <h3 class="mt-2 font-display text-3xl font-extrabold leading-tight">Diskusikan dengan tim ahli kami.</h3>
+                <p class="mt-3 max-w-2xl text-sm leading-6 text-white/80">Solusi tepat, spesifikasi jelas, hasil maksimal.</p>
+              </div>
+              <div class="relative flex md:justify-end">
+                <a
+                  href="#kontak"
+                  class="inline-flex items-center gap-3 rounded-2xl bg-white px-6 py-4 text-sm font-extrabold text-kairos-900 transition hover:bg-kairos-100"
+                >
+                  Konsultasi Sekarang
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h12" /><path d="M13 6l6 6-6 6" /></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="proyek" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+              <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl">Proyek & Dokumentasi</h2>
+            </div>
+            <a href="#kontak" class="hidden text-sm font-bold text-kairos-500 transition hover:text-kairos-700 sm:inline-flex">
+              Lihat semua proyek ->
+            </a>
+          </div>
+
+          <div class="mt-8 grid gap-5 lg:grid-cols-3">
+            <article class="overflow-hidden rounded-[26px] border border-zinc-200/80 bg-white shadow-panel">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80" alt="Kolam penampungan limbah cair" class="h-56 w-full object-cover" loading="lazy" />
+              <div class="p-6">
+                <span class="inline-flex rounded-full bg-kairos-100 px-3 py-1 text-xs font-bold text-kairos-700">Kolam Limbah</span>
+                <h3 class="mt-4 text-xl font-extrabold text-zinc-950">Kolam Penampungan Limbah Cair</h3>
+                <p class="mt-2 text-sm leading-6 text-zinc-600">Industri kimia - Jawa Barat</p>
+                <p class="mt-3 text-sm leading-6 text-zinc-600">Pemasangan geomembrane HDPE 1.5 mm untuk kolam penampungan limbah cair industri.</p>
+                <a href="#kontak" class="mt-4 inline-flex text-sm font-bold text-kairos-500">Lihat Detail -></a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[26px] border border-zinc-200/80 bg-white shadow-panel">
+              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1400&q=80" alt="Pelapisan landfill area" class="h-56 w-full object-cover" loading="lazy" />
+              <div class="p-6">
+                <span class="inline-flex rounded-full bg-kairos-100 px-3 py-1 text-xs font-bold text-kairos-700">Landfill</span>
+                <h3 class="mt-4 text-xl font-extrabold text-zinc-950">Pelapisan Landfill Area</h3>
+                <p class="mt-2 text-sm leading-6 text-zinc-600">TPA Regional - Jawa Tengah</p>
+                <p class="mt-3 text-sm leading-6 text-zinc-600">Sistem pelapisan ganda dengan geomembrane HDPE dan geotextile non woven.</p>
+                <a href="#kontak" class="mt-4 inline-flex text-sm font-bold text-kairos-500">Lihat Detail -></a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[26px] border border-zinc-200/80 bg-white shadow-panel">
+              <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80" alt="Revegetasi lereng tambang" class="h-56 w-full object-cover" loading="lazy" />
+              <div class="p-6">
+                <span class="inline-flex rounded-full bg-kairos-100 px-3 py-1 text-xs font-bold text-kairos-700">Revegetasi</span>
+                <h3 class="mt-4 text-xl font-extrabold text-zinc-950">Revegetasi Lereng Tambang</h3>
+                <p class="mt-2 text-sm leading-6 text-zinc-600">Area Tambang - Kalimantan Timur</p>
+                <p class="mt-3 text-sm leading-6 text-zinc-600">Metode hydroseeding untuk stabilisasi lereng dan pemulihan vegetasi.</p>
+                <a href="#kontak" class="mt-4 inline-flex text-sm font-bold text-kairos-500">Lihat Detail -></a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div>
+            <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+            <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl">Cara Kerja</h2>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M12 4h9" /><path d="M3 9h6" /><path d="M3 15h6" /></svg>
+              </div>
+              <h3 class="mt-4 text-base font-extrabold text-zinc-950">Konsultasi</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Diskusikan kebutuhan proyek dan kondisi lapangan Anda.</p>
+            </article>
+
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8" /><path d="M8 17h5" /></svg>
+              </div>
+              <h3 class="mt-4 text-base font-extrabold text-zinc-950">Rekomendasi Spesifikasi</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Kami berikan solusi teknis dan spesifikasi yang tepat.</p>
+            </article>
+
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3" /><path d="M14 8h4l4 4v5h-4" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" /></svg>
+              </div>
+              <h3 class="mt-4 text-base font-extrabold text-zinc-950">Pengiriman / Instalasi</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Pengiriman tepat waktu dan dukungan instalasi profesional.</p>
+            </article>
+
+            <article class="rounded-[24px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="grid h-14 w-14 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M12 4h9" /><path d="M3 9h6" /><path d="M3 15h6" /><path d="M9 12h6" /></svg>
+              </div>
+              <h3 class="mt-4 text-base font-extrabold text-zinc-950">QC & Dokumentasi</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Pemeriksaan kualitas dan dokumentasi lengkap untuk proyek Anda.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="resources" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+              <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl">Resources</h2>
+            </div>
+            <a href="#kontak" class="hidden text-sm font-bold text-kairos-500 transition hover:text-kairos-700 sm:inline-flex">
+              Lihat semua resources ->
+            </a>
+          </div>
+
+          <div class="mt-8 grid gap-5 lg:grid-cols-3">
+            <article class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="flex gap-4">
+                <div class="flex h-28 w-20 shrink-0 flex-col justify-between rounded-2xl bg-gradient-to-b from-kairos-600 to-kairos-400 p-3 text-white">
+                  <div class="text-xs font-bold">02</div>
+                  <div class="text-[11px] font-semibold text-white/80">Katalog</div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-extrabold text-zinc-950">Katalog Produk</h3>
+                  <p class="mt-2 text-sm leading-6 text-zinc-600">Download katalog lengkap produk geosintetik dan spesifikasi teknis.</p>
+                  <a href="#" class="mt-5 inline-flex items-center gap-2 rounded-xl border border-zinc-200 px-4 py-2 text-sm font-bold text-zinc-900 transition hover:border-kairos-300 hover:text-kairos-700">
+                    Download PDF
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="flex gap-4">
+                <div class="flex h-28 w-20 shrink-0 flex-col justify-between rounded-2xl bg-gradient-to-b from-kairos-600 to-kairos-400 p-3 text-white">
+                  <div class="text-xs font-bold">02</div>
+                  <div class="text-[11px] font-semibold text-white/80">Profile</div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-extrabold text-zinc-950">Company Profile</h3>
+                  <p class="mt-2 text-sm leading-6 text-zinc-600">Pelajari lebih lanjut tentang perusahaan dan kapabilitas kami.</p>
+                  <a href="#" class="mt-5 inline-flex items-center gap-2 rounded-xl border border-zinc-200 px-4 py-2 text-sm font-bold text-zinc-900 transition hover:border-kairos-300 hover:text-kairos-700">
+                    Download PDF
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+              <div class="flex gap-4">
+                <div class="grid h-28 w-20 shrink-0 place-items-center rounded-2xl bg-kairos-100 text-kairos-700">
+                  <svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11" /><path d="M9 12h11" /><path d="M9 18h11" /><path d="M5 6h.01" /><path d="M5 12h.01" /><path d="M5 18h.01" /></svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-extrabold text-zinc-950">Checklist Kebutuhan Proyek</h3>
+                  <p class="mt-2 text-sm leading-6 text-zinc-600">Checklist praktis untuk membantu persiapan kebutuhan proyek Anda.</p>
+                  <a href="#" class="mt-5 inline-flex items-center gap-2 rounded-xl border border-zinc-200 px-4 py-2 text-sm font-bold text-zinc-900 transition hover:border-kairos-300 hover:text-kairos-700">
+                    Download PDF
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div>
+            <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+            <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl">Pertanyaan yang Sering Diajukan</h2>
+          </div>
+
+          <div class="mt-8 grid gap-5 lg:grid-cols-[1.35fr_.65fr]">
+            <div class="space-y-3">
+              <details class="group rounded-[22px] border border-zinc-200/80 bg-white px-5 py-4 shadow-panel" open>
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-extrabold text-zinc-950">
+                  Bagaimana cara menentukan spesifikasi geomembrane yang sesuai?
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-zinc-50 text-zinc-700 ring-1 ring-zinc-200">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14" /><path d="M5 12h14" /></svg>
+                  </span>
+                </summary>
+                <p class="pt-3 text-sm leading-6 text-zinc-600">Penentuan spesifikasi umumnya melihat fungsi aplikasi, kondisi tanah, risiko bocor, detail konstruksi, dan target umur layanan.</p>
+              </details>
+
+              <details class="group rounded-[22px] border border-zinc-200/80 bg-white px-5 py-4 shadow-panel">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-extrabold text-zinc-950">
+                  Apa perbedaan geotextile woven dan non woven?
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-zinc-50 text-zinc-700 ring-1 ring-zinc-200">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14" /><path d="M5 12h14" /></svg>
+                  </span>
+                </summary>
+                <p class="pt-3 text-sm leading-6 text-zinc-600">Non woven biasanya untuk filtrasi, proteksi, dan drainase. Woven lebih umum untuk kebutuhan perkuatan dengan kuat tarik tinggi.</p>
+              </details>
+
+              <details class="group rounded-[22px] border border-zinc-200/80 bg-white px-5 py-4 shadow-panel">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-extrabold text-zinc-950">
+                  Apakah Kairos Geo melayani instalasi di seluruh Indonesia?
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-zinc-50 text-zinc-700 ring-1 ring-zinc-200">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14" /><path d="M5 12h14" /></svg>
+                  </span>
+                </summary>
+                <p class="pt-3 text-sm leading-6 text-zinc-600">Ya, kami mendukung supply nasional dan instalasi sesuai cakupan pekerjaan dan kebutuhan proyek.</p>
+              </details>
+
+              <details class="group rounded-[22px] border border-zinc-200/80 bg-white px-5 py-4 shadow-panel">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-extrabold text-zinc-950">
+                  Berapa lama waktu pengiriman produk?
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-zinc-50 text-zinc-700 ring-1 ring-zinc-200">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14" /><path d="M5 12h14" /></svg>
+                  </span>
+                </summary>
+                <p class="pt-3 text-sm leading-6 text-zinc-600">Lead time bergantung pada jenis material, volume, dan lokasi proyek. Tim kami akan bantu estimasi pengiriman saat diskusi awal.</p>
+              </details>
+            </div>
+
+            <aside class="rounded-[28px] border border-zinc-200/80 bg-white p-6 shadow-panel">
+              <div class="grid h-16 w-16 place-items-center rounded-full bg-kairos-100 text-kairos-700">
+                <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.12.86.3 1.7.54 2.5a2 2 0 0 1-.45 2.11L8.1 9.4a16 16 0 0 0 6 6l1.07-1.09a2 2 0 0 1 2.11-.45c.8.24 1.64.42 2.5.54A2 2 0 0 1 22 16.9Z" /></svg>
+              </div>
+              <h3 class="mt-5 text-xl font-extrabold text-zinc-950">Masih ada pertanyaan?</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">Tim kami siap membantu Anda.</p>
+              <a
+                href="https://wa.me/628xxxxxxxxxx?text=Halo%20Kairos%20Geo%2C%20saya%20ingin%20konsultasi%20produk%20geosintetik."
+                target="_blank"
+                rel="noreferrer"
+                class="mt-6 inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-kairos-200"
+              >
+                Hubungi Kami via WhatsApp
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h12" /><path d="M13 6l6 6-6 6" /></svg>
+              </a>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer id="kontak" class="mt-10 bg-kairos-950 text-white">
+        <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div class="grid gap-10 xl:grid-cols-[1.05fr_.75fr_.55fr_1fr]">
+            <div>
+              <div class="flex items-center gap-3">
+                <div class="grid h-12 w-12 place-items-center overflow-hidden rounded-full bg-white/10 ring-1 ring-white/15">
+                  <img src="./Kairoslogo.jpg" alt="Kairos Geo" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                </div>
+                <div>
+                  <div class="font-display text-lg font-extrabold">Kairos Geo</div>
+                  <div class="text-xs text-white/70">Geosynthetics & Environmental Solutions</div>
+                </div>
+              </div>
+              <p class="mt-5 max-w-sm text-sm leading-6 text-white/75">Mitra terpercaya untuk solusi geosintetik di sektor infrastruktur, industri, dan pengelolaan lingkungan.</p>
+              <div class="mt-5 flex gap-3">
+                <a href="#" class="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-white/80 ring-1 ring-white/10 transition hover:bg-white/15">in</a>
+                <a href="#" class="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-white/80 ring-1 ring-white/10 transition hover:bg-white/15">ig</a>
+                <a href="#" class="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-white/80 ring-1 ring-white/10 transition hover:bg-white/15">yt</a>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-extrabold uppercase tracking-[0.18em] text-white/65">Kontak Kami</h3>
+              <div class="mt-5 space-y-4 text-sm text-white/80">
+                <div class="flex items-start gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-white/10 ring-1 ring-white/10">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.12.86.3 1.7.54 2.5a2 2 0 0 1-.45 2.11L8.1 9.4a16 16 0 0 0 6 6l1.07-1.09a2 2 0 0 1 2.11-.45c.8.24 1.64.42 2.5.54A2 2 0 0 1 22 16.9Z" /></svg>
+                  </span>
+                  <span>+62 812-3456-7890</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-white/10 ring-1 ring-white/10">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" /><path d="m4 7 8 6 8-6" /></svg>
+                  </span>
+                  <span>sales@kairosgeo.co.id</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-white/10 ring-1 ring-white/10">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                  </span>
+                  <span>Jl. Industri Raya No. 88, Bekasi, Jawa Barat 17530</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-extrabold uppercase tracking-[0.18em] text-white/65">Jam Operasional</h3>
+              <div class="mt-5 space-y-5 text-sm text-white/80">
+                <div>
+                  <div class="font-bold text-white">Senin - Jumat</div>
+                  <div class="mt-1">08.00 - 17.00 WIB</div>
+                </div>
+                <div>
+                  <div class="font-bold text-white">Sabtu</div>
+                  <div class="mt-1">08.00 - 12.00 WIB</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur">
+              <h3 class="text-base font-extrabold text-white">Kirim Permintaan Penawaran</h3>
+              <form class="mt-5 space-y-3">
+                <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
+                  <input type="text" placeholder="Nama Lengkap" class="w-full rounded-xl border border-white/10 bg-kairos-900/70 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-kairos-300 focus:outline-none" />
+                  <input type="email" placeholder="Email" class="w-full rounded-xl border border-white/10 bg-kairos-900/70 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-kairos-300 focus:outline-none" />
+                </div>
+                <textarea rows="4" placeholder="Tuliskan kebutuhan proyek Anda..." class="w-full rounded-xl border border-white/10 bg-kairos-900/70 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-kairos-300 focus:outline-none"></textarea>
+                <button type="submit" class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-5 py-3 text-sm font-extrabold text-white transition hover:brightness-110">
+                  Kirim Permintaan
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h12" /><path d="M13 6l6 6-6 6" /></svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+            <div>© <span id="year"></span> Kairos Geo. All rights reserved.</div>
+            <div class="flex gap-5">
+              <a href="#" class="transition hover:text-white/80">Kebijakan Privasi</a>
+              <a href="#" class="transition hover:text-white/80">Syarat & Ketentuan</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { products } from "../../data/products";
+
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const product = products.find((p) => p.slug === slug);
+if (!product) {
+  throw new Error(`Unknown product slug: ${slug}`);
+}
+---
+
+<BaseLayout title={`${product.name} | Kairos Geo`} description={product.summary}>
+  <main>
+    <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <a href="/produk" class="text-sm font-bold text-kairos-500 transition hover:text-kairos-700"><- Semua Produk</a>
+
+      <div class="mt-6 grid gap-10 lg:grid-cols-[1.2fr_.8fr] lg:items-start">
+        <div>
+          <h1 class="font-display text-4xl font-extrabold tracking-tight text-zinc-950 sm:text-5xl">{product.name}</h1>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-zinc-600 sm:text-base">{product.summary}</p>
+          <div class="mt-8 rounded-[26px] border border-zinc-200/80 bg-white p-6 shadow-panel">
+            <h2 class="text-sm font-extrabold text-zinc-950">Highlights</h2>
+            <ul class="mt-4 space-y-2 text-sm text-zinc-700">
+              {product.bullets.map((b) => (
+                <li>- {b}</li>
+              ))}
+            </ul>
+            <p class="mt-5 text-xs text-zinc-500">Scaffold: nanti bisa diganti spesifikasi detail, PDF datasheet, dan aplikasi proyek.</p>
+          </div>
+        </div>
+
+        <aside class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
+          <img
+            src={product.heroImageUrl}
+            alt={product.name}
+            class="h-64 w-full rounded-2xl object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="mt-5 rounded-2xl bg-kairos-100 p-4 text-kairos-900">
+            <div class="text-sm font-extrabold">Minta Penawaran</div>
+            <div class="mt-1 text-xs leading-5 text-kairos-900/70">Masukkan kebutuhan proyek, tim teknis bantu pilih spesifikasi.</div>
+            <a
+              href="/#kontak"
+              class="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-5 py-3 text-sm font-extrabold text-white transition hover:brightness-110"
+            >
+              Konsultasi Proyek
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

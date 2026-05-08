@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --kairos-line: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(141, 85, 246, 0.07), transparent 30%),
+    linear-gradient(180deg, #fbfaff 0%, #ffffff 24%, #fbfbff 100%);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, var(--kairos-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--kairos-line) 1px, transparent 1px);
+  background-size: 54px 54px;
+}
+
+.noise-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 0.6px, transparent 0.6px);
+  background-size: 12px 12px;
+}
