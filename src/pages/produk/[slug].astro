@@ -11,48 +11,247 @@ const product = products.find((p) => p.slug === slug);
 if (!product) {
   throw new Error(`Unknown product slug: ${slug}`);
 }
+
+const gallery = product.images.slice(0, 6);
+const primaryImage = gallery[0] ?? product.heroImageUrl;
+const thumbs = gallery.slice(1);
+const displayTitle = product.marketplaceTitle ?? product.name;
+const categoryLabel = product.categoryLabel ?? "Geosynthetics";
+const ratingLabel = product.ratingLabel ?? "(4.9)";
+const soldLabel = product.soldLabel ?? "Terjual 500+";
+const priceLabel = product.priceLabel ?? "Rp Hubungi Kami";
+const stockLabel = product.stockLabel ?? "Tersedia";
+const trustNote = product.trustNote ?? "Jaminan kualitas & pengiriman aman ke seluruh Indonesia.";
+const reasons = product.reasons ?? [
+  "Material berkualitas dan performa konsisten.",
+  "Tahan terhadap kondisi lapangan yang menantang.",
+  "Fleksibel untuk berbagai kebutuhan proyek.",
+  "Didukung konsultasi teknis sebelum checkout.",
+];
+const orderNote = product.orderNote ?? "Klik beli untuk langsung ke Mayar.id atau gunakan konsultasi produk jika ingin cek kebutuhan dulu.";
+const reviews = product.reviews ?? [];
 ---
 
-<BaseLayout title={`${product.name} | Kairos Geo`} description={product.summary}>
-  <main>
-    <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <a href="/produk" class="text-sm font-bold text-kairos-500 transition hover:text-kairos-700"><- Semua Produk</a>
+<BaseLayout title={`${displayTitle} | Kairos Geo`} description={product.summary}>
+  <main class="w-full bg-[#f4f7f6]">
+    <section class="relative overflow-hidden bg-kairos-950 text-white">
+      <div class="absolute inset-0 hero-grid opacity-40" aria-hidden="true"></div>
+      <div class="absolute inset-0 noise-overlay opacity-10 mix-blend-screen" aria-hidden="true"></div>
 
-      <div class="mt-6 grid gap-10 lg:grid-cols-[1.2fr_.8fr] lg:items-start">
-        <div>
-          <h1 class="font-display text-4xl font-extrabold tracking-tight text-zinc-950 sm:text-5xl">{product.name}</h1>
-          <p class="mt-4 max-w-2xl text-sm leading-7 text-zinc-600 sm:text-base">{product.summary}</p>
-          <div class="mt-8 rounded-[26px] border border-zinc-200/80 bg-white p-6 shadow-panel">
-            <h2 class="text-sm font-extrabold text-zinc-950">Highlights</h2>
-            <ul class="mt-4 space-y-2 text-sm text-zinc-700">
-              {product.bullets.map((b) => (
-                <li>- {b}</li>
+      <div class="relative mx-auto max-w-7xl px-4 pt-4 pb-8 sm:px-6 lg:px-8">
+        <header class="flex items-center justify-between gap-6 py-5">
+          <a href="/" class="flex items-center gap-3">
+            <div class="grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-white/10 ring-1 ring-white/15 backdrop-blur">
+              <img src="/Kairoslogo.jpg" alt="Kairos Geo" class="h-full w-full object-cover" loading="eager" decoding="async" />
+            </div>
+            <div class="leading-tight">
+              <div class="font-display text-lg font-extrabold tracking-tight text-white">Kairos Geo</div>
+              <div class="text-[11px] text-white/75">Geosynthetics & Environmental Solutions</div>
+            </div>
+          </a>
+        </header>
+      </div>
+    </section>
+
+    <section class="w-full">
+      <div class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+        <div class="mb-6 flex items-center justify-between gap-4">
+          <a href="/produk" class="text-sm font-bold text-kairos-500 transition hover:text-kairos-700"><- Semua Produk</a>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-[1.05fr_1.05fr] lg:items-start">
+          <div class="space-y-4">
+            <div class="overflow-hidden rounded-[24px] border border-zinc-200/80 bg-white p-4 shadow-panel">
+              <img
+                src={primaryImage}
+                alt={product.name}
+                data-product-main-image
+                class="h-[360px] w-full rounded-[18px] object-cover sm:h-[420px]"
+                loading="eager"
+                decoding="async"
+              />
+
+              <div class="mt-4 grid grid-cols-4 gap-3 sm:grid-cols-5">
+                {thumbs.map((image, index) => (
+                  <button
+                    type="button"
+                    class={`overflow-hidden rounded-xl border bg-white transition hover:-translate-y-0.5 hover:shadow-md ${index === 0 ? "border-kairos-400 ring-2 ring-kairos-300" : "border-zinc-200"}`}
+                    data-gallery-thumb
+                    data-src={image}
+                    data-alt={`${product.name} foto ${index + 2}`}
+                    aria-pressed={index === 0 ? "true" : "false"}
+                  >
+                    <img src={image} alt={`${product.name} thumbnail ${index + 2}`} class="h-20 w-full object-cover sm:h-24" loading="lazy" decoding="async" />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div class="grid gap-3 sm:grid-cols-3">
+              {product.bullets.map((bullet) => (
+                <div class="rounded-[20px] border border-zinc-200/80 bg-white p-4 shadow-panel">
+                  <div class="text-sm font-extrabold text-zinc-950">{bullet}</div>
+                </div>
               ))}
-            </ul>
-            <p class="mt-5 text-xs text-zinc-500">Scaffold: nanti bisa diganti spesifikasi detail, PDF datasheet, dan aplikasi proyek.</p>
+            </div>
+          </div>
+
+          <div class="rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel sm:p-8">
+            <span class="text-sm font-bold uppercase tracking-[0.18em] text-kairos-500">{categoryLabel}</span>
+            <h1 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl">{displayTitle}</h1>
+
+            <div class="mt-4 flex flex-wrap items-center gap-3 text-sm text-zinc-600">
+              <span class="text-amber-500">★★★★★</span>
+              <span>{ratingLabel} | {soldLabel}</span>
+            </div>
+
+            <div class="mt-5 text-3xl font-extrabold tracking-tight text-[#fa591d]">{priceLabel}</div>
+
+            <div class="mt-6 grid grid-cols-2 gap-3 sm:max-w-[420px]">
+              <a
+                href={product.checkoutUrl}
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-5 py-3 text-sm font-extrabold text-white transition hover:brightness-110"
+              >
+                Beli Produk
+              </a>
+              <a
+                href={product.whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex w-full items-center justify-center rounded-xl border border-kairos-500 bg-white px-5 py-3 text-sm font-extrabold text-kairos-600 transition hover:bg-kairos-50"
+              >
+                Konsultasi Produk
+              </a>
+            </div>
+
+            <div class="my-5 h-px bg-zinc-200"></div>
+
+            <p class="text-sm leading-6 text-zinc-500">{trustNote}</p>
+
+            <div class="my-6 h-px bg-zinc-200"></div>
+
+            <div class="grid gap-x-6 gap-y-4 sm:grid-cols-[120px_1fr]">
+              {product.specs.map((spec) => (
+                <div class="contents">
+                  <div class="text-sm font-medium text-zinc-500">{spec.label}</div>
+                  <div class="text-sm font-semibold text-zinc-900">{spec.value}</div>
+                </div>
+              ))}
+            </div>
+
+            <div class="my-6 h-px bg-zinc-200"></div>
+
+            <p class="text-sm leading-7 text-zinc-600 sm:text-base">{product.description}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full">
+      <div class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+        <div id="detail-produk" class="scroll-mt-24">
+          <div class="rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel sm:p-8">
+            <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+            <h2 class="mt-4 font-display text-2xl font-extrabold tracking-tight text-zinc-950 sm:text-3xl">Deskripsi Produk</h2>
+            <p class="mt-4 text-sm leading-7 text-zinc-600 sm:text-base">{product.description}</p>
+
+            <h3 class="mt-8 text-lg font-extrabold text-zinc-950">Aplikasi & Penggunaan</h3>
+            <div class="mt-4 flex flex-wrap gap-3">
+              {product.applications.map((item) => (
+                <span class="rounded-full bg-kairos-100 px-4 py-2 text-sm font-semibold text-kairos-800">{item}</span>
+              ))}
+            </div>
+
+            <h3 class="mt-8 text-lg font-extrabold text-zinc-950">Kenapa Produk Ini Cocok</h3>
+            <div class="mt-4 grid gap-4 sm:grid-cols-2">
+              {reasons.map((reason) => (
+                <div class="rounded-[20px] border border-zinc-200/80 bg-zinc-50 p-5">
+                  <div class="text-sm font-semibold leading-6 text-zinc-700">{reason}</div>
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-8 rounded-[20px] bg-zinc-50 p-5">
+              <h3 class="text-lg font-extrabold text-zinc-950">Kenapa Memilih Kami?</h3>
+              <ul class="mt-4 space-y-3 text-sm leading-6 text-zinc-600">
+                <li>• Material HDPE murni dan performa konsisten.</li>
+                <li>• Tahan UV, bahan kimia, dan kondisi lapangan.</li>
+                <li>• Fleksibel untuk berbagai kebutuhan proyek.</li>
+                <li>• Konsultasi teknis sebelum checkout.</li>
+              </ul>
+
+              <div class="mt-6 rounded-[18px] bg-white p-5">
+                <div class="text-sm font-bold text-zinc-900">Catatan Pemesanan</div>
+                <p class="mt-2 text-sm leading-6 text-zinc-600">{orderNote}</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <aside class="rounded-[26px] border border-zinc-200/80 bg-white p-5 shadow-panel">
-          <img
-            src={product.heroImageUrl}
-            alt={product.name}
-            class="h-64 w-full rounded-2xl object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="mt-5 rounded-2xl bg-kairos-100 p-4 text-kairos-900">
-            <div class="text-sm font-extrabold">Minta Penawaran</div>
-            <div class="mt-1 text-xs leading-5 text-kairos-900/70">Masukkan kebutuhan proyek, tim teknis bantu pilih spesifikasi.</div>
-            <a
-              href="/#kontak"
-              class="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-5 py-3 text-sm font-extrabold text-white transition hover:brightness-110"
-            >
-              Konsultasi Proyek
-            </a>
+        <div id="spesifikasi-teknik" class="mt-8 scroll-mt-24 rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel sm:p-8">
+          <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+          <h2 class="mt-4 font-display text-2xl font-extrabold tracking-tight text-zinc-950 sm:text-3xl">Spesifikasi Teknik</h2>
+
+          <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {product.specs.map((spec) => (
+              <div class="rounded-[20px] bg-kairos-100 p-5">
+                <div class="text-xs font-bold uppercase tracking-[0.18em] text-kairos-700">{spec.label}</div>
+                <div class="mt-2 text-sm font-extrabold text-kairos-950">{spec.value}</div>
+              </div>
+            ))}
           </div>
-        </aside>
+        </div>
+
+        <div id="ulasan" class="mt-8 scroll-mt-24 rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel sm:p-8">
+          <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+          <div class="mt-4 flex items-end justify-between gap-4">
+            <h2 class="font-display text-2xl font-extrabold tracking-tight text-zinc-950 sm:text-3xl">Ulasan</h2>
+            <span class="text-sm font-semibold text-zinc-500">{reviews.length > 0 ? `${reviews.length} ulasan` : "Belum ada ulasan"}</span>
+          </div>
+
+          {reviews.length > 0 ? (
+            <div class="mt-6 grid gap-4 lg:grid-cols-3">
+              {reviews.map((review) => (
+                <article class="rounded-[20px] border border-zinc-200/80 bg-zinc-50 p-5">
+                  <div class="text-sm font-extrabold text-zinc-950">{review.rating} {review.name}</div>
+                  <p class="mt-2 text-sm leading-6 text-zinc-600">{review.text}</p>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p class="mt-4 text-sm leading-6 text-zinc-600">Belum ada ulasan untuk produk ini.</p>
+          )}
+        </div>
       </div>
     </section>
   </main>
+
+  <script>
+    const mainImage = document.querySelector("[data-product-main-image]");
+    const thumbs = document.querySelectorAll("[data-gallery-thumb]");
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        const src = thumb.getAttribute("data-src");
+        const alt = thumb.getAttribute("data-alt") || product.name;
+
+        if (mainImage && src) {
+          mainImage.setAttribute("src", src);
+          mainImage.setAttribute("alt", alt);
+        }
+
+        thumbs.forEach((item) => {
+          item.setAttribute("aria-pressed", "false");
+          item.classList.remove("border-kairos-400", "ring-2", "ring-kairos-300", "bg-kairos-100");
+          item.classList.add("border-zinc-200");
+        });
+
+        thumb.setAttribute("aria-pressed", "true");
+        thumb.classList.add("border-kairos-400", "ring-2", "ring-kairos-300", "bg-kairos-100");
+        thumb.classList.remove("border-zinc-200");
+      });
+    });
+  </script>
 </BaseLayout>

@@ -2,7 +2,7 @@
   "name": "kairosgeo",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@11.0.9+sha512.34ce82e6780233cf9cad8685029a8f81d2e06196c5a9bad98879f7424940c6817c4e4524fb7d38b8553ceed48b9758b8ebaf1abd3600c232c4c8cf7366086f38",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@phosphor-icons/webcomponents": "^2.1.5",
     "astro": "^6.3.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.6",
