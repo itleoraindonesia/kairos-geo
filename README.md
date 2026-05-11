@@ -1,6 +1,6 @@
 # kairosgeo
 
-Astro + Tailwind.
+Astro + Tailwind
 
 ## Run
 
