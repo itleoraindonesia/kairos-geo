@@ -56,8 +56,10 @@ const contactWhatsappUrl =
 
           <button
             type="button"
-            class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 lg:hidden"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 transition hover:bg-white/15 lg:hidden"
             aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
             data-mobile-menu-open
           >
             <ph-list class="h-5 w-5 text-white" size="20" aria-hidden="true"></ph-list>
@@ -172,23 +174,26 @@ const contactWhatsappUrl =
       </div>
 
       <dialog
-        class="backdrop:bg-black/60 w-[min(92vw,440px)] rounded-3xl bg-kairos-950 p-0 text-white ring-1 ring-white/10"
+        id="mobile-menu"
+        class="mobile-menu-dialog text-white"
+        aria-label="Mobile navigation"
         data-mobile-menu
       >
-        <div class="p-5">
-          <div class="flex items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-              <div class="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/10 ring-1 ring-white/15">
-                <img src="/Kairoslogo.jpg" alt="Kairos Geo" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+        <div class="mobile-menu-panel">
+          <div class="border-b border-white/10 px-4 py-4 sm:px-5">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/8 ring-1 ring-white/10">
+                  <img src="/Kairoslogo.jpg" alt="Kairos Geo" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                </div>
+                <div class="leading-tight">
+                  <div class="font-display text-base font-extrabold tracking-tight">Kairos Geo</div>
+                  <div class="mt-1 text-[11px] uppercase tracking-[0.18em] text-white/45">Menu</div>
+                </div>
               </div>
-              <div class="leading-tight">
-                <div class="font-display text-base font-extrabold tracking-tight">Kairos Geo</div>
-                <div class="text-[11px] text-white/70">Menu</div>
-              </div>
-            </div>
             <button
               type="button"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/6 ring-1 ring-white/10 transition hover:bg-white/10"
               aria-label="Close menu"
               data-mobile-menu-close
             >
@@ -196,18 +201,43 @@ const contactWhatsappUrl =
             </button>
           </div>
 
-          <nav class="mt-5 grid gap-2 text-sm font-semibold" aria-label="Mobile">
-            <a class="rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-white/10 hover:bg-white/10" href="#produk" data-mobile-menu-link>Produk</a>
-            <a class="rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-white/10 hover:bg-white/10" href="#solusi" data-mobile-menu-link>Solusi</a>
-            <a class="rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-white/10 hover:bg-white/10" href="#proyek" data-mobile-menu-link>Proyek</a>
-            <a class="rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-white/10 hover:bg-white/10" href="#tentang" data-mobile-menu-link>Tentang Kami</a>
-            <a class="rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-white/10 hover:bg-white/10" href="#resources" data-mobile-menu-link>Resources</a>
-            <a class="rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-white/10 hover:bg-white/10" href="#kontak" data-mobile-menu-link>Kontak</a>
-            <a class="mt-2 inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-4 py-3 font-extrabold shadow-lg shadow-black/20 hover:brightness-110" href={contactWhatsappUrl} target="_blank" rel="noreferrer" data-mobile-menu-link>
-              Minta Penawaran
-              <ph-arrow-right class="h-4 w-4" size="16" aria-hidden="true"></ph-arrow-right>
-            </a>
-          </nav>
+          </div>
+
+          <div class="px-4 pb-4 pt-4 sm:px-5">
+            <nav class="grid gap-2" aria-label="Mobile">
+              <a class="mobile-menu-link" href="#produk" data-mobile-menu-link>
+                <span class="block text-base font-semibold text-white">Produk</span>
+                <ph-arrow-right class="mobile-menu-link-icon" size="16" aria-hidden="true"></ph-arrow-right>
+              </a>
+              <a class="mobile-menu-link" href="#solusi" data-mobile-menu-link>
+                <span class="block text-base font-semibold text-white">Solusi</span>
+                <ph-arrow-right class="mobile-menu-link-icon" size="16" aria-hidden="true"></ph-arrow-right>
+              </a>
+              <a class="mobile-menu-link" href="#proyek" data-mobile-menu-link>
+                <span class="block text-base font-semibold text-white">Proyek</span>
+                <ph-arrow-right class="mobile-menu-link-icon" size="16" aria-hidden="true"></ph-arrow-right>
+              </a>
+              <a class="mobile-menu-link" href="#tentang" data-mobile-menu-link>
+                <span class="block text-base font-semibold text-white">Tentang Kami</span>
+                <ph-arrow-right class="mobile-menu-link-icon" size="16" aria-hidden="true"></ph-arrow-right>
+              </a>
+              <a class="mobile-menu-link" href="#resources" data-mobile-menu-link>
+                <span class="block text-base font-semibold text-white">Resources</span>
+                <ph-arrow-right class="mobile-menu-link-icon" size="16" aria-hidden="true"></ph-arrow-right>
+              </a>
+              <a class="mobile-menu-link" href="#kontak" data-mobile-menu-link>
+                <span class="block text-base font-semibold text-white">Kontak</span>
+                <ph-arrow-right class="mobile-menu-link-icon" size="16" aria-hidden="true"></ph-arrow-right>
+              </a>
+            </nav>
+
+            <div class="mt-4 border-t border-white/10 pt-4">
+              <a class="inline-flex items-center justify-center gap-3 rounded-2xl border border-white/12 bg-white/8 px-4 py-3.5 text-sm font-semibold text-white transition hover:bg-white/12" href={contactWhatsappUrl} target="_blank" rel="noreferrer" data-mobile-menu-link>
+                Minta Penawaran
+                <ph-arrow-right class="h-4 w-4" size="16" aria-hidden="true"></ph-arrow-right>
+              </a>
+            </div>
+          </div>
         </div>
       </dialog>
     </section>
@@ -739,15 +769,36 @@ const contactWhatsappUrl =
     const openBtn = document.querySelector('[data-mobile-menu-open]');
     const closeBtn = document.querySelector('[data-mobile-menu-close]');
     const links = document.querySelectorAll('[data-mobile-menu-link]');
+    let lastFocusedElement = null;
+
+    const syncExpandedState = (isOpen) => {
+      if (!(openBtn instanceof HTMLButtonElement)) return;
+      openBtn.setAttribute('aria-expanded', String(isOpen));
+      openBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    };
 
     const open = () => {
       if (!(dialog instanceof HTMLDialogElement)) return;
-      if (!dialog.open) dialog.showModal();
+      if (dialog.open) return;
+      lastFocusedElement = document.activeElement;
+      dialog.showModal();
+      document.body.classList.add('mobile-menu-open');
+      syncExpandedState(true);
+      closeBtn?.focus();
     };
 
     const close = () => {
       if (!(dialog instanceof HTMLDialogElement)) return;
-      if (dialog.open) dialog.close();
+      if (!dialog.open) return;
+      dialog.close();
+      document.body.classList.remove('mobile-menu-open');
+      syncExpandedState(false);
+
+      if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
+      } else {
+        openBtn?.focus();
+      }
     };
 
     openBtn?.addEventListener('click', open);
@@ -758,6 +809,10 @@ const contactWhatsappUrl =
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') close();
     });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) close();
+    });
     links.forEach((a) => a.addEventListener('click', close));
+    syncExpandedState(false);
   </script>
 </BaseLayout>

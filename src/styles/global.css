@@ -17,6 +17,10 @@ body {
     linear-gradient(180deg, #fbfaff 0%, #ffffff 24%, #fbfbff 100%);
 }
 
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
 .hero-grid {
   background-image:
     linear-gradient(to right, var(--kairos-line) 1px, transparent 1px),
@@ -27,4 +31,93 @@ body {
 .noise-overlay {
   background-image: radial-gradient(rgba(255, 255, 255, 0.12) 0.6px, transparent 0.6px);
   background-size: 12px 12px;
+}
+
+.mobile-menu-dialog {
+  margin: 0;
+  min-height: 100dvh;
+  width: 100%;
+  max-width: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.mobile-menu-dialog::backdrop {
+  background:
+    linear-gradient(180deg, rgba(9, 12, 28, 0.72) 0%, rgba(9, 12, 28, 0.58) 100%),
+    radial-gradient(circle at top, rgba(141, 85, 246, 0.1), transparent 48%);
+  backdrop-filter: blur(8px);
+}
+
+.mobile-menu-panel {
+  position: relative;
+  width: 100%;
+  min-height: min(100dvh, 34rem);
+  overflow: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(10, 15, 35, 0.98) 0%, rgba(8, 13, 32, 0.96) 100%);
+  box-shadow: 0 18px 42px rgba(3, 8, 24, 0.32);
+}
+
+.mobile-menu-dialog[open] .mobile-menu-panel {
+  animation: mobile-menu-slide-in 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.95rem 0;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:focus-visible {
+  border-color: rgba(202, 183, 255, 0.24);
+  color: rgba(255, 255, 255, 0.96);
+  opacity: 1;
+  outline: none;
+}
+
+.mobile-menu-link-icon {
+  display: inline-flex;
+  width: 1rem;
+  height: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+@keyframes mobile-menu-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mobile-menu-dialog[open] .mobile-menu-panel {
+    animation: none;
+  }
+
+  .mobile-menu-link {
+    transition: none;
+  }
 }
