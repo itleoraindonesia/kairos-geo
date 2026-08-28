@@ -102,7 +102,7 @@ export const products: Product[] = [
     // [8] HARGA & PENJUALAN
     ratingLabel: "(4.9)",
     soldLabel: "Terjual 500+",
-    priceLabel: "Rp Hubungi Kami",
+    priceLabel: "",
     stockLabel: "Tersedia",
     trustNote: "Jaminan kualitas & pengiriman aman ke seluruh Indonesia.",
 
@@ -226,7 +226,7 @@ export const products: Product[] = [
     // [8] HARGA & PENJUALAN
     ratingLabel: "(4.8)",
     soldLabel: "Terjual 350+",
-    priceLabel: "Rp Hubungi Kami",
+    priceLabel: "",
     stockLabel: "Tersedia",
     trustNote: "Konsultasi teknis dan pengiriman aman ke seluruh Indonesia.",
 
@@ -333,7 +333,7 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
     ],
     ratingLabel: "(4.9)",
     soldLabel: "Terjual 280+",
-    priceLabel: "Rp Hubungi Kami",
+    priceLabel: "",
     stockLabel: "Tersedia",
     trustNote: "Suplai material berkualitas tinggi untuk proyek infrastruktur.",
     reasons: [
@@ -381,7 +381,7 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
     ],
     ratingLabel: "(4.8)",
     soldLabel: "Terjual 200+",
-    priceLabel: "Rp Hubungi Kami",
+    priceLabel: "",
     stockLabel: "Tersedia",
     trustNote: "Kantong geotekstil standar industri dengan jaminan kualitas jahitan.",
     reasons: [
@@ -429,7 +429,7 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
     ],
     ratingLabel: "(4.8)",
     soldLabel: "Terjual 110+",
-    priceLabel: "Rp Hubungi Kami",
+    priceLabel: "",
     stockLabel: "Tersedia",
     trustNote: "Cocok untuk area dengan kebutuhan stabilisasi tinggi.",
     reasons: [

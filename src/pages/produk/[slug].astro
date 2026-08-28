@@ -22,15 +22,15 @@ const soldLabel = product.soldLabel ?? "Terjual 500+";
 const priceLabel = product.priceLabel ?? "";
 const trustNote = product.trustNote ?? "Jaminan kualitas & pengiriman aman ke seluruh Indonesia.";
 const reasons = product.reasons ?? [];
-const orderNote = product.orderNote ?? "Klik beli untuk langsung ke Mayar.id atau gunakan konsultasi produk jika ingin cek kebutuhan dulu.";
+const orderNote = product.orderNote ?? "";
 const reviews = product.reviews ?? [];
 
-// Data Poin 01 - 06 untuk section "Kenapa Memilih Kami?" (Sesuai panah merah ke-4)
-const companyPoints = [
+// Ambil companyPoints dari product jika ada, atau gunakan default
+const companyPoints = product.companyPoints ?? [
   {
     number: "01",
     title: "Konsultasi Teknis",
-    desc: "Tidak sekadar menjual material. KAIROS GEO membantu menentukan jenis dan spesifikasi geomembran berdasarkan fungsi aplikasi, kondisi lapangan, risiko kebocoran, serta kebutuhan proyek."
+    desc: "Tidak sekadar menjual material. KAIROS GEO membantu menentukan jenis dan spesifikasi berdasarkan fungsi aplikasi, kondisi lapangan, risiko kebocoran, serta kebutuhan proyek."
   },
   {
     number: "02",
@@ -40,22 +40,22 @@ const companyPoints = [
   {
     number: "03",
     title: "Supply untuk Proyek",
-    desc: "Mendukung kebutuhan pengadaan material untuk proyek dengan volume dan spesifikasi yang disesuaikan, termasuk kebutuhan pengiriman ke berbagai wilayah Indonesia."
+    desc: "Mendukung kebutuhan pengadaan material untuk proyek dengan volume dan spesifikasi yang disesuaikan, termasuk pengiriman ke seluruh Indonesia."
   },
   {
     number: "04",
     title: "Dukungan Instalasi",
-    desc: "Geomembran membutuhkan penanganan dan penyambungan yang tepat. Karena itu, KAIROS GEO dapat diposisikan sebagai partner yang memahami kebutuhan material hingga proses aplikasinya."
+    desc: "Memahami penanganan material hingga proses aplikasinya di lapangan secara tepat."
   },
   {
     number: "05",
     title: "QC & Dokumentasi",
-    desc: "Website KAIROS GEO sudah memiliki positioning QC terdokumentasi dan dokumentasi proyek. Ini sangat bagus untuk pasar B2B karena memberikan nilai lebih dibandingkan supplier yang hanya mengirim barang."
+    desc: "Memiliki positioning QC terdokumentasi dan dokumentasi proyek untuk memberikan nilai lebih B2B."
   },
   {
     number: "06",
     title: "Pendampingan Proyek",
-    desc: "Produk + spesifikasi + konsultasi + support. Ini yang harus menjadi pesan utama KAIROS GEO."
+    desc: "Produk + spesifikasi + konsultasi + support."
   }
 ];
 ---
@@ -115,8 +115,8 @@ const companyPoints = [
               </div>
             </div>
 
-            <!-- Bullet Cards di bawah gambar -->
-            <div class="grid gap-3 grid-cols-2 sm:grid-cols-4">
+            <!-- Bullet Cards -->
+            <div class="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
               {product.bullets.map((bullet) => (
                 <div class="rounded-[20px] border border-zinc-200/80 bg-white p-3 shadow-panel text-center flex items-center justify-center">
                   <div class="text-xs font-extrabold text-zinc-950 sm:text-sm">{bullet}</div>
@@ -134,7 +134,10 @@ const companyPoints = [
               <span>{ratingLabel} | {soldLabel}</span>
             </div>
 
-            {priceLabel && <div class="mt-5 text-3xl font-extrabold tracking-tight text-[#fa591d]">{priceLabel}</div>}
+            <!-- Hanya dirender jika priceLabel tidak kosong -->
+            {priceLabel.trim() !== "" && (
+              <div class="mt-5 text-3xl font-extrabold tracking-tight text-[#fa591d]">{priceLabel}</div>
+            )}
 
             <div class="mt-6 grid grid-cols-2 gap-3 sm:max-w-[420px]">
               <a
@@ -181,7 +184,6 @@ const companyPoints = [
           <div class="rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel sm:p-8">
             <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
             
-            <!-- 1. DESKRIPSI PRODUK (Dibuat terpisah per paragraf) -->
             <h2 class="mt-4 font-display text-2xl font-extrabold tracking-tight text-zinc-950 sm:text-3xl">Deskripsi Produk</h2>
             <div class="mt-4 space-y-4 text-sm leading-7 text-zinc-600 sm:text-base">
               {product.description.split("\n").map((paragraph) => (
@@ -189,25 +191,23 @@ const companyPoints = [
               ))}
             </div>
 
-            <!-- 2. APLIKASI UTAMA (15 ITEM) -->
             <h3 class="mt-8 text-lg font-extrabold text-zinc-950">Aplikasi Utama</h3>
             <div class="mt-4 flex flex-wrap gap-2.5">
               {product.applications.map((item) => (
-                <span class="rounded-full bg-kairos-100 px-4 py-2 text-sm font-semibold text-kairos-800">{item}</span>
+                <span class="rounded-full bg-kairos-100 px-4 py-2 text-sm font-semibold text-kairos-800">• {item}</span>
               ))}
             </div>
 
-            <!-- 3. KENAPA PRODUK INI COCOK (4 BOXES REASONS) -->
             <h3 class="mt-8 text-lg font-extrabold text-zinc-950">Kenapa Produk Ini Cocok</h3>
             <div class="mt-4 grid gap-4 sm:grid-cols-2">
               {reasons.map((reason) => (
                 <div class="rounded-[20px] border border-zinc-200/80 bg-zinc-50 p-5 flex items-center gap-3">
+                  <span class="h-2.5 w-2.5 rounded-full bg-kairos-500 shrink-0"></span>
                   <div class="text-sm font-semibold leading-6 text-zinc-700">{reason}</div>
                 </div>
               ))}
             </div>
 
-            <!-- 4. KENAPA MEMILIH KAMI? (MENGGUNAKAN COMPANYPOINTS 01-06) -->
             <div class="mt-8 rounded-[20px] bg-zinc-50 p-5 sm:p-6">
               <h3 class="text-lg font-extrabold text-zinc-950">Kenapa Memilih Kami?</h3>
               <div class="mt-4 grid gap-4 sm:grid-cols-2">
@@ -219,10 +219,13 @@ const companyPoints = [
                 ))}
               </div>
 
-              <div class="mt-6 rounded-[18px] bg-white p-5 border border-zinc-200/80">
-                <div class="text-sm font-bold text-zinc-900">Catatan Pemesanan</div>
-                <p class="mt-2 text-sm leading-6 text-zinc-600">{orderNote}</p>
-              </div>
+              {orderNote && (
+                <div class="mt-6 rounded-[18px] bg-white p-5 border border-zinc-200/80">
+                  <div class="text-sm font-bold text-zinc-900">Catatan Pemesanan</div>
+                  <!-- Ditambahkan whitespace-pre-line agar Enter/baris baru terformat rapi -->
+                  <p class="mt-2 text-sm leading-6 text-zinc-600 whitespace-pre-line">{orderNote}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
