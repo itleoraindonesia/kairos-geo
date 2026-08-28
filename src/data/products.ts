@@ -273,24 +273,24 @@ export const products: Product[] = [
     ],
 
     orderNote: `Siapkan Data Proyek Anda
-Agar kami dapat memberikan rekomendasi dan penawaran yang lebih tepat, informasikan:
-1. Jenis proyek
- Contoh: jalan, tambang, rel, timbunan, lereng, reklamasi, atau proyek lainnya.
-2. Fungsi geotextile
- Separator, stabilisasi, perkuatan, filtrasi, atau kombinasi kebutuhan.
-3. Luas area pekerjaan
- Panjang × lebar atau estimasi total area.
-4. Kondisi lapangan
- Jenis tanah, kondisi permukaan, kemiringan, dan kondisi khusus lainnya bila tersedia.
-5. Kebutuhan kuat tarik
- Jika sudah ditentukan oleh engineer atau spesifikasi proyek.
-6. Lokasi proyek
- Digunakan untuk menghitung kebutuhan logistik dan estimasi pengiriman.
-7. Kebutuhan supply
- Material saja atau supply + instalasi.
+      Agar kami dapat memberikan rekomendasi dan penawaran yang lebih tepat, informasikan:
+      1. Jenis proyek
+      Contoh: jalan, tambang, rel, timbunan, lereng, reklamasi, atau proyek lainnya.
+      2. Fungsi geotextile
+      Separator, stabilisasi, perkuatan, filtrasi, atau kombinasi kebutuhan.
+      3. Luas area pekerjaan
+      Panjang × lebar atau estimasi total area.
+      4. Kondisi lapangan
+      Jenis tanah, kondisi permukaan, kemiringan, dan kondisi khusus lainnya bila tersedia.
+      5. Kebutuhan kuat tarik
+      Jika sudah ditentukan oleh engineer atau spesifikasi proyek.
+      6. Lokasi proyek
+      Digunakan untuk menghitung kebutuhan logistik dan estimasi pengiriman.
+      7. Kebutuhan supply
+      Material saja atau supply + instalasi.
 
-Belum tahu spesifikasinya? Tidak masalah.
-Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
+      Belum tahu spesifikasinya? Tidak masalah.
+      Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
 
     // [11] REVIEWS
     reviews: [
@@ -304,109 +304,318 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
     whatsappUrl: buildWhatsappUrl("Geotekstil Woven"),
   },
   {
+    // [1] IDENTITAS
     slug: "geotekstil-non-woven",
     name: "Geotekstil Non Woven",
-    marketplaceTitle: "Geotekstil Non Woven - Filtrasi, Drainase & Proteksi",
+
+    // [2] JUDUL & KATEGORI
+    marketplaceTitle: "Geotekstil Non Woven - Solusi Filtrasi, Separasi, dan Drainase untuk Proyek Lebih Stabil",
     categoryLabel: "Geosynthetics",
-    summary: "Geotekstil non woven untuk fungsi filtrasi, drainase, separasi, dan proteksi geomembran.",
-    description:
-      "Geotekstil Non Woven adalah lembaran tidak teranyam yang dibuat melalui proses needle-punched. Material ini memiliki permeabilitas tinggi yang ideal untuk fungsi filtrasi air, sistem drainase, serta proteksi lapis geomembran dari tusukan.",
+
+    // [3] DESKRIPSI
+    summary: "Solusi Filtrasi, Separasi, dan Drainase untuk Proyek Lebih Stabil",
+    description: `Geotekstil Non-Woven KAIROS GEO merupakan material geosintetik berbahan polyester (PET) atau polypropylene (PP) yang tersusun dari serat-serat yang saling terikat membentuk lembaran fleksibel. Material ini dirancang untuk membantu memisahkan lapisan tanah, mengendalikan aliran air, serta mendukung sistem filtrasi dan drainase pada berbagai konstruksi. 
+                  Struktur non-woven memungkinkan air melewati material sekaligus membantu menahan butiran tanah agar tidak ikut terbawa aliran. Karakteristik ini membuatnya sesuai untuk berbagai kebutuhan yang membutuhkan filtrasi, separasi, drainase, dan perlindungan lapisan konstruksi. 
+                  Dengan pilihan berat material yang beragam, non-woven geotextile dapat disesuaikan dengan kebutuhan aplikasi. Brosur menunjukkan pilihan berat mulai dari 150 gsm hingga 2.200 gsm, sehingga pengguna dapat menentukan material berdasarkan fungsi dan kondisi proyek.`,
+
+    // [4] GAMBAR & GALERI
     heroImageUrl: "https://images.pexels.com/photos/26742948/pexels-photo-26742948.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-26742948.jpg&fm=jpg",
     images: [
       "https://images.pexels.com/photos/26742948/pexels-photo-26742948.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-26742948.jpg&fm=jpg",
       "https://images.pexels.com/photos/33650475/pexels-photo-33650475.jpeg?cs=srgb&dl=pexels-nschalll-33650475.jpg&fm=jpg",
       "/product/geotextile-non-woven.jpeg",
     ],
-    bullets: ["Filtrasi & drainase", "Proteksi geomembran", "Permeabilitas tinggi"],
+
+    // [5] BULLET POINTS (5 ITEM PLACEHOLDER)
+    bullets: [
+      "Kuat menahan beban", 
+      "Stabilkan struktur tanah", 
+      "Cegah pencampuran lapisan",
+      "Cocok untuk berbagai proyek"
+    ],
     features: [
       "Meloloskan air dengan baik sekaligus menahan partikel halus tanah.",
       "Melindungi geomembran dari gesekan dan tusukan benda tajam.",
       "Fleksibel dan mudah dipotong sesuai kondisi lapangan.",
       "Tahan terhadap pembusukan dan zat kimia lingkungan.",
     ],
-    applications: ["Sistem drainase bawah tanah", "Pelapis proteksi geomembran", "Filter retaining wall", "Pengendalian erosi"],
-    specs: [
-      { label: "Material", value: "Polyester (PET) / Polypropylene (PP)" },
-      { label: "Gramasi", value: "150 gr/m² - 600 gr/m²" },
-      { label: "Tipe", value: "Needle Punched Non Woven" },
-      { label: "Fungsi Utama", value: "Filtrasi, Drainase, & Proteksi" },
+
+    // [6] APLIKASI UTAMA
+    applications: [
+      "Drainase & Filtrasi", 
+      "Pekerjaan Hidrolik", 
+      "Pengelolaan Limbah", 
+      "Pekerjaan Jalan",
+      "Konstruksi"
     ],
+
+    // [7] SPESIFIKASI TEKNIK
+    specs: [
+      { label: "Tipe serat", value: "PP (Polypropylene) / PET (Polyester)" },
+      { label: "Gramatur", value: "PP (100–600 GSM) / PET (100–600 GSM)" },
+      { label: "Warna Standar", value: "Putih (pertanian & otomotif: abu & hitam)" },
+      { label: "Lebar roll", value: "2 m – 6 m (custom)" },
+      { label: "Panjang roll", value: "50 m – 100 m (custom)" },
+      { label: "Standar", value: "SNI / ASTM / ISO (sesuai kebutuhan)" },
+    ],
+
+    // [8] HARGA & PENJUALAN
     ratingLabel: "(4.9)",
     soldLabel: "Terjual 280+",
     priceLabel: "",
     stockLabel: "Tersedia",
     trustNote: "Suplai material berkualitas tinggi untuk proyek infrastruktur.",
+
+    // [9] KENAPA PRODUK INI COCOK
     reasons: [
-      "Lolos air optimal tanpa resiko tersumbat partikel tanah.",
-      "Efektif memperpanjang umur geomembran.",
-      "Mudah dipasang pada berbagai medan.",
-      "Ready stock berbagai varian gramasi.",
+      "Pisahkan lapisan, cegah pencampuran material.",
+      "Saring air, tahan partikel tanah.",
+      "Alirkan air, kurangi risiko genangan.",
+      "Lindungi struktur dari tekanan lingkungan.",
     ],
-    orderNote: "Klik beli untuk langsung ke Mayar.id atau gunakan konsultasi produk jika ingin cek kebutuhan dulu.",
+
+    // [10] KENAPA MEMILIH KAMI? (COMPANY POINTS PLACEHOLDER)
+    companyPoints: [
+      {
+        number: "01",
+        title: "Konsultasi Teknis",
+        desc: "Tidak semua proyek membutuhkan jenis dan berat geotextile yang sama. KAIROS GEO membantu mengarahkan pemilihan material berdasarkan fungsi, kondisi lapangan, jenis konstruksi, dan kebutuhan proyek."
+      },
+      {
+        number: "02",
+        title: "Spesifikasi Lebih Terarah",
+        desc: "Non-woven tersedia dalam berbagai pilihan berat. Dengan rentang 150–2.200 gsm yang tercantum dalam brosur, kebutuhan material dapat diarahkan berdasarkan fungsi dan kondisi aplikasi."
+      },
+      {
+        number: "03",
+        title: "Supply untuk Proyek",
+        desc: "KAIROS GEO dapat diposisikan sebagai partner pengadaan untuk kebutuhan proyek, bukan sekadar penjualan satuan."
+      },
+      {
+        number: "04",
+        title: "Dukungan Instalasi",
+        desc: "Untuk proyek yang membutuhkan dukungan lapangan, KAIROS GEO dapat membantu kebutuhan instalasi sesuai lingkup pekerjaan."
+      },
+      {
+        number: "05",
+        title: "QC & Dokumentasi",
+        desc: "Untuk pasar kontraktor dan pemilik proyek, dokumentasi bukan sekadar tambahan. Dokumentasi dapat membantu untuk monitoring pekerjaan, laporan proyek, kontrol kualitas, dokumentasi progres, dan kebutuhan administrasi proyek."
+      },
+      {
+        number: "06",
+        title: "Pendampingan Proyek",
+        desc: "Placeholder deskripsi Pendampingan Proyek."
+      }
+    ],
+
+    // [11] CATATAN PEMESANAN
+    orderNote: `Siapkan Data Proyek Anda
+                Untuk mendapatkan rekomendasi dan penawaran yang lebih tepat, informasikan:
+                1. Jenis proyek
+                Jalan, drainase, landfill, bendungan, pelabuhan, tambang, atau proyek lainnya.
+
+                2. Fungsi geotextile
+                Filtrasi, separasi, drainase, proteksi, atau kombinasi.
+
+                3. Luas area
+                Panjang × lebar atau estimasi total kebutuhan.
+
+                4. Kondisi lapangan
+                Jenis tanah, kondisi permukaan, elevasi, dan kondisi khusus jika tersedia.
+
+                5. Spesifikasi yang dibutuhkan
+                Jika sudah ditentukan oleh konsultan atau engineer.
+                6. Berat geotextile
+                Jika sudah ditentukan, misalnya 150 gsm, 300 gsm, 500 gsm, dan seterusnya.
+
+                7. Lokasi proyek
+                Untuk perhitungan kebutuhan logistik dan pengiriman.
+
+                8. Kebutuhan layanan
+                Supply Only atau
+                Supply + Instalasi
+
+                Belum tahu spesifikasinya? Tidak masalah.
+                Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
+
+    // [12] REVIEWS
     reviews: [
       { name: "Fajar", rating: "★★★★★", text: "Gramasi sesuai dan seratnya padat." },
       { name: "Novi", rating: "★★★★★", text: "Bagus banget buat proteksi geomembran kolam." },
       { name: "Adit", rating: "★★★★★", text: "Pengiriman cepat dan CS sangat kooperatif." },
     ],
+
+    // [13] LINK
     checkoutUrl: buildCheckoutUrl("geotekstil-non-woven"),
     whatsappUrl: buildWhatsappUrl("Geotekstil Non Woven"),
   },
   {
+    // [1] IDENTITAS
     slug: "geobag",
     name: "Geobag",
-    marketplaceTitle: "Geobag - Kantong Geosintetik Pelindung Erosi & Pantai",
+
+    // [2] JUDUL & KATEGORI
+    marketplaceTitle: "Geobag - Perkuat Struktur, Kendalikan Erosi, Lindungi Area Proyek",
     categoryLabel: "Erosion Control",
-    summary: "Kantong geotekstil pengisi pasir/tanah untuk proteksi erosi, dinding penahan, dan pengaman pantai.",
-    description:
-      "Geobag adalah kantong yang terbuat dari bahan geotekstil kuat (woven atau non woven) yang diisi dengan pasir atau tanah lokal. Digunakan sebagai tanggul darurat, pelindung erosi tebing sungai, dan pemecah gelombang pantai.",
+
+    // [3] DESKRIPSI
+    summary: "Perkuat Struktur, Kendalikan Erosi, Lindungi Area Proyek",
+    description: `Geobag untuk Perlindungan dan Stabilisasi
+                  Geobag KAIROS GEO merupakan wadah berbahan geotekstil non woven yang dirancang untuk diisi dengan material lokal seperti pasir, tanah, kerikil, atau sirtu. Material geobag tersedia dalam pilihan Polypropylene (PP) atau Polyester (PET) dan menggunakan konstruksi woven untuk menghasilkan struktur yang kuat sekaligus tetap memiliki permeabilitas tinggi.
+                  Setelah diisi, geobag dapat disusun membentuk struktur perlindungan yang mengikuti kontur area dan membantu menahan pengaruh air, arus, gelombang, maupun pergerakan material. Air dapat melewati material geotextile, sementara material pengisi tetap tertahan di dalam geobag sehingga membentuk struktur yang stabil dan adaptif.
+                  Geobag dapat digunakan untuk membantu mengendalikan erosi, melindungi pantai dan tepian sungai, menstabilkan lereng, mengendalikan banjir, serta mendukung pekerjaan konstruksi dan pengendalian sedimen. Penggunaan material lokal sebagai isi juga membantu meningkatkan efisiensi logistik dan biaya pekerjaan.`,
+
+    // [4] GAMBAR & GALERI
     heroImageUrl: "https://images.pexels.com/photos/10186718/pexels-photo-10186718.jpeg?cs=srgb&dl=pexels-olenkabohovyk-10186718.jpg&fm=jpg",
     images: [
       "https://images.pexels.com/photos/10186718/pexels-photo-10186718.jpeg?cs=srgb&dl=pexels-olenkabohovyk-10186718.jpg&fm=jpg",
       "https://images.pexels.com/photos/12633631/pexels-photo-12633631.jpeg?cs=srgb&dl=pexels-luciana-povoa-255743161-12633631.jpg&fm=jpg",
       "/product/geobag.jpeg",
     ],
-    bullets: ["Pelindung erosi", "Dinding penahan instan", "Tahan UV & abrasi"],
+
+    // [5] BULLET POINTS (5 ITEM PLACEHOLDER)
+    bullets: [
+      "Perlindungan Pantai", 
+      "Pengendalian Banjir", 
+      "Stabilisasi Lereng & Timbunan",
+      "Perlindungan Galian & Cofferdam",
+      "Pengendalian Sedimen & Sungai",
+      "Perlindungan Air & Irigasi"
+    ],
     features: [
       "Material jahitan ganda yang kuat menahan beban isian.",
       "Mampu menahan gelombang air dan abrasi pantai secara efektif.",
       "Dapat diisi menggunakan tanah atau pasir di lokasi proyek.",
       "Ramah lingkungan dan mendukung tumbuhnya vegetasi.",
     ],
-    applications: ["Proteksi tebing sungai", "Pengaman pantai & breakwater", "Tanggul penahan banjir", "Stabilisasi lereng"],
-    specs: [
-      { label: "Material", value: "Geotextile Non Woven / Woven Polypropylene" },
-      { label: "Ukuran Standard", value: "1.05m x 0.7m, 2.4m x 1.4m (Customable)" },
-      { label: "Daya Tahan", value: "UV Resistant & Anti Abrasi" },
-      { label: "Fungsi Utama", value: "Proteksi Erosi & Containment" },
+
+    // [6] APLIKASI UTAMA
+    applications: [
+      "Perlindungan pantai", 
+      "Pengendalian banjir", 
+      "Stabilisasi lereng & timbunan", 
+      "Perlindungan galian & cofferdam",
+      "Pengendalian sedimen & sungai",
+      "Sistem perlindungan air & irigasi"
     ],
+
+    // [7] SPESIFIKASI TEKNIK
+    specs: [
+      { label: "Material", value: "PP / PET" },
+      { label: "Tipe Anyaman", value: "Woven" },
+      { label: "Gramatur Standar", value: "600 GSM" },
+      { label: "Ukuran Standar 1", value: "1,45 × 2,40 m" },
+      { label: "Ukuran Standar 2", value: "1 × 1,30 m" },
+      { label: "Ukuran Custom", value: "Dapat disesuaikan kebutuhan" },
+      { label: "Warna", value: "Putih" },
+      { label: "Kuat Tarik PP", value: "≥ 30 kN/m" },
+      { label: "Kuat Tarik PET", value: "≥ 45 kN/m" },
+      { label: "Permeabilitas", value: "Tinggi" },
+      { label: "Tahan UV", value: "Tersedia" },
+      { label: "Tahan Kimia", value: "Tersedia" },
+      { label: "Kualitas Teruji", value: "ISO 9001:2015, CE, ASTM, UV Resistant, dan High Strength." },
+      { label: "Material Isi", value: "Pasir, tanah, kerikil, sirtu/batu pecah kecil" },
+    ],
+
+    // [8] HARGA & PENJUALAN
     ratingLabel: "(4.8)",
     soldLabel: "Terjual 200+",
     priceLabel: "",
     stockLabel: "Tersedia",
     trustNote: "Kantong geotekstil standar industri dengan jaminan kualitas jahitan.",
+
+    // [9] KENAPA PRODUK INI COCOK
     reasons: [
-      "Sangat praktis dengan memanfaatkan tanah/pasir setempat.",
-      "Jahitan kuat dan teruji di berbagai proyek pesisir.",
-      "Alternatif ekonomis untuk struktur retaining wall konvensional.",
-      "Siap kirim ke seluruh wilayah Indonesia.",
+      "Kuat menghadapi tekanan air dan gelombang.",
+      "Fleksibel mengikuti kontur area proyek.",
+      "Permeabel, memungkinkan air tetap mengalir.",
+      "Efisien menggunakan material isi lokal.",
     ],
-    orderNote: "Klik beli untuk langsung ke Mayar.id atau gunakan konsultasi produk jika ingin cek kebutuhan dulu.",
+
+    // [10] KENAPA MEMILIH KAMI? (COMPANY POINTS PLACEHOLDER)
+    companyPoints: [
+      {
+        number: "01",
+        title: "Konsultasi Teknis",
+        desc: "Setiap lokasi memiliki kondisi tanah, arus, gelombang, kemiringan, dan kebutuhan perlindungan yang berbeda. KAIROS GEO membantu memahami kondisi proyek sebelum menentukan spesifikasi produk."
+      },
+      {
+        number: "02",
+        title: "Pilihan Material PP & PET",
+        desc: "KAIROS GEO menyediakan pilihan material PP dan PET sehingga produk dapat diarahkan berdasarkan kebutuhan performa dan kondisi lingkungan. PP untuk kebutuhan umum dan efisiensi. PET untuk kebutuhan dengan tuntutan kekuatan dan kondisi lebih ekstrem."
+      },
+      {
+        number: "03",
+        title: "Material Isi Lebih Fleksibel",
+        desc: "Geobag dapat menggunakan material lokal seperti: pasir, tanah, kerikil, dan sirtu/batu pecah kecil. Artinya, proyek tidak selalu harus mendatangkan material pengisi dari lokasi yang jauh. Benefit: Logistik lebih sederhana, pekerjaan lebih efisien."
+      },
+      {
+        number: "04",
+        title: "Supply & Instalasi",
+        desc: "KAIROS GEO tidak berhenti pada pengadaan material. Untuk kebutuhan proyek, layanan dapat diarahkan pada: Konsultasi → Supply → Instalasi → QC → Dokumentasi. Ini membuat KAIROS GEO lebih cocok diposisikan sebagai solution partner, bukan sekadar supplier."
+      },
+      {
+        number: "05",
+        title: "QC & Dokumentasi",
+        desc: "Untuk pekerjaan infrastruktur, kualitas dan dokumentasi sangat penting. KAIROS GEO dapat mengkomunikasikan: spesifikasi material, kontrol kualitas, dokumentasi pekerjaan, dokumentasi progres, serta kebutuhan administrasi proyek."
+      }
+    ],
+
+    // [11] CATATAN PEMESANAN
+    orderNote: `Siapkan Data Proyek Anda
+Agar kami dapat memberikan rekomendasi yang tepat, informasikan:
+1. Jenis proyek
+Pantai, sungai, banjir, lereng, bendungan, irigasi, galian, atau lainnya.
+2. Fungsi Geobag
+Perlindungan erosi, stabilisasi, pengendalian banjir, cofferdam, pengendalian sedimen, atau kebutuhan lainnya.
+3. Dimensi area
+Panjang × lebar area pekerjaan.
+4. Kondisi lapangan
+Kemiringan, kondisi tanah, arus, gelombang, elevasi, dan kondisi lainnya bila tersedia.
+5. Ukuran Geobag
+Jika sudah ditentukan oleh engineer atau spesifikasi proyek.
+6. Material
+PP atau PET jika sudah ditentukan.
+7. Material isi
+Pasir, tanah, kerikil, sirtu, atau material lokal lainnya.
+8. Lokasi proyek
+Untuk menghitung kebutuhan logistik dan pengiriman.
+9. Kebutuhan layanan
+Supply Only
+atau
+Supply + Instalasi
+
+Belum tahu spesifikasinya? Tidak masalah.
+Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
+
+    // [12] REVIEWS
     reviews: [
       { name: "Hendra", rating: "★★★★★", text: "Jahitannya sangat kuat, tidak robek saat diisi penuh pasir." },
       { name: "Tika", rating: "★★★★★", text: "Sangat membantu untuk proyek penahan erosi tebing." },
       { name: "Rizky", rating: "★★★★★", text: "Kualitas geobag mantap, pengiriman tepat waktu." },
     ],
+
+    // [13] LINK
     checkoutUrl: buildCheckoutUrl("geobag"),
     whatsappUrl: buildWhatsappUrl("Geobag"),
   },
   {
+    // [1] IDENTITAS
     slug: "geocell",
     name: "Geocell",
+
+    // [2] JUDUL & KATEGORI
     marketplaceTitle: "Geocell - Stabilitas Tanah & Lereng",
     categoryLabel: "Soil Stabilization",
+
+    // [3] DESKRIPSI
     summary: "Sistem sel tiga dimensi untuk stabilisasi tanah, lereng, dan perkuatan permukaan.",
-    description:
-      "Geocell adalah material geosintetik tiga dimensi berbentuk sarang lebah yang disusun dari lembaran atau strip HDPE. Struktur ini membantu menahan erosi, mengunci agregat, dan meningkatkan stabilitas tanah.",
+    description: `Geocell KAIROS GEO merupakan panel geosintetik tiga dimensi berbentuk honeycomb yang ringan dan fleksibel. Material utamanya adalah High Density Polyethylene (HDPE) yang disambung menggunakan teknologi ultrasonik untuk menghasilkan konfigurasi sel yang kuat. 
+                  Struktur sel tiga dimensinya bekerja dengan memberikan confinement pada material pengisi seperti tanah, agregat, pasir, maupun beton. Sistem ini membantu meningkatkan kestabilan material, membatasi pergerakan lateral, serta mendukung distribusi beban pada permukaan tanah. 
+                  Geocell dapat digunakan untuk berbagai kebutuhan, mulai dari pengendalian erosi, perkuatan lereng, stabilisasi tanah, load support, retaining wall, perlindungan saluran, jalan, area parkir, hingga struktur hidraulik.
+                  Sistemnya juga memungkinkan sel diisi material yang sesuai dengan kondisi proyek dan dapat mengakomodasi pertumbuhan vegetasi pada aplikasi tertentu`,
+
+    // [4] GAMBAR & GALERI
     heroImageUrl: "https://images.pexels.com/photos/4784827/pexels-photo-4784827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     images: [
       "https://images.pexels.com/photos/4784827/pexels-photo-4784827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
@@ -414,36 +623,135 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
       "https://images.pexels.com/photos/18151669/pexels-photo-18151669.jpeg?auto=compress&cs=tinysrgb&w=1600",
       "/product/geocell.jpeg",
     ],
-    bullets: ["Stabilisasi tanah", "Menahan erosi", "Mudah dipasang"],
+
+    // [5] BULLET POINTS (5 ITEM PLACEHOLDER)
+    bullets: [
+      "Ringan dan Mudah Digelar", 
+      "Pemasangan Cepat dan Praktis", 
+      "Kuat Menahan Beban Tanah",
+      "Mengendalikan Erosi pada Lereng",
+      "Fleksibel Mengikuti Kontur Permukaan",
+      "Hemat Waktu dan Biaya"
+    ],
     features: [
       "Struktur sel membantu mengunci material pengisi.",
       "Efektif untuk perkuatan lereng dan badan jalan.",
       "Membantu mengurangi pergerakan material di lapangan.",
       "Cocok untuk area dengan kebutuhan stabilisasi tinggi.",
     ],
-    applications: ["Lereng", "Badan jalan", "Proteksi saluran air", "Area dengan tanah lunak"],
+
+    // [6] APLIKASI UTAMA
+    applications: [
+      "Perlindungan Leren", 
+      "Retaining Wall", 
+      "Jalan", 
+      "Area Parkir",
+      "Trotoar",
+      "Lapangan Golf",
+      "Saluran Air",
+      "Tanggul",
+      "Perlindungan Area Sungai"
+    ],
+
+    // [7] SPESIFIKASI TEKNIK
     specs: [
       { label: "Material", value: "HDPE" },
       { label: "Bentuk", value: "Struktur sarang lebah / honeycomb" },
       { label: "Fungsi", value: "Stabilisasi dan perkuatan tanah" },
     ],
+
+    // [8] HARGA & PENJUALAN
     ratingLabel: "(4.8)",
     soldLabel: "Terjual 110+",
     priceLabel: "",
     stockLabel: "Tersedia",
     trustNote: "Cocok untuk area dengan kebutuhan stabilisasi tinggi.",
+
+    // [9] KENAPA PRODUK INI COCOK
     reasons: [
-      "Struktur sel membantu mengunci material pengisi.",
-      "Efektif untuk perkuatan lereng dan badan jalan.",
-      "Membantu mengurangi pergerakan material di lapangan.",
-      "Cocok untuk area dengan kebutuhan stabilisasi tinggi.",
+      "Perkuat tanah, kendalikan erosi lebih efektif.",
+      "Stabilkan permukaan dengan sistem confinement",
+      "Tahan beban, kurangi pergerakan material.",
+      "Fleksibel mengikuti kontur permukaan tanah.",
     ],
-    orderNote: "Klik beli untuk langsung ke Mayar.id atau gunakan konsultasi produk jika ingin cek kebutuhan dulu.",
+
+    // [10] KENAPA MEMILIH KAMI? (COMPANY POINTS PLACEHOLDER)
+    companyPoints: [
+      {
+        number: "01",
+        title: "Konsultasi Berbasis Kebutuhan Proyek",
+        desc: "Setiap proyek memiliki kondisi tanah, kemiringan, beban, material pengisi, dan lingkungan yang berbeda. Karena itu, KAIROS GEO sebaiknya tidak hanya menawarkan produk berdasarkan ukuran. Tetapi membantu menentukan: fungsi → cell depth → tipe permukaan → material pengisi → metode aplikasi."
+      },
+      {
+        number: "02",
+        title: "Spesifikasi Dapat Disesuaikan",
+        desc: "Geocell tersedia dengan cell depth 7,5–20 cm dan dua tipe permukaan, yaitu smooth dan textured.  Artinya, pemilihan produk dapat diarahkan berdasarkan kebutuhan aplikasi."
+      },
+      {
+        number: "03",
+        title: "Multi Aplikasi",
+        desc: "Satu sistem dapat digunakan pada banyak kebutuhan: jalan → lereng → retaining wall → drainase → saluran → area parkir → lapangan golf. Ini memberikan fleksibilitas bagi kontraktor dalam merancang solusi."
+      },
+      {
+        number: "04",
+        title: "Material Pengisi Fleksibel",
+        desc: "Geocell tidak bergantung pada satu jenis material pengisi. Material dapat berupa: tanah / agregat / pasir / beton."
+      },
+      {
+        number: "05",
+        title: "Instalasi Lebih Praktis",
+        desc: "Mudah digelar, pemasangan cepat, dan mudah dirawat sebagai keunggulan.  Lebih mudah dipasang. Lebih cepat diaplikasikan."
+      },
+      {
+        number: "06",
+        title: "Efisiensi Waktu dan Biaya",
+        desc: "Hemat waktu dan biaya sebagai salah satu keunggulan Geocell. Membantu mengoptimalkan waktu dan biaya pekerjaan."
+      }
+    ],
+
+    // [11] CATATAN PEMESANAN
+    orderNote: `Siapkan Data Proyek Anda
+Agar KAIROS GEO dapat memberikan rekomendasi yang lebih tepat, kirimkan:
+1. Jenis proyek
+Jalan, lereng, retaining wall, saluran, drainase, parkir, tanggul, atau lainnya.
+
+2. Fungsi Geocell
+Erosi, reinforcement, load support, slope protection, atau kombinasi.
+
+3. Luas area
+Panjang × lebar area yang akan diaplikasikan.
+
+4. Kemiringan area
+Khusus untuk pekerjaan lereng dan slope protection.
+
+5. Cell depth
+Jika sudah ditentukan oleh engineer.
+
+6. Material pengisi
+Tanah, pasir, agregat, beton, atau material lainnya.
+
+7. Kondisi tanah
+Jenis dan kondisi tanah dasar jika tersedia.
+
+8. Lokasi proyek
+Untuk kebutuhan logistik dan pengiriman.
+
+9. Kebutuhan layanan
+SUPPLY ONLY
+atau
+SUPPLY + INSTALASI
+
+Belum tahu spesifikasinya? Tidak masalah.
+Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
+
+    // [12] REVIEWS
     reviews: [
       { name: "Yoga", rating: "★★★★★", text: "Stabilitas lerengnya jauh lebih baik." },
       { name: "Sinta", rating: "★★★★★", text: "Pemasangan gampang dan rapi." },
       { name: "Arif", rating: "★★★★★", text: "Pas untuk proyek badan jalan kami." },
     ],
+
+    // [13] LINK
     checkoutUrl: buildCheckoutUrl("geocell"),
     whatsappUrl: buildWhatsappUrl("Geocell"),
   },
