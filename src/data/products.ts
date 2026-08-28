@@ -30,13 +30,22 @@ const buildWhatsappUrl = (productName: string) =>
 
 export const products: Product[] = [
   {
+    // [1] IDENTITAS
     slug: "geomembran",
-    name: "Geomembran",
-    marketplaceTitle: "Geomembran HDPE - Solusi Kedap Air untuk Perlindungan Jangka Panjang",
+    name: "Geomembran", 
+
+    // [2] JUDUL & KATEGORI
+    marketplaceTitle: "Geomembran HDPE - Solusi Kedap Air untuk Perlindungan Jangka Panjang", 
     categoryLabel: "Geosynthetics",
+
+    // [3] DESKRIPSI (DISESUAIKAN SESUAI PANAH 1 DI GAMBAR)
     summary: "Solusi kedap air untuk kolam, tambak, tempat pembuangan akhir, area limbah, dan kebutuhan penampungan lainnya.",
-    description:
-      "Geomembran KAIROS GEO merupakan lapisan kedap berbahan HDPE/LLDPE yang dirancang untuk membantu mencegah rembesan cairan, melindungi tanah, dan menjaga kestabilan sistem containment / penampungan pada berbagai kebutuhan proyek. Dengan karakter kedap air, tahan terhadap paparan lingkungan dan bahan kimia, serta fleksibel mengikuti kondisi lapangan, geomembran menjadi solusi efektif untuk proyek infrastruktur, lingkungan, pertambangan, perikanan, dan industri.",
+    description: `Geomembran KAIROS GEO merupakan material geosintetik berbahan HDPE/LLDPE yang berfungsi sebagai lapisan kedap untuk mengendalikan pergerakan cairan dan mencegah rembesan ke dalam tanah. Material ini dirancang untuk digunakan pada berbagai sistem containment / penampungan dan kebutuhan teknik sipil.
+                  Karakteristiknya yang kedap air, fleksibel, tahan terhadap paparan UV dan bahan kimia membuat geomembran sesuai untuk kondisi proyek yang membutuhkan perlindungan jangka panjang. Material dapat mengikuti bentuk area kerja dan diaplikasikan melalui proses penyambungan khusus sesuai kebutuhan lapangan.
+                  Dengan pemilihan ketebalan dan spesifikasi yang tepat, geomembran dapat membantu meningkatkan keandalan sistem, mengurangi risiko kebocoran, sekaligus mendukung efisiensi pemeliharaan. KAIROS GEO membantu Anda menentukan spesifikasi berdasarkan fungsi, kondisi lapangan, dan kebutuhan proyek.
+                  Geomembran dapat menjadi solusi penampungan yang efektif dan ekonomis dibandingkan metode konvensional tertentu.`,
+
+    // [4] GAMBAR & GALERI
     heroImageUrl: "https://images.pexels.com/photos/8314514/pexels-photo-8314514.jpeg?cs=srgb&dl=pexels-altaf-shah-3143825-8314514.jpg&fm=jpg",
     images: [
       "https://images.pexels.com/photos/8314514/pexels-photo-8314514.jpeg?cs=srgb&dl=pexels-altaf-shah-3143825-8314514.jpg&fm=jpg",
@@ -44,14 +53,41 @@ export const products: Product[] = [
       "https://images.pexels.com/photos/10530994/pexels-photo-10530994.jpeg?cs=srgb&dl=pexels-alexeydemidov-10530994.jpg&fm=jpg",
       "/product/geogrid.jpeg",
     ],
-    bullets: ["Perlindungan dari kebocoran", "Tahan UV & bahan kimia", "Kuat untuk penggunaan jangka panjang", "Mudah diaplikasikan di lapangan"],
+
+    // [5] BULLET POINTS DI BAWAH GAMBAR UTAMA
+    bullets: [
+      "Perlindungan dari kebocoran", 
+      "Tahan UV & bahan kimia", 
+      "Kuat untuk penggunaan jangka panjang", 
+      "Mudah diaplikasikan di lapangan"
+    ],
     features: [
       "Punya daya kedap yang kuat untuk kebutuhan containment.",
       "Tahan terhadap suhu panas, sinar UV, dan banyak bahan kimia.",
       "Instalasinya cepat dan efisien di lapangan.",
       "Cocok untuk proyek industri, lingkungan, dan pengelolaan air.",
     ],
-    applications: ["Kolam limbah", "Tambak", "Danau buatan", "TPA", "Coal ash pond", "Heap leach tambang emas"],
+
+    // [6] APLIKASI UTAMA
+    applications: [
+      "Kolam ikan & tambak", 
+      "Kolam penampungan air", 
+      "Kolam limbah & IPAL", 
+      "TPA / landfill", 
+      "Pertambangan", 
+      "Reservoir & embung", 
+      "Irigasi & kanal", 
+      "Bendungan", 
+      "Floating cover", 
+      "Biogas", 
+      "Coal ash & stockpile", 
+      "Industri & manufaktur", 
+      "Oil tank", 
+      "Secondary containment", 
+      "Proyek lingkungan & infrastruktur"
+    ],
+
+    // [7] SPESIFIKASI TEKNIK
     specs: [
       { label: "Material", value: "HDPE / LLDPE" },
       { label: "Ketebalan", value: "0,30 mm - 3,00 mm" },
@@ -60,23 +96,31 @@ export const products: Product[] = [
       { label: "Diameter Roll", value: "Menyesuaikan ketebalan" },
       { label: "Warna", value: "Hitam" },
     ],
+
+    // [8] HARGA & PENJUALAN
     ratingLabel: "(4.9)",
     soldLabel: "Terjual 500+",
     priceLabel: "Rp Hubungi Kami",
     stockLabel: "Tersedia",
     trustNote: "Jaminan kualitas & pengiriman aman ke seluruh Indonesia.",
+
+    // [9] KENAPA PRODUK INI COCOK
     reasons: [
-      "Material HDPE murni dan performa konsisten.",
-      "Tahan UV, bahan kimia, dan kondisi lapangan.",
-      "Fleksibel untuk berbagai kebutuhan proyek.",
-      "Konsultasi teknis sebelum checkout.",
+      "Kedap optimal untuk sistem containment.",
+      "Fleksibel mengikuti bentuk area proyek.",
+      "Tahan kimia untuk lingkungan ekstrem.",
+      "Efisien untuk proyek skala besar.",
     ],
     orderNote: "Klik beli untuk langsung ke Mayar.id atau gunakan konsultasi produk jika ingin cek kebutuhan dulu.",
+
+    // [10] REVIEWS
     reviews: [
       { name: "Andi", rating: "★★★★★", text: "Material rapi, respon cepat, dan penjelasan teknisnya jelas." },
       { name: "Sari", rating: "★★★★★", text: "Sangat cocok untuk kebutuhan proyek kolam dan containment." },
       { name: "Budi", rating: "★★★★★", text: "Alur checkout mudah, konsultasi WA juga membantu banget." },
     ],
+
+    // [11] LINK
     checkoutUrl: buildCheckoutUrl("geomembran"),
     whatsappUrl: buildWhatsappUrl("Geomembran"),
   },
