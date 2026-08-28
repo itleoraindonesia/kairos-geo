@@ -17,6 +17,7 @@ export type Product = {
   stockLabel?: string;
   trustNote?: string;
   reasons?: string[];
+  companyPoints?: { number: string; title: string; desc: string }[]; // <-- Ditambahkan di tipe
   orderNote?: string;
   reviews?: { name: string; rating: string; text: string }[];
   checkoutUrl: string;
@@ -38,12 +39,15 @@ export const products: Product[] = [
     marketplaceTitle: "Geomembran HDPE - Solusi Kedap Air untuk Perlindungan Jangka Panjang", 
     categoryLabel: "Geosynthetics",
 
-    // [3] DESKRIPSI (DISESUAIKAN SESUAI PANAH 1 DI GAMBAR)
+    // [3] DESKRIPSI
     summary: "Solusi kedap air untuk kolam, tambak, tempat pembuangan akhir, area limbah, dan kebutuhan penampungan lainnya.",
     description: `Geomembran KAIROS GEO merupakan material geosintetik berbahan HDPE/LLDPE yang berfungsi sebagai lapisan kedap untuk mengendalikan pergerakan cairan dan mencegah rembesan ke dalam tanah. Material ini dirancang untuk digunakan pada berbagai sistem containment / penampungan dan kebutuhan teknik sipil.
-                  Karakteristiknya yang kedap air, fleksibel, tahan terhadap paparan UV dan bahan kimia membuat geomembran sesuai untuk kondisi proyek yang membutuhkan perlindungan jangka panjang. Material dapat mengikuti bentuk area kerja dan diaplikasikan melalui proses penyambungan khusus sesuai kebutuhan lapangan.
-                  Dengan pemilihan ketebalan dan spesifikasi yang tepat, geomembran dapat membantu meningkatkan keandalan sistem, mengurangi risiko kebocoran, sekaligus mendukung efisiensi pemeliharaan. KAIROS GEO membantu Anda menentukan spesifikasi berdasarkan fungsi, kondisi lapangan, dan kebutuhan proyek.
-                  Geomembran dapat menjadi solusi penampungan yang efektif dan ekonomis dibandingkan metode konvensional tertentu.`,
+
+Karakteristiknya yang kedap air, fleksibel, tahan terhadap paparan UV dan bahan kimia membuat geomembran sesuai untuk kondisi proyek yang membutuhkan perlindungan jangka panjang. Material dapat mengikuti bentuk area kerja dan diaplikasikan melalui proses penyambungan khusus sesuai kebutuhan lapangan.
+
+Dengan pemilihan ketebalan dan spesifikasi yang tepat, geomembran dapat membantu meningkatkan keandalan sistem, mengurangi risiko kebocoran, sekaligus mendukung efisiensi pemeliharaan. KAIROS GEO membantu Anda menentukan spesifikasi berdasarkan fungsi, kondisi lapangan, dan kebutuhan proyek.
+
+Geomembran dapat menjadi solusi penampungan yang efektif dan ekonomis dibandingkan metode konvensional tertentu.`,
 
     // [4] GAMBAR & GALERI
     heroImageUrl: "https://images.pexels.com/photos/8314514/pexels-photo-8314514.jpeg?cs=srgb&dl=pexels-altaf-shah-3143825-8314514.jpg&fm=jpg",
@@ -54,7 +58,7 @@ export const products: Product[] = [
       "/product/geogrid.jpeg",
     ],
 
-    // [5] BULLET POINTS DI BAWAH GAMBAR UTAMA
+    // [5] BULLET POINTS
     bullets: [
       "Perlindungan dari kebocoran", 
       "Tahan UV & bahan kimia", 
@@ -104,23 +108,58 @@ export const products: Product[] = [
     stockLabel: "Tersedia",
     trustNote: "Jaminan kualitas & pengiriman aman ke seluruh Indonesia.",
 
-    // [9] KENAPA PRODUK INI COCOK
+    // [9] KENAPA PRODUK INI COCOK (KEUNGGULAN PRODUK)
     reasons: [
       "Kedap optimal untuk sistem containment.",
       "Fleksibel mengikuti bentuk area proyek.",
       "Tahan kimia untuk lingkungan ekstrem.",
       "Efisien untuk proyek skala besar.",
     ],
+
+    // [10] KENAPA MEMILIH KAMI? (KEUNGGULAN KAIROS GEO / COMPANY POINTS DITAMBAHKAN DI SINI)
+    companyPoints: [
+      {
+        number: "01",
+        title: "Konsultasi Teknis",
+        desc: "Tidak sekadar menjual material. KAIROS GEO membantu menentukan jenis dan spesifikasi geomembran berdasarkan fungsi aplikasi, kondisi lapangan, risiko kebocoran, serta kebutuhan proyek."
+      },
+      {
+        number: "02",
+        title: "Spesifikasi Lebih Terarah",
+        desc: "Pembeli tidak harus menentukan sendiri ketebalan material. Tim KAIROS GEO dapat membantu mengarahkan pilihan berdasarkan kebutuhan teknis proyek."
+      },
+      {
+        number: "03",
+        title: "Supply untuk Proyek",
+        desc: "Mendukung kebutuhan pengadaan material untuk proyek dengan volume dan spesifikasi yang disesuaikan, termasuk kebutuhan pengiriman ke berbagai wilayah Indonesia."
+      },
+      {
+        number: "04",
+        title: "Dukungan Instalasi",
+        desc: "Geomembran membutuhkan penanganan dan penyambungan yang tepat. Karena itu, KAIROS GEO dapat diposisikan sebagai partner yang memahami kebutuhan material hingga proses aplikasinya."
+      },
+      {
+        number: "05",
+        title: "QC & Dokumentasi",
+        desc: "Website KAIROS GEO sudah memiliki positioning QC terdokumentasi dan dokumentasi proyek. Ini sangat bagus untuk pasar B2B karena memberikan nilai lebih dibandingkan supplier yang hanya mengirim barang."
+      },
+      {
+        number: "06",
+        title: "Pendampingan Proyek",
+        desc: "Produk + spesifikasi + konsultasi + support. Ini yang harus menjadi pesan utama KAIROS GEO."
+      }
+    ],
+
     orderNote: "Klik beli untuk langsung ke Mayar.id atau gunakan konsultasi produk jika ingin cek kebutuhan dulu.",
 
-    // [10] REVIEWS
+    // [11] REVIEWS
     reviews: [
       { name: "Andi", rating: "★★★★★", text: "Material rapi, respon cepat, dan penjelasan teknisnya jelas." },
       { name: "Sari", rating: "★★★★★", text: "Sangat cocok untuk kebutuhan proyek kolam dan containment." },
       { name: "Budi", rating: "★★★★★", text: "Alur checkout mudah, konsultasi WA juga membantu banget." },
     ],
 
-    // [11] LINK
+    // [12] LINK
     checkoutUrl: buildCheckoutUrl("geomembran"),
     whatsappUrl: buildWhatsappUrl("Geomembran"),
   },
