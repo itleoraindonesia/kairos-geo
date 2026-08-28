@@ -56,7 +56,7 @@ const reviews = product.reviews ?? [];
     <section class="w-full">
       <div class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <div class="mb-6 flex items-center justify-between gap-4">
-          <a href="/produk" class="text-sm font-bold text-kairos-500 transition hover:text-kairos-700"><- Semua Produk</a>
+          <a href="/produk" class="text-sm font-bold text-kairos-500 transition hover:text-kairos-700">&lt;- Semua Produk</a>
         </div>
 
         <div class="grid gap-8 lg:grid-cols-[1.05fr_1.05fr] lg:items-start">
@@ -87,9 +87,10 @@ const reviews = product.reviews ?? [];
               </div>
             </div>
 
-            <div class="grid gap-3 sm:grid-cols-3">
-              {product.bullets.map((bullet) => (
-                <div class="rounded-[20px] border border-zinc-200/80 bg-white p-4 shadow-panel">
+            <!-- Bagian Bullet Cards di bawah gambar (Diubah mendukung 5 item) -->
+            <div class="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+              {product.bullets.slice(0, 5).map((bullet) => (
+                <div class="rounded-[20px] border border-zinc-200/80 bg-white p-4 shadow-panel text-center flex items-center justify-center">
                   <div class="text-sm font-extrabold text-zinc-950">{bullet}</div>
                 </div>
               ))}
@@ -176,10 +177,9 @@ const reviews = product.reviews ?? [];
             <div class="mt-8 rounded-[20px] bg-zinc-50 p-5">
               <h3 class="text-lg font-extrabold text-zinc-950">Kenapa Memilih Kami?</h3>
               <ul class="mt-4 space-y-3 text-sm leading-6 text-zinc-600">
-                <li>• Material HDPE murni dan performa konsisten.</li>
-                <li>• Tahan UV, bahan kimia, dan kondisi lapangan.</li>
-                <li>• Fleksibel untuk berbagai kebutuhan proyek.</li>
-                <li>• Konsultasi teknis sebelum checkout.</li>
+                {reasons.map((reason) => (
+                  <li>• {reason}</li>
+                ))}
               </ul>
 
               <div class="mt-6 rounded-[18px] bg-white p-5">
@@ -235,11 +235,11 @@ const reviews = product.reviews ?? [];
     thumbs.forEach((thumb) => {
       thumb.addEventListener("click", () => {
         const src = thumb.getAttribute("data-src");
-        const alt = thumb.getAttribute("data-alt") || product.name;
+        const alt = thumb.getAttribute("data-alt");
 
         if (mainImage && src) {
           mainImage.setAttribute("src", src);
-          mainImage.setAttribute("alt", alt);
+          if (alt) mainImage.setAttribute("alt", alt);
         }
 
         thumbs.forEach((item) => {
