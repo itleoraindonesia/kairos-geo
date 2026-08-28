@@ -42,12 +42,9 @@ export const products: Product[] = [
     // [3] DESKRIPSI
     summary: "Solusi kedap air untuk kolam, tambak, tempat pembuangan akhir, area limbah, dan kebutuhan penampungan lainnya.",
     description: `Geomembran KAIROS GEO merupakan material geosintetik berbahan HDPE/LLDPE yang berfungsi sebagai lapisan kedap untuk mengendalikan pergerakan cairan dan mencegah rembesan ke dalam tanah. Material ini dirancang untuk digunakan pada berbagai sistem containment / penampungan dan kebutuhan teknik sipil.
-
-Karakteristiknya yang kedap air, fleksibel, tahan terhadap paparan UV dan bahan kimia membuat geomembran sesuai untuk kondisi proyek yang membutuhkan perlindungan jangka panjang. Material dapat mengikuti bentuk area kerja dan diaplikasikan melalui proses penyambungan khusus sesuai kebutuhan lapangan.
-
-Dengan pemilihan ketebalan dan spesifikasi yang tepat, geomembran dapat membantu meningkatkan keandalan sistem, mengurangi risiko kebocoran, sekaligus mendukung efisiensi pemeliharaan. KAIROS GEO membantu Anda menentukan spesifikasi berdasarkan fungsi, kondisi lapangan, dan kebutuhan proyek.
-
-Geomembran dapat menjadi solusi penampungan yang efektif dan ekonomis dibandingkan metode konvensional tertentu.`,
+                  Karakteristiknya yang kedap air, fleksibel, tahan terhadap paparan UV dan bahan kimia membuat geomembran sesuai untuk kondisi proyek yang membutuhkan perlindungan jangka panjang. Material dapat mengikuti bentuk area kerja dan diaplikasikan melalui proses penyambungan khusus sesuai kebutuhan lapangan.
+                  Dengan pemilihan ketebalan dan spesifikasi yang tepat, geomembran dapat membantu meningkatkan keandalan sistem, mengurangi risiko kebocoran, sekaligus mendukung efisiensi pemeliharaan. KAIROS GEO membantu Anda menentukan spesifikasi berdasarkan fungsi, kondisi lapangan, dan kebutuhan proyek.
+                  Geomembran dapat menjadi solusi penampungan yang efektif dan ekonomis dibandingkan metode konvensional tertentu.`,
 
     // [4] GAMBAR & GALERI
     heroImageUrl: "https://images.pexels.com/photos/8314514/pexels-photo-8314514.jpeg?cs=srgb&dl=pexels-altaf-shah-3143825-8314514.jpg&fm=jpg",
@@ -63,7 +60,8 @@ Geomembran dapat menjadi solusi penampungan yang efektif dan ekonomis dibandingk
       "Perlindungan dari kebocoran", 
       "Tahan UV & bahan kimia", 
       "Kuat untuk penggunaan jangka panjang", 
-      "Mudah diaplikasikan di lapangan"
+      "Mudah diaplikasikan di lapangan",
+      "Umur layanan panjang, investasi lebih ekonomis"
     ],
     features: [
       "Punya daya kedap yang kuat untuk kebutuhan containment.",
@@ -164,50 +162,144 @@ Geomembran dapat menjadi solusi penampungan yang efektif dan ekonomis dibandingk
     whatsappUrl: buildWhatsappUrl("Geomembran"),
   },
   {
+    // [1] IDENTITAS
     slug: "geotekstil-woven",
     name: "Geotekstil Woven",
-    marketplaceTitle: "Geotekstil Woven - Solusi Perkuatan & Separasi Tanah",
+
+    // [2] JUDUL & KATEGORI
+    marketplaceTitle: "Geotekstil Woven - Solusi perkuatan Tanah untuk Infrastruktur yang Lebih Andal",
     categoryLabel: "Geosynthetics",
-    summary: "Geotekstil woven dengan kuat tarik tinggi untuk perkuatan tanah dasar, jalan, dan timbunan.",
-    description:
-      "Geotekstil Woven adalah material geosintetik anyaman berbahan dasar Polypropylene (PP) atau Polyester (PET) yang memiliki kuat tarik (tensile strength) sangat tinggi. Sangat efektif untuk separasi dan perkuatan struktur tanah lunak.",
+
+    // [3] DESKRIPSI
+    summary: "Solusi perkuatan tanah untuk konstruksi yang lebih stabil dan andal.",
+    description: `Dalam aplikasinya, woven geotekstil dapat berfungsi sebagai separator, stabilisasi, load support, perkuatan, dan filtrasi. Material membantu memisahkan lapisan tanah yang berbeda, mengurangi pencampuran material, serta membantu mendistribusikan beban dan menahan pergerakan lateral tanah. 
+                  Dengan pilihan material dan variasi kuat tarik yang tersedia, woven geotekstil dapat disesuaikan dengan kebutuhan proyek mulai dari konstruksi jalan, rel kereta api, timbunan tanah, dinding penahan, bendungan/tanggul, hingga perlindungan area tertentu dari longsoran dan erosi. Brosur sumber menyebut rentang kuat tarik produk mulai dari 35 kN/m hingga 1.000 kN/m.
+                  5 Fungsi Utama Woven Geotextile Separasi Memisahkan dua lapisan material agar tidak bercampur dan tetap menjalankan fungsi masing-masing.
+                  Stabilisasi & Load Support Membantu meratakan beban pada tanah serta mengurangi pergerakan lateral tanah.
+                  Perkuatan Meningkatkan kemampuan sistem tanah dalam menahan beban dan mendukung kestabilan struktur. Filtrasi Memungkinkan aliran air melewati material sekaligus membantu menahan butiran tanah. Kontrol Pergerakan Tanah
+                  Membantu meningkatkan stabilitas struktur pada area dengan kondisi tanah yang membutuhkan dukungan tambahan.`,
+
+    // [4] GAMBAR & GALERI
     heroImageUrl: "https://images.pexels.com/photos/19208579/pexels-photo-19208579.jpeg?cs=srgb&dl=pexels-jean-paul-wettstein-677916508-19208579.jpg&fm=jpg",
     images: [
       "https://images.pexels.com/photos/19208579/pexels-photo-19208579.jpeg?cs=srgb&dl=pexels-jean-paul-wettstein-677916508-19208579.jpg&fm=jpg",
       "https://images.pexels.com/photos/36936624/pexels-photo-36936624.jpeg?cs=srgb&dl=pexels-peter-dyllong-2158803154-36936624.jpg&fm=jpg",
       "/product/geotextile-woven.jpeg",
     ],
-    bullets: ["Kuat tarik tinggi", "Separasi tanah dasar", "Stabilisasi jalan"],
+
+    // [5] BULLET POINTS (DITAMBAHKAN MENJADI 5 ITEM PLACEHOLDER)
+    bullets: [
+      "Kuat menahan beban", 
+      "Stabilkan struktur tanah", 
+      "Cegah pencampuran lapisan",
+      "Cocok untuk berbagai proyek",
+    ],
     features: [
       "Kuat tarik tinggi untuk menahan beban lateral dan vertikal.",
       "Mencegah percampuran antara tanah dasar lunak dan agregat pondasi.",
       "Meningkatkan stabilitas konstruksi jalan dan timbunan.",
       "Tahan terhadap erosi serta zat kimia alami tanah.",
     ],
-    applications: ["Konstruksi jalan raya", "Perkuatan timbunan tanah", "Lahan parkir & pelabuhan", "Jalur kereta api"],
-    specs: [
-      { label: "Material", value: "Polypropylene (PP) / Polyester (PET)" },
-      { label: "Kuat Tarik", value: "15 kN/m - 100+ kN/m" },
-      { label: "Lebar Roll", value: "4 m - 6 m" },
-      { label: "Fungsi Utama", value: "Perkuatan (Reinforcement) & Separasi" },
+
+    // [6] APLIKASI UTAMA
+    applications: [
+      "Konstruksi jalan raya", 
+      "Kontruksi rel kereta api", 
+      "Timbunan tanah", 
+      "Dinding penahan tanah",
+      "Bendungan & tanggul tanah",
+      "Lereng & area rawan longsor",
+      "Revetment / Riprap Pantai"
     ],
+
+    // [7] SPESIFIKASI TEKNIK
+    specs: [
+      { label: "Material", value: "Polypropylene (PP) & Polyester (PET)" },
+      { label: "Kuat Tarik", value: "±35 kN/m hingga ±1.000 kN/m" },
+      { label: "Ketebalan", value: "Tersedia dalam berbagai spesifikasi sesuai tipe produk" },
+      { label: "Panjang Roll", value: "Menyesuaikan tipe dan spesifikasi produk." },
+      { label: "Lebar Roll", value: "Menyesuaikan tipe dan spesifikasi produk." },
+      { label: "Diameter Roll", value: "Menyesuaikan spesifikasi dan konfigurasi produksi." },
+      { label: "Warna", value: "Hitam / sesuai tipe produk." },
+    ],
+
+    // [8] HARGA & PENJUALAN
     ratingLabel: "(4.8)",
     soldLabel: "Terjual 350+",
     priceLabel: "Rp Hubungi Kami",
     stockLabel: "Tersedia",
     trustNote: "Konsultasi teknis dan pengiriman aman ke seluruh Indonesia.",
+
+    // [9] KENAPA PRODUK INI COCOK
     reasons: [
-      "Sangat efektif untuk perkuatan struktur tanah lunak.",
-      "Material tahan lama dengan ketahanan terhadap mikroorganisme.",
-      "Mengurangi ketebalan agregat yang dibutuhkan.",
-      "Konsultasi teknis gratis sebelum pembelian.",
+      "Perkuat tanah, stabilkan struktur proyek.",
+      "Kurangi pergerakan lapisan tanah.",
+      "Distribusikan beban lebih merata.",
+      "Bangun struktur lebih stabil dan tahan.",
     ],
-    orderNote: "Klik beli untuk langsung ke Mayar.id atau gunakan konsultasi produk jika ingin cek kebutuhan dulu.",
+
+    // [10] KENAPA MEMILIH KAMI? (DITAMBAHKAN COMPANY POINTS PLACEHOLDER)
+    companyPoints: [
+      {
+        number: "01",
+        title: "Konsultasi Teknis",
+        desc: "Setiap proyek memiliki kondisi tanah, beban, fungsi, dan kebutuhan yang berbeda. KAIROS GEO membantu Anda menentukan spesifikasi woven geotextile berdasarkan kebutuhan proyek sehingga pemilihan material tidak hanya berdasarkan harga, tetapi juga mempertimbangkan fungsi dan performanya."
+      },
+      {
+        number: "02",
+        title: "Pilihan Spesifikasi Lebih Fleksibel",
+        desc: "Woven geotekstil tersedia dengan pilihan material dan variasi kuat tarik. KAIROS GEO membantu mengarahkan pilihan sesuai kebutuhan aplikasi sehingga material dapat digunakan secara lebih efektif."
+      },
+      {
+        number: "03",
+        title: "Supply untuk Berbagai Proyek",
+        desc: "KAIROS GEO dapat diposisikan sebagai partner pengadaan untuk kebutuhan proyek di berbagai wilayah Indonesia. "
+      },
+      {
+        number: "04",
+        title: "Dukungan Instalasi",
+        desc: "Untuk proyek yang membutuhkan dukungan lapangan, KAIROS GEO dapat memberikan dukungan instalasi sesuai cakupan pekerjaan."
+      },
+      {
+        number: "05",
+        title: "QC & Dokumentasi",
+        desc: "KAIROS GEO dapat memberikan dokumentasi pekerjaan yang membantu proses monitoring, pelaporan, dan evaluasi proyek."
+      },
+      {
+        number: "06",
+        title: "Dukungan dari Tahap Awal",
+        desc: "KAIROS GEO mendukung dari tahap ide dan perencanaan, serta membantu menyesuaikan kebutuhan konsumen dari awal"
+      }
+    ],
+
+    orderNote: `Siapkan Data Proyek Anda
+Agar kami dapat memberikan rekomendasi dan penawaran yang lebih tepat, informasikan:
+1. Jenis proyek
+ Contoh: jalan, tambang, rel, timbunan, lereng, reklamasi, atau proyek lainnya.
+2. Fungsi geotextile
+ Separator, stabilisasi, perkuatan, filtrasi, atau kombinasi kebutuhan.
+3. Luas area pekerjaan
+ Panjang × lebar atau estimasi total area.
+4. Kondisi lapangan
+ Jenis tanah, kondisi permukaan, kemiringan, dan kondisi khusus lainnya bila tersedia.
+5. Kebutuhan kuat tarik
+ Jika sudah ditentukan oleh engineer atau spesifikasi proyek.
+6. Lokasi proyek
+ Digunakan untuk menghitung kebutuhan logistik dan estimasi pengiriman.
+7. Kebutuhan supply
+ Material saja atau supply + instalasi.
+
+Belum tahu spesifikasinya? Tidak masalah.
+Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
+
+    // [11] REVIEWS
     reviews: [
       { name: "Rina", rating: "★★★★★", text: "Kualitas sesuai untuk kebutuhan stabilisasi jalan." },
       { name: "Dedi", rating: "★★★★★", text: "Kuat tariknya oke banget untuk tanah lunak." },
       { name: "Lina", rating: "★★★★★", text: "Respon cepat dan bantu banget untuk proyek sipil." },
     ],
+
+    // [12] LINK
     checkoutUrl: buildCheckoutUrl("geotekstil-woven"),
     whatsappUrl: buildWhatsappUrl("Geotekstil Woven"),
   },

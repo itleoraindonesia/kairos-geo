@@ -193,7 +193,7 @@ const companyPoints = [
             <h3 class="mt-8 text-lg font-extrabold text-zinc-950">Aplikasi Utama</h3>
             <div class="mt-4 flex flex-wrap gap-2.5">
               {product.applications.map((item) => (
-                <span class="rounded-full bg-kairos-100 px-4 py-2 text-sm font-semibold text-kairos-800">• {item}</span>
+                <span class="rounded-full bg-kairos-100 px-4 py-2 text-sm font-semibold text-kairos-800">{item}</span>
               ))}
             </div>
 
@@ -202,7 +202,6 @@ const companyPoints = [
             <div class="mt-4 grid gap-4 sm:grid-cols-2">
               {reasons.map((reason) => (
                 <div class="rounded-[20px] border border-zinc-200/80 bg-zinc-50 p-5 flex items-center gap-3">
-                  <span class="h-2.5 w-2.5 rounded-full bg-kairos-500 shrink-0"></span>
                   <div class="text-sm font-semibold leading-6 text-zinc-700">{reason}</div>
                 </div>
               ))}
