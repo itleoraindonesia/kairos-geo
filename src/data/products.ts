@@ -181,12 +181,12 @@ export const products: Product[] = [
                   Membantu meningkatkan stabilitas struktur pada area dengan kondisi tanah yang membutuhkan dukungan tambahan.`,
 
     // [4] GAMBAR & GALERI
-    heroImageUrl: "/product/geotekstilwoven1.png",
+    heroImageUrl: "/product/geotekstilwoven1.webp",
     images: [
-      "/product/geotekstilwoven1.png",
-      "/product/geotekstilwoven2.png",
-      "/product/geotekstilwoven3.png",
-      "/product/geotekstilwoven4.png",
+      "/product/geotekstilwoven1.webp",
+      "/product/geotekstilwoven2.webp",
+      "/product/geotekstilwoven3.webp",
+      "/product/geotekstilwoven4.webp",
     ],
 
     // [5] BULLET POINTS (DITAMBAHKAN MENJADI 5 ITEM PLACEHOLDER)
@@ -321,16 +321,16 @@ export const products: Product[] = [
                   Dengan pilihan berat material yang beragam, non-woven geotextile dapat disesuaikan dengan kebutuhan aplikasi. Brosur menunjukkan pilihan berat mulai dari 150 gsm hingga 2.200 gsm, sehingga pengguna dapat menentukan material berdasarkan fungsi dan kondisi proyek.`,
 
     // [4] GAMBAR & GALERI
-    heroImageUrl: "/product/geotekstilnonwoven7.png",
+    heroImageUrl: "/product/geotekstilnonwoven7.webp",
     images: [
-      "/product/geotekstilnonwoven7.png",
-      "/product/geotekstilnonwoven.png",
-      "/product/geotekstilnonwoven2.png",
-      "/product/geotekstilnonwoven3.png",
-      "/product/geotekstilnonwoven4.png",
-      "/product/geotekstilnonwoven5.png",
-      "/product/geotekstilnonwoven6.png",
-      "/product/geotekstilnonwoven8.png",
+      "/product/geotekstilnonwoven7.webp",
+      "/product/geotekstilnonwoven.webp",
+      "/product/geotekstilnonwoven2.webp",
+      "/product/geotekstilnonwoven3.webp",
+      "/product/geotekstilnonwoven4.webp",
+      "/product/geotekstilnonwoven5.webp",
+      "/product/geotekstilnonwoven6.webp",
+      "/product/geotekstilnonwoven8.webp",
       "/product/geotekstilnonwoven9.png",
     ],
 
