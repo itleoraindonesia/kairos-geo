@@ -47,12 +47,13 @@ export const products: Product[] = [
                   Geomembran dapat menjadi solusi penampungan yang efektif dan ekonomis dibandingkan metode konvensional tertentu.`,
 
     // [4] GAMBAR & GALERI
-    heroImageUrl: "https://images.pexels.com/photos/8314514/pexels-photo-8314514.jpeg?cs=srgb&dl=pexels-altaf-shah-3143825-8314514.jpg&fm=jpg",
+    heroImageUrl: "/product/geomembran1.jpg",
     images: [
-      "https://images.pexels.com/photos/8314514/pexels-photo-8314514.jpeg?cs=srgb&dl=pexels-altaf-shah-3143825-8314514.jpg&fm=jpg",
-      "https://images.pexels.com/photos/12815284/pexels-photo-12815284.jpeg?cs=srgb&dl=pexels-lio-voo-262755153-12815284.jpg&fm=jpg",
-      "https://images.pexels.com/photos/10530994/pexels-photo-10530994.jpeg?cs=srgb&dl=pexels-alexeydemidov-10530994.jpg&fm=jpg",
-      "/product/geogrid.jpeg",
+      "/product/geomembran1.jpg",
+      "/product/geomembran2.jpg",
+      "/product/geomembran3.jpg",
+      "/product/geomembran4.jpg",
+      "/product/geomembran5.jpg",
     ],
 
     // [5] BULLET POINTS
@@ -180,11 +181,12 @@ export const products: Product[] = [
                   Membantu meningkatkan stabilitas struktur pada area dengan kondisi tanah yang membutuhkan dukungan tambahan.`,
 
     // [4] GAMBAR & GALERI
-    heroImageUrl: "https://images.pexels.com/photos/19208579/pexels-photo-19208579.jpeg?cs=srgb&dl=pexels-jean-paul-wettstein-677916508-19208579.jpg&fm=jpg",
+    heroImageUrl: "/product/geotekstilwoven1.png",
     images: [
-      "https://images.pexels.com/photos/19208579/pexels-photo-19208579.jpeg?cs=srgb&dl=pexels-jean-paul-wettstein-677916508-19208579.jpg&fm=jpg",
-      "https://images.pexels.com/photos/36936624/pexels-photo-36936624.jpeg?cs=srgb&dl=pexels-peter-dyllong-2158803154-36936624.jpg&fm=jpg",
-      "/product/geotextile-woven.jpeg",
+      "/product/geotekstilwoven1.png",
+      "/product/geotekstilwoven2.png",
+      "/product/geotekstilwoven3.png",
+      "/product/geotekstilwoven4.png",
     ],
 
     // [5] BULLET POINTS (DITAMBAHKAN MENJADI 5 ITEM PLACEHOLDER)
@@ -319,11 +321,17 @@ export const products: Product[] = [
                   Dengan pilihan berat material yang beragam, non-woven geotextile dapat disesuaikan dengan kebutuhan aplikasi. Brosur menunjukkan pilihan berat mulai dari 150 gsm hingga 2.200 gsm, sehingga pengguna dapat menentukan material berdasarkan fungsi dan kondisi proyek.`,
 
     // [4] GAMBAR & GALERI
-    heroImageUrl: "https://images.pexels.com/photos/26742948/pexels-photo-26742948.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-26742948.jpg&fm=jpg",
+    heroImageUrl: "/product/geotekstilnonwoven7.png",
     images: [
-      "https://images.pexels.com/photos/26742948/pexels-photo-26742948.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-26742948.jpg&fm=jpg",
-      "https://images.pexels.com/photos/33650475/pexels-photo-33650475.jpeg?cs=srgb&dl=pexels-nschalll-33650475.jpg&fm=jpg",
-      "/product/geotextile-non-woven.jpeg",
+      "/product/geotekstilnonwoven7.png",
+      "/product/geotekstilnonwoven.png",
+      "/product/geotekstilnonwoven2.png",
+      "/product/geotekstilnonwoven3.png",
+      "/product/geotekstilnonwoven4.png",
+      "/product/geotekstilnonwoven5.png",
+      "/product/geotekstilnonwoven6.png",
+      "/product/geotekstilnonwoven8.png",
+      "/product/geotekstilnonwoven9.png",
     ],
 
     // [5] BULLET POINTS (5 ITEM PLACEHOLDER)
@@ -466,11 +474,14 @@ export const products: Product[] = [
                   Geobag dapat digunakan untuk membantu mengendalikan erosi, melindungi pantai dan tepian sungai, menstabilkan lereng, mengendalikan banjir, serta mendukung pekerjaan konstruksi dan pengendalian sedimen. Penggunaan material lokal sebagai isi juga membantu meningkatkan efisiensi logistik dan biaya pekerjaan.`,
 
     // [4] GAMBAR & GALERI
-    heroImageUrl: "https://images.pexels.com/photos/10186718/pexels-photo-10186718.jpeg?cs=srgb&dl=pexels-olenkabohovyk-10186718.jpg&fm=jpg",
+    heroImageUrl: "/product/geobag.png",
     images: [
-      "https://images.pexels.com/photos/10186718/pexels-photo-10186718.jpeg?cs=srgb&dl=pexels-olenkabohovyk-10186718.jpg&fm=jpg",
-      "https://images.pexels.com/photos/12633631/pexels-photo-12633631.jpeg?cs=srgb&dl=pexels-luciana-povoa-255743161-12633631.jpg&fm=jpg",
-      "/product/geobag.jpeg",
+      "/product/geobag.png",
+      "/product/geobag2.png",
+      "/product/geobag3.png",
+      "/product/geobag4.png",
+      "/product/geobag5.png",
+      "/product/geobag6.png",
     ],
 
     // [5] BULLET POINTS (5 ITEM PLACEHOLDER)
@@ -563,30 +574,30 @@ export const products: Product[] = [
 
     // [11] CATATAN PEMESANAN
     orderNote: `Siapkan Data Proyek Anda
-Agar kami dapat memberikan rekomendasi yang tepat, informasikan:
-1. Jenis proyek
-Pantai, sungai, banjir, lereng, bendungan, irigasi, galian, atau lainnya.
-2. Fungsi Geobag
-Perlindungan erosi, stabilisasi, pengendalian banjir, cofferdam, pengendalian sedimen, atau kebutuhan lainnya.
-3. Dimensi area
-Panjang × lebar area pekerjaan.
-4. Kondisi lapangan
-Kemiringan, kondisi tanah, arus, gelombang, elevasi, dan kondisi lainnya bila tersedia.
-5. Ukuran Geobag
-Jika sudah ditentukan oleh engineer atau spesifikasi proyek.
-6. Material
-PP atau PET jika sudah ditentukan.
-7. Material isi
-Pasir, tanah, kerikil, sirtu, atau material lokal lainnya.
-8. Lokasi proyek
-Untuk menghitung kebutuhan logistik dan pengiriman.
-9. Kebutuhan layanan
-Supply Only
-atau
-Supply + Instalasi
+      Agar kami dapat memberikan rekomendasi yang tepat, informasikan:
+      1. Jenis proyek
+      Pantai, sungai, banjir, lereng, bendungan, irigasi, galian, atau lainnya.
+      2. Fungsi Geobag
+      Perlindungan erosi, stabilisasi, pengendalian banjir, cofferdam, pengendalian sedimen, atau kebutuhan lainnya.
+      3. Dimensi area
+      Panjang × lebar area pekerjaan.
+      4. Kondisi lapangan
+      Kemiringan, kondisi tanah, arus, gelombang, elevasi, dan kondisi lainnya bila tersedia.
+      5. Ukuran Geobag
+      Jika sudah ditentukan oleh engineer atau spesifikasi proyek.
+      6. Material
+      PP atau PET jika sudah ditentukan.
+      7. Material isi
+      Pasir, tanah, kerikil, sirtu, atau material lokal lainnya.
+      8. Lokasi proyek
+      Untuk menghitung kebutuhan logistik dan pengiriman.
+      9. Kebutuhan layanan
+      Supply Only
+      atau
+      Supply + Instalasi
 
-Belum tahu spesifikasinya? Tidak masalah.
-Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
+      Belum tahu spesifikasinya? Tidak masalah.
+      Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
 
     // [12] REVIEWS
     reviews: [
@@ -718,37 +729,37 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
 
     // [11] CATATAN PEMESANAN
     orderNote: `SIAPKAN DATA PROYEK ANDA
-Agar KAIROS GEO dapat memberikan rekomendasi yang lebih tepat, kirimkan:
+      Agar KAIROS GEO dapat memberikan rekomendasi yang lebih tepat, kirimkan:
 
-1. Jenis Proyek
-   Jalan, lereng, retaining wall, saluran, drainase, parkir, tanggul, atau lainnya.
+      1. Jenis Proyek
+        Jalan, lereng, retaining wall, saluran, drainase, parkir, tanggul, atau lainnya.
 
-2. Fungsi Geocell
-   Erosi, reinforcement, load support, slope protection, atau kombinasi.
+      2. Fungsi Geocell
+        Erosi, reinforcement, load support, slope protection, atau kombinasi.
 
-3. Luas Area
-   Panjang × lebar area yang akan diaplikasikan.
+      3. Luas Area
+        Panjang × lebar area yang akan diaplikasikan.
 
-4. Kemiringan Area
-   Khusus untuk pekerjaan lereng dan slope protection.
+      4. Kemiringan Area
+        Khusus untuk pekerjaan lereng dan slope protection.
 
-5. Cell Depth
-   Jika sudah ditentukan oleh engineer (7,5–20 cm).
+      5. Cell Depth
+        Jika sudah ditentukan oleh engineer (7,5–20 cm).
 
-6. Material Pengisi
-   Tanah, pasir, agregat, beton, atau material lainnya.
+      6. Material Pengisi
+        Tanah, pasir, agregat, beton, atau material lainnya.
 
-7. Kondisi Tanah
-   Jenis dan kondisi tanah dasar jika tersedia.
+      7. Kondisi Tanah
+        Jenis dan kondisi tanah dasar jika tersedia.
 
-8. Lokasi Proyek
-   Untuk kebutuhan logistik dan pengiriman.
+      8. Lokasi Proyek
+        Untuk kebutuhan logistik dan pengiriman.
 
-9. Kebutuhan Layanan
-   SUPPLY ONLY atau SUPPLY + INSTALASI
+      9. Kebutuhan Layanan
+        SUPPLY ONLY atau SUPPLY + INSTALASI
 
-Belum tahu spesifikasinya? Tidak masalah.
-Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
+      Belum tahu spesifikasinya? Tidak masalah.
+      Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
 
     // [12] REVIEWS
     reviews: [
