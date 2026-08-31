@@ -605,15 +605,14 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
     name: "Geocell",
 
     // [2] JUDUL & KATEGORI
-    marketplaceTitle: "Geocell - Stabilitas Tanah & Lereng",
+    marketplaceTitle: "Geocell - Perkuat Tanah, Kendalikan Erosi, Stabilkan Struktur",
     categoryLabel: "Soil Stabilization",
 
     // [3] DESKRIPSI
-    summary: "Sistem sel tiga dimensi untuk stabilisasi tanah, lereng, dan perkuatan permukaan.",
+    summary: "Sistem sel tiga dimensi (honeycomb) untuk perkuatan tanah, perlindungan lereng, pengendalian erosi, dan penahan beban.",
     description: `Geocell KAIROS GEO merupakan panel geosintetik tiga dimensi berbentuk honeycomb yang ringan dan fleksibel. Material utamanya adalah High Density Polyethylene (HDPE) yang disambung menggunakan teknologi ultrasonik untuk menghasilkan konfigurasi sel yang kuat. 
                   Struktur sel tiga dimensinya bekerja dengan memberikan confinement pada material pengisi seperti tanah, agregat, pasir, maupun beton. Sistem ini membantu meningkatkan kestabilan material, membatasi pergerakan lateral, serta mendukung distribusi beban pada permukaan tanah. 
-                  Geocell dapat digunakan untuk berbagai kebutuhan, mulai dari pengendalian erosi, perkuatan lereng, stabilisasi tanah, load support, retaining wall, perlindungan saluran, jalan, area parkir, hingga struktur hidraulik.
-                  Sistemnya juga memungkinkan sel diisi material yang sesuai dengan kondisi proyek dan dapat mengakomodasi pertumbuhan vegetasi pada aplikasi tertentu`,
+                  Geocell dapat digunakan untuk berbagai kebutuhan, mulai dari pengendalian erosi, perkuatan lereng, stabilisasi tanah, load support, retaining wall, perlindungan saluran, jalan, area parkir, hingga struktur hidraulik. Sistemnya juga memungkinkan sel diisi material yang sesuai dengan kondisi proyek dan dapat mengakomodasi pertumbuhan vegetasi pada aplikasi tertentu.`,
 
     // [4] GAMBAR & GALERI
     heroImageUrl: "https://images.pexels.com/photos/4784827/pexels-photo-4784827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
@@ -624,7 +623,7 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
       "/product/geocell.jpeg",
     ],
 
-    // [5] BULLET POINTS (5 ITEM PLACEHOLDER)
+    // [5] BULLET POINTS & FEATURES
     bullets: [
       "Ringan dan Mudah Digelar", 
       "Pemasangan Cepat dan Praktis", 
@@ -634,30 +633,37 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
       "Hemat Waktu dan Biaya"
     ],
     features: [
-      "Struktur sel membantu mengunci material pengisi.",
-      "Efektif untuk perkuatan lereng dan badan jalan.",
-      "Membantu mengurangi pergerakan material di lapangan.",
-      "Cocok untuk area dengan kebutuhan stabilisasi tinggi.",
+      "Erosion Control: Melindungi permukaan lereng dari pelepasan tanah akibat hujan, aliran air, dan angin.",
+      "Reinforcement: Memberikan confinement material pengisi untuk membentuk struktur perkuatan / retaining wall.",
+      "Load Support: Membatasi pergerakan lateral material dan mendistribusikan beban ke area yang lebih luas.",
+      "Sistem Confinement: Mengunci material pengisi agar tanah tetap stabil dan tidak mudah tergeser."
     ],
 
     // [6] APLIKASI UTAMA
     applications: [
-      "Perlindungan Leren", 
-      "Retaining Wall", 
-      "Jalan", 
-      "Area Parkir",
-      "Trotoar",
+      "Perlindungan Lereng", 
+      "Retaining Wall (Dinding Penahan Tanah)", 
+      "Jalan (Jalan Akses, Permanen & Sementara)", 
+      "Area Parkir & Trotoar",
       "Lapangan Golf",
-      "Saluran Air",
-      "Tanggul",
-      "Perlindungan Area Sungai"
+      "Saluran Air & Drainase",
+      "Tanggul & Struktur Hidraulik",
+      "Perlindungan Area Sungai",
+      "Reinforcement & Stabilisasi Tanah"
     ],
 
     // [7] SPESIFIKASI TEKNIK
     specs: [
-      { label: "Material", value: "HDPE" },
-      { label: "Bentuk", value: "Struktur sarang lebah / honeycomb" },
-      { label: "Fungsi", value: "Stabilisasi dan perkuatan tanah" },
+      { label: "Material Utama", value: "High Density Polyethylene (HDPE)" },
+      { label: "Bentuk / Struktur", value: "Sarang lebah / Honeycomb 3D" },
+      { label: "Metode Sambungan", value: "Ultrasonic Welding" },
+      { label: "Tipe Permukaan", value: "Smooth (Halus) & Textured (Kasar)" },
+      { label: "Cell Depth (Tinggi Sel)", value: "7,5 cm – 20 cm" },
+      { label: "Warna Standar", value: "Hitam" },
+      { label: "Material Pengisi", value: "Tanah, Agregat, Pasir, Beton" },
+      { label: "Dimensi Panel", value: "Menyesuaikan tipe & kebutuhan proyek" },
+      { label: "Ketebalan", value: "Sesuai tipe dan spesifikasi produk" },
+      { label: "Fungsi Utama", value: "Confinement, Stabilisasi Tanah, Erosion Control & Load Support" },
     ],
 
     // [8] HARGA & PENJUALAN
@@ -665,81 +671,80 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
     soldLabel: "Terjual 110+",
     priceLabel: "",
     stockLabel: "Tersedia",
-    trustNote: "Cocok untuk area dengan kebutuhan stabilisasi tinggi.",
+    trustNote: "Cocok untuk area dengan kebutuhan stabilisasi dan perkuatan tanah tinggi.",
 
     // [9] KENAPA PRODUK INI COCOK
     reasons: [
       "Perkuat tanah, kendalikan erosi lebih efektif.",
-      "Stabilkan permukaan dengan sistem confinement",
+      "Stabilkan permukaan dengan sistem confinement.",
       "Tahan beban, kurangi pergerakan material.",
       "Fleksibel mengikuti kontur permukaan tanah.",
     ],
 
-    // [10] KENAPA MEMILIH KAMI? (COMPANY POINTS PLACEHOLDER)
+    // [10] KENAPA MEMILIH KAIROS GEO?
     companyPoints: [
       {
         number: "01",
         title: "Konsultasi Berbasis Kebutuhan Proyek",
-        desc: "Setiap proyek memiliki kondisi tanah, kemiringan, beban, material pengisi, dan lingkungan yang berbeda. Karena itu, KAIROS GEO sebaiknya tidak hanya menawarkan produk berdasarkan ukuran. Tetapi membantu menentukan: fungsi → cell depth → tipe permukaan → material pengisi → metode aplikasi."
+        desc: "Setiap proyek memiliki kondisi tanah, kemiringan, beban, material pengisi, dan lingkungan yang berbeda. KAIROS GEO membantu menentukan: fungsi → cell depth → tipe permukaan → material pengisi → metode aplikasi."
       },
       {
         number: "02",
         title: "Spesifikasi Dapat Disesuaikan",
-        desc: "Geocell tersedia dengan cell depth 7,5–20 cm dan dua tipe permukaan, yaitu smooth dan textured.  Artinya, pemilihan produk dapat diarahkan berdasarkan kebutuhan aplikasi."
+        desc: "Geocell tersedia dengan cell depth 7,5–20 cm dan dua tipe permukaan (smooth dan textured) sehingga pemilihan produk dapat disesuaikan dengan kebutuhan teknis lapangan."
       },
       {
         number: "03",
-        title: "Multi Aplikasi",
-        desc: "Satu sistem dapat digunakan pada banyak kebutuhan: jalan → lereng → retaining wall → drainase → saluran → area parkir → lapangan golf. Ini memberikan fleksibilitas bagi kontraktor dalam merancang solusi."
+        title: "Multi-Aplikasi",
+        desc: "Satu sistem fleksibel untuk berbagai kebutuhan: jalan, lereng, retaining wall, drainase, saluran, area parkir, hingga lapangan golf."
       },
       {
         number: "04",
         title: "Material Pengisi Fleksibel",
-        desc: "Geocell tidak bergantung pada satu jenis material pengisi. Material dapat berupa: tanah / agregat / pasir / beton."
+        desc: "Dapat diisi dengan tanah, agregat, pasir, maupun beton sesuai ketersediaan material lokal dan target perkuatan proyek."
       },
       {
         number: "05",
         title: "Instalasi Lebih Praktis",
-        desc: "Mudah digelar, pemasangan cepat, dan mudah dirawat sebagai keunggulan.  Lebih mudah dipasang. Lebih cepat diaplikasikan."
+        desc: "Mudah digelar dan dipasang dengan cepat di lapangan sehingga mempercepat progress pekerjaan."
       },
       {
         number: "06",
         title: "Efisiensi Waktu dan Biaya",
-        desc: "Hemat waktu dan biaya sebagai salah satu keunggulan Geocell. Membantu mengoptimalkan waktu dan biaya pekerjaan."
+        desc: "Membantu mengoptimalkan waktu pelaksanaan dan efisiensi biaya konstruksi tanpa mengorbankan kualitas perkuatan."
       }
     ],
 
     // [11] CATATAN PEMESANAN
-    orderNote: `Siapkan Data Proyek Anda
+    orderNote: `SIAPKAN DATA PROYEK ANDA
 Agar KAIROS GEO dapat memberikan rekomendasi yang lebih tepat, kirimkan:
-1. Jenis proyek
-Jalan, lereng, retaining wall, saluran, drainase, parkir, tanggul, atau lainnya.
+
+1. Jenis Proyek
+   Jalan, lereng, retaining wall, saluran, drainase, parkir, tanggul, atau lainnya.
 
 2. Fungsi Geocell
-Erosi, reinforcement, load support, slope protection, atau kombinasi.
+   Erosi, reinforcement, load support, slope protection, atau kombinasi.
 
-3. Luas area
-Panjang × lebar area yang akan diaplikasikan.
+3. Luas Area
+   Panjang × lebar area yang akan diaplikasikan.
 
-4. Kemiringan area
-Khusus untuk pekerjaan lereng dan slope protection.
+4. Kemiringan Area
+   Khusus untuk pekerjaan lereng dan slope protection.
 
-5. Cell depth
-Jika sudah ditentukan oleh engineer.
+5. Cell Depth
+   Jika sudah ditentukan oleh engineer (7,5–20 cm).
 
-6. Material pengisi
-Tanah, pasir, agregat, beton, atau material lainnya.
+6. Material Pengisi
+   Tanah, pasir, agregat, beton, atau material lainnya.
 
-7. Kondisi tanah
-Jenis dan kondisi tanah dasar jika tersedia.
+7. Kondisi Tanah
+   Jenis dan kondisi tanah dasar jika tersedia.
 
-8. Lokasi proyek
-Untuk kebutuhan logistik dan pengiriman.
+8. Lokasi Proyek
+   Untuk kebutuhan logistik dan pengiriman.
 
-9. Kebutuhan layanan
-SUPPLY ONLY
-atau
-SUPPLY + INSTALASI
+9. Kebutuhan Layanan
+   SUPPLY ONLY atau SUPPLY + INSTALASI
 
 Belum tahu spesifikasinya? Tidak masalah.
 Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan material yang sesuai.`,
@@ -754,5 +759,5 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
     // [13] LINK
     checkoutUrl: buildCheckoutUrl("geocell"),
     whatsappUrl: buildWhatsappUrl("Geocell"),
-  },
+},
 ];
