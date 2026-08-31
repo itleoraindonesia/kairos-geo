@@ -615,12 +615,13 @@ Kirim data proyek Anda, tim KAIROS GEO akan membantu menentukan kebutuhan materi
                   Geocell dapat digunakan untuk berbagai kebutuhan, mulai dari pengendalian erosi, perkuatan lereng, stabilisasi tanah, load support, retaining wall, perlindungan saluran, jalan, area parkir, hingga struktur hidraulik. Sistemnya juga memungkinkan sel diisi material yang sesuai dengan kondisi proyek dan dapat mengakomodasi pertumbuhan vegetasi pada aplikasi tertentu.`,
 
     // [4] GAMBAR & GALERI
-    heroImageUrl: "https://images.pexels.com/photos/4784827/pexels-photo-4784827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    heroImageUrl: "/product/geocell 1.png",
     images: [
-      "https://images.pexels.com/photos/4784827/pexels-photo-4784827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "https://images.pexels.com/photos/18354699/pexels-photo-18354699.jpeg?cs=srgb&dl=pexels-andromeda99-18354699.jpg&fm=jpg",
-      "https://images.pexels.com/photos/18151669/pexels-photo-18151669.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "/product/geocell.jpeg",
+      "/product/geocell 1.png",
+      "/product/Geocell 2.png",
+      "/product/Geocell 3.png",
+      "/product/Geocell 4.png",
+      "/product/Geocell 5.png",
     ],
 
     // [5] BULLET POINTS & FEATURES
