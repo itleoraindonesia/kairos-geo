@@ -36,10 +36,85 @@ const { title, description } = Astro.props;
     <slot name="head" />
   </head>
   <body class="font-sans text-zinc-900 selection:bg-kairos-300/60 selection:text-kairos-950">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8V9ZXJV"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8V9ZXJV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <slot />
+
+    <!-- Floating WhatsApp Button -->
+    <div class="wa-floating-container">
+      <a
+        href="https://wa.me/6281292499946?text=Halo,%20saya%20ingin%20bertanya%20mengenai%20layanan%20Anda."
+        class="wa-floating-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat WhatsApp"
+      >
+        <svg class="wa-floating-icon" viewBox="0 0 24 24">
+          <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.762.459 3.48 1.332 5.001l-1.416 5.17 5.289-1.387a9.98 9.98 0 0 0 4.782 1.216h.004c5.506 0 9.989-4.478 9.99-9.984 0-2.668-1.038-5.176-2.925-7.063C17.19 3.038 14.68 2 12.012 2zm0 2c2.136 0 4.143.832 5.651 2.34 1.509 1.51 2.339 3.518 2.339 5.652 0 4.406-3.582 7.988-7.987 7.988h-.003a7.98 7.98 0 0 1-4.073-1.118l-.292-.174-3.03.794.808-2.951-.19-.303a7.973 7.973 0 0 1-1.222-4.232c0-4.406 3.582-7.987 7.987-7.987zm-3.414 4.5c-.172 0-.387.065-.589.288-.202.223-.772.755-.772 1.841 0 1.086.79 2.133.9 2.282.11.149 1.528 2.333 3.7 3.272.517.223.921.356 1.236.456.52.165.992.142 1.365.086.417-.063 1.284-.525 1.464-1.032.18-.507.18-.94.126-1.032-.054-.093-.202-.149-.417-.256s-1.284-.633-1.482-.705c-.198-.072-.342-.108-.486.108s-.558.705-.684.85-.252.163-.468.055c-.216-.108-.912-.336-1.737-1.072-.642-.573-1.076-1.28-1.202-1.496-.126-.216-.013-.333.095-.44.097-.097.216-.252.324-.378.108-.126.144-.216.216-.36.072-.144.036-.27-.018-.378s-.486-1.171-.666-1.603c-.175-.421-.353-.364-.486-.371-.125-.007-.27-.008-.415-.008z"/>
+        </svg>
+        <span class="wa-floating-text">Hubungi Kami</span>
+      </a>
+    </div>
   </body>
 </html>
+
+<style>
+  /* Floating WhatsApp Button (Simpel & Responsive) */
+  .wa-floating-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+  }
+
+  .wa-floating-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25d366;
+    color: #ffffff !important;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .wa-floating-btn:hover {
+    background-color: #20ba5a;
+    transform: translateY(-2px);
+    color: #ffffff !important;
+  }
+
+  .wa-floating-icon {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+    flex-shrink: 0;
+  }
+
+  .wa-floating-text {
+    font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Responsif Mobile: Tampilan melingkar hanya ikon pada layar < 640px */
+  @media (max-width: 640px) {
+    .wa-floating-container {
+      bottom: 18px;
+      right: 18px;
+    }
+    .wa-floating-btn {
+      padding: 14px;
+      border-radius: 50%;
+    }
+    .wa-floating-text {
+      display: none;
+    }
+  }
+</style>
