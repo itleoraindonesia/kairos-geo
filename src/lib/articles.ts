@@ -1,105 +1,96 @@
-import type { APIRoute } from 'astro';
-import { supabaseAdmin } from '../../../lib/supabase';
-import {
-  readFields,
-  slugify,
-  uniqueSlug,
-  htmlToText,
-  readingTime,
-  uploadCover,
-  deleteCover,
-} from '../../../lib/articles';
+import { supabaseAdmin } from './supabase';
 
-export const prerender = false;
-
-export const POST: APIRoute = async ({ request, redirect }) => {
-  const form = await request.formData();
-  const action = String(form.get('_action') ?? 'create');
-  const id = Number(form.get('id'));
-  const hasId = Number.isInteger(id) && id > 0;
-
-  const formUrl = hasId ? `/admin/artikel/${id}` : '/admin/artikel/baru';
-  const back = (msg: string) => redirect(`${formUrl}?error=${encodeURIComponent(msg)}`);
-  const toList = (key: string, msg: string) =>
-    redirect(`/admin/artikel?${key}=${encodeURIComponent(msg)}`);
-
-  // ---------- HAPUS ----------
-  if (action === 'delete') {
-    if (!hasId) return toList('error', 'ID artikel tidak valid.');
-    const { data: old } = await supabaseAdmin
-      .from('articles')
-      .select('cover_image')
-      .eq('id', id)
-      .single();
-    const { error } = await supabaseAdmin.from('articles').delete().eq('id', id);
-    if (error) return toList('error', 'Gagal menghapus: ' + error.message);
-    await deleteCover(old?.cover_image);
-    return redirect('/admin/artikel?deleted=1');
-  }
-
-  // ---------- SIMPAN BARU / PERBARUI ----------
-  const f = readFields(form);
-  if (!f.title) return back('Judul wajib diisi.');
-  if (!htmlToText(f.content)) return back('Konten wajib diisi.');
-
-  const cover = form.get('cover_image');
-  const hasNewCover = cover instanceof File && cover.size > 0;
-  const now = new Date().toISOString();
-
-  if (action === 'update') {
-    if (!hasId) return toList('error', 'ID artikel tidak valid.');
-    const { data: existing } = await supabaseAdmin
-      .from('articles')
-      .select('cover_image, published_at')
-      .eq('id', id)
-      .single();
-    if (!existing) return toList('error', 'Artikel tidak ditemukan.');
-
-    let coverUrl: string | null = existing.cover_image;
-    if (hasNewCover) {
-      const up = await uploadCover(cover as File);
-      if (up.error) return back(up.error);
-      coverUrl = up.url ?? null;
-    }
-
-    const slug = await uniqueSlug(slugify(f.slug || f.title), id);
-    const { error } = await supabaseAdmin
-      .from('articles')
-      .update({
-        ...f,
-        slug,
-        cover_image: coverUrl,
-        reading_time: readingTime(f.content),
-        published_at: f.is_published ? existing.published_at ?? now : existing.published_at,
-        updated_at: now,
-      })
-      .eq('id', id);
-
-    if (error) {
-      if (hasNewCover) await deleteCover(coverUrl);
-      return back('Gagal menyimpan: ' + error.message);
-    }
-    if (hasNewCover) await deleteCover(existing.cover_image);
-    return redirect('/admin/artikel?saved=1');
-  }
-
-  // create
-  if (!hasNewCover) return back('Cover image wajib diunggah.');
-  const up = await uploadCover(cover as File);
-  if (up.error) return back(up.error);
-
-  const slug = await uniqueSlug(slugify(f.slug || f.title));
-  const { error } = await supabaseAdmin.from('articles').insert({
-    ...f,
-    slug,
-    cover_image: up.url,
-    reading_time: readingTime(f.content),
-    published_at: f.is_published ? now : null,
-  });
-
-  if (error) {
-    await deleteCover(up.url);
-    return back('Gagal menyimpan: ' + error.message);
-  }
-  return redirect('/admin/artikel?saved=1');
+export const COVER_BUCKET = 'article-covers';
+const MAX_COVER_BYTES = 2 * 1024 * 1024;
+const ALLOWED: Record<string, string> = {
+  'image/jpeg': 'jpg',
+  'image/png': 'png',
+  'image/webp': 'webp',
 };
+
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 120);
+}
+
+export function htmlToText(html: string): string {
+  return html
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function readingTime(html: string): number {
+  const words = htmlToText(html).split(' ').filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
+export async function uniqueSlug(base: string, excludeId?: number): Promise<string> {
+  const root = base || 'artikel';
+  let slug = root;
+  for (let n = 2; n < 50; n++) {
+    let q = supabaseAdmin.from('articles').select('id').eq('slug', slug).limit(1);
+    if (excludeId) q = q.neq('id', excludeId);
+    const { data, error } = await q;
+    if (error) return `${root}-${Date.now()}`;
+    if (!data || data.length === 0) return slug;
+    slug = `${root}-${n}`;
+  }
+  return `${root}-${Date.now()}`;
+}
+
+export function readFields(form: FormData) {
+  const str = (k: string) => String(form.get(k) ?? '').trim();
+  const categoryRaw = str('category_id');
+  return {
+    title: str('title'),
+    slug: str('slug'),
+    content: String(form.get('content') ?? ''),
+    category_id: categoryRaw ? Number(categoryRaw) : null,
+    is_published: form.get('is_published') === '1',
+    focus_keyword: str('focus_keyword') || null,
+    meta_title: str('meta_title') || null,
+    meta_description: str('meta_description') || null,
+    excerpt: str('excerpt') || null,
+    thumbnail_alt: str('thumbnail_alt') || null,
+    canonical_url: str('canonical_url') || null,
+    is_indexable: form.get('is_indexable') === '1',
+  };
+}
+
+export async function uploadCover(file: File): Promise<{ url?: string; error?: string }> {
+  const ext = ALLOWED[file.type];
+  if (!ext) return { error: 'Format gambar harus JPG, PNG, atau WEBP.' };
+  if (file.size > MAX_COVER_BYTES) return { error: 'Ukuran gambar maksimal 2MB.' };
+
+  const path = `covers/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  const opts = { contentType: file.type, upsert: false };
+
+  let { error } = await supabaseAdmin.storage.from(COVER_BUCKET).upload(path, bytes, opts);
+
+  // Kalau bucket belum ada, buat otomatis lalu coba lagi
+  if (error && /not found/i.test(error.message)) {
+    await supabaseAdmin.storage.createBucket(COVER_BUCKET, { public: true });
+    ({ error } = await supabaseAdmin.storage.from(COVER_BUCKET).upload(path, bytes, opts));
+  }
+  if (error) return { error: 'Gagal upload gambar: ' + error.message };
+
+  const { data } = supabaseAdmin.storage.from(COVER_BUCKET).getPublicUrl(path);
+  return { url: data.publicUrl };
+}
+
+export async function deleteCover(url?: string | null) {
+  if (!url) return;
+  const marker = `/${COVER_BUCKET}/`;
+  const i = url.indexOf(marker);
+  if (i === -1) return;
+  await supabaseAdmin.storage.from(COVER_BUCKET).remove([url.slice(i + marker.length)]);
+}
