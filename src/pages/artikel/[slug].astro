@@ -8,13 +8,13 @@ Astro.response.headers.set("Cache-Control", "public, s-maxage=60, stale-while-re
 const SITE = "https://www.kairosgeo.id";
 const slug = Astro.params.slug ?? "";
 const now = new Date().toISOString();
-const cols =
+const relatedCols =
   "id, title, slug, excerpt, cover_image, thumbnail_alt, published_at, created_at, reading_time, category:categories(name)";
 
-const published = () =>
+const queryPublished = () =>
   supabasePublic
     .from("articles")
-    .select(cols)
+    .select(relatedCols)
     .eq("is_published", true)
     .or(`published_at.is.null,published_at.lte.${now}`);
 
@@ -29,21 +29,23 @@ try {
     .eq("is_published", true)
     .or(`published_at.is.null,published_at.lte.${now}`)
     .maybeSingle();
+
   article = data;
 
   if (article) {
     if (article.category_id) {
-      const { data: same } = await published()
+      const { data: sameCategory } = await queryPublished()
         .eq("category_id", article.category_id)
         .neq("id", article.id)
         .order("published_at", { ascending: false, nullsFirst: false })
         .limit(3);
-      related = same ?? [];
+      related = sameCategory ?? [];
     }
+
     if (related.length < 3) {
-      const exclude = [article.id, ...related.map((r) => r.id)].join(",");
-      const { data: latest } = await published()
-        .not("id", "in", `(${exclude})`)
+      const excludeIds = [article.id, ...related.map((r) => r.id)].join(",");
+      const { data: latest } = await queryPublished()
+        .not("id", "in", `(${excludeIds})`)
         .order("published_at", { ascending: false, nullsFirst: false })
         .limit(3 - related.length);
       related = [...related, ...(latest ?? [])];
@@ -53,53 +55,144 @@ try {
   article = null;
 }
 
-if (!article) Astro.response.status = 404;
+if (!article) {
+  Astro.response.status = 404;
+}
 
-const plain = (html: string) =>
+const stripHtml = (html: string) =>
   html.replace(/<[^>]*>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
 
-const formatDate = (d?: string | null) =>
-  d ? new Date(d).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" }) : "";
+const toAbsoluteUrl = (path?: string | null) => {
+  if (!path) return "";
+  return /^https?:\/\//i.test(path) ? path : `${SITE}${path.startsWith("/") ? "" : "/"}${path}`;
+};
 
-const seoTitle = article ? article.meta_title || `${article.title} | Kairos Geo` : "Artikel tidak ditemukan | Kairos Geo";
+const formatDate = (dateStr?: string | null) =>
+  dateStr
+    ? new Date(dateStr).toLocaleDateString("id-ID", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : "";
+
+const rawContent = article?.content ?? article?.description ?? "";
+const plainText = stripHtml(rawContent);
+const wordCount = plainText ? plainText.split(/\s+/).length : 0;
+const readingTime = article?.reading_time || Math.max(1, Math.ceil(wordCount / 200));
+
+const publishedIso = article ? new Date(article.published_at ?? article.created_at).toISOString() : "";
+const modifiedIso = article
+  ? new Date(article.updated_at ?? article.published_at ?? article.created_at).toISOString()
+  : "";
+
+const seoTitle = article
+  ? article.meta_title || `${article.title} | Kairos Geo`
+  : "Artikel Tidak Ditemukan | Kairos Geo";
+
+const ogTitle = article ? article.meta_title || article.title : "Artikel Tidak Ditemukan";
+
 const seoDescription = article
-  ? article.meta_description || article.excerpt || plain(article.content ?? "").slice(0, 155)
-  : "Artikel yang Anda cari tidak ditemukan.";
-const canonical = article ? article.canonical_url || `${SITE}/artikel/${article.slug}` : "";
+  ? article.meta_description || article.excerpt || plainText.slice(0, 155)
+  : "Artikel yang Anda cari tidak tersedia atau telah dihapus.";
+
+const canonicalUrl = article ? article.canonical_url || `${SITE}/artikel/${article.slug}` : "";
+const coverUrl = toAbsoluteUrl(article?.cover_image);
+const coverAlt = article?.thumbnail_alt || article?.title || "Kairos Geo";
 const indexable = article ? article.is_indexable !== false : false;
 
-const jsonLd = article
+const articleSchema = article
   ? {
       "@context": "https://schema.org",
       "@type": "Article",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": canonicalUrl,
+      },
       headline: article.title,
       description: seoDescription,
-      image: article.cover_image ? [article.cover_image] : undefined,
-      datePublished: article.published_at ?? article.created_at,
-      dateModified: article.updated_at ?? article.published_at ?? article.created_at,
-      mainEntityOfPage: canonical,
-      author: { "@type": "Organization", name: "Kairos Geo" },
-      publisher: { "@type": "Organization", name: "Kairos Geo", logo: { "@type": "ImageObject", url: `${SITE}/kairoslogo.png` } },
+      image: [coverUrl || `${SITE}/kairoslogo.png`],
+      datePublished: publishedIso,
+      dateModified: modifiedIso,
+      articleSection: article.category?.name || undefined,
+      keywords: article.focus_keyword || undefined,
+      wordCount: wordCount || undefined,
+      inLanguage: "id-ID",
+      author: {
+        "@type": "Organization",
+        name: "Kairos Geo",
+        url: SITE,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Kairos Geo",
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE}/kairoslogo.png`,
+        },
+      },
     }
   : null;
+
+const breadcrumbSchema = article
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Beranda", item: SITE },
+        { "@type": "ListItem", position: 2, name: "Artikel", item: `${SITE}/#artikel` },
+        { "@type": "ListItem", position: 3, name: article.title, item: canonicalUrl },
+      ],
+    }
+  : null;
+
+const shareWhatsappUrl = article
+  ? `https://wa.me/?text=${encodeURIComponent(`${article.title} - ${canonicalUrl}`)}`
+  : "";
 ---
 
 <BaseLayout title={seoTitle} description={seoDescription}>
-  {article && (
-    <Fragment slot="head">
-      <link rel="canonical" href={canonical} />
-      <meta name="robots" content={indexable ? "index, follow, max-image-preview:large" : "noindex, follow"} />
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="Kairos Geo" />
-      <meta property="og:title" content={seoTitle} />
-      <meta property="og:description" content={seoDescription} />
-      <meta property="og:url" content={canonical} />
-      {article.cover_image && <meta property="og:image" content={article.cover_image} />}
-      <meta property="article:published_time" content={article.published_at ?? article.created_at} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, "\\u003c")} />
-    </Fragment>
-  )}
+  <Fragment slot="head">
+    {article ? (
+      <>
+        <link rel="canonical" href={canonicalUrl} />
+        <meta
+          name="robots"
+          content={indexable ? "index, follow, max-image-preview:large, max-snippet:-1" : "noindex, follow"}
+        />
+        {article.focus_keyword && <meta name="keywords" content={article.focus_keyword} />}
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="id_ID" />
+        <meta property="og:site_name" content="Kairos Geo" />
+        <meta property="og:title" content={ogTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        {coverUrl && <meta property="og:image" content={coverUrl} />}
+        {coverUrl && <meta property="og:image:alt" content={coverAlt} />}
+        <meta property="article:published_time" content={publishedIso} />
+        <meta property="article:modified_time" content={modifiedIso} />
+        {article.category?.name && <meta property="article:section" content={article.category.name} />}
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={ogTitle} />
+        <meta name="twitter:description" content={seoDescription} />
+        {coverUrl && <meta name="twitter:image" content={coverUrl} />}
+        {coverUrl && <meta name="twitter:image:alt" content={coverAlt} />}
+
+        <!-- Structured Data JSON-LD -->
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify([articleSchema, breadcrumbSchema]).replace(/</g, "\\u003c")}
+        />
+      </>
+    ) : (
+      <meta name="robots" content="noindex, nofollow" />
+    )}
+  </Fragment>
 
   <header class="bg-kairos-950 text-white">
     <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
@@ -107,55 +200,115 @@ const jsonLd = article
         <div class="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/10 ring-1 ring-white/15">
           <img src="/kairoslogo.png" alt="Kairos Geo" class="h-full w-full object-cover" />
         </div>
-        <span class="font-display text-base font-extrabold tracking-tight">Kairos Geo</span>
+        <div class="font-display text-base font-extrabold tracking-tight">Kairos Geo</div>
       </a>
-      <a href="/#artikel" class="text-sm font-bold text-white/80 transition hover:text-white">Artikel</a>
+      <a href="/#artikel" class="text-sm font-bold text-white/80 transition hover:text-white">
+        Artikel
+      </a>
     </div>
   </header>
 
   {article ? (
     <main class="bg-white">
-      <article class="mx-auto max-w-3xl px-4 pb-14 pt-10 sm:px-6 sm:pt-14">
+      <article class="mx-auto max-w-3xl px-4 pb-14 pt-8 sm:px-6 sm:pt-12">
+        <!-- Breadcrumb Navigasi -->
+        <nav aria-label="Breadcrumb" class="mb-5 flex items-center gap-2 overflow-x-auto whitespace-nowrap text-xs text-zinc-500">
+          <a href="/" class="transition hover:text-zinc-900">Beranda</a>
+          <span aria-hidden="true">/</span>
+          <a href="/#artikel" class="transition hover:text-zinc-900">Artikel</a>
+          {article.category?.name && (
+            <>
+              <span aria-hidden="true">/</span>
+              <span class="font-semibold text-zinc-700">{article.category.name}</span>
+            </>
+          )}
+        </nav>
+
+        <!-- Header Artikel -->
         <header>
-          <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-zinc-500">
+          <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-medium text-zinc-500">
             {article.category?.name && (
-              <span class="rounded-full bg-kairos-100 px-3 py-1 font-bold text-kairos-700">{article.category.name}</span>
+              <>
+                <span class="font-bold text-kairos-600">{article.category.name}</span>
+                <span aria-hidden="true">•</span>
+              </>
             )}
-            <time datetime={article.published_at ?? article.created_at}>{formatDate(article.published_at ?? article.created_at)}</time>
-            {article.reading_time && <span>· {article.reading_time} menit baca</span>}
+            <time datetime={publishedIso}>
+              {formatDate(article.published_at ?? article.created_at)}
+            </time>
+            <span aria-hidden="true">•</span>
+            <span>{readingTime} menit baca</span>
           </div>
 
-          <h1 class="mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight text-zinc-950 sm:text-4xl lg:text-[2.6rem]">
+          <h1 class="mt-3 font-display text-2xl font-extrabold leading-tight tracking-tight text-zinc-950 sm:text-4xl">
             {article.title}
           </h1>
+
+          {article.excerpt && (
+            <p class="mt-4 text-base leading-relaxed text-zinc-600">
+              {article.excerpt}
+            </p>
+          )}
         </header>
 
-        {article.cover_image && (
-          <img
-            src={article.cover_image}
-            alt={article.thumbnail_alt || article.title}
-            class="mt-8 aspect-[16/9] w-full rounded-[22px] object-cover"
-            loading="eager"
-            decoding="async"
-          />
+        <!-- Gambar Cover Utama -->
+        {coverUrl && (
+          <figure class="mt-8">
+            <img
+              src={coverUrl}
+              alt={coverAlt}
+              class="aspect-[16/9] w-full rounded-2xl border border-zinc-200/80 object-cover"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+            {article.thumbnail_alt && (
+              <figcaption class="mt-2.5 text-center text-xs text-zinc-500">
+                {article.thumbnail_alt}
+              </figcaption>
+            )}
+          </figure>
         )}
 
-        <div class="article-content mt-8" set:html={article.content}></div>
+        <!-- Isi Artikel -->
+        <div class="article-content mt-8 border-b border-zinc-200 pb-10" set:html={rawContent}></div>
+
+        <!-- Footer Artikel: Kembali & Bagikan -->
+        <div class="mt-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+          <a
+            href="/#artikel"
+            class="inline-flex items-center gap-2 text-sm font-bold text-zinc-700 transition hover:text-kairos-600"
+          >
+            &larr; Kembali ke Daftar Artikel
+          </a>
+
+          <a
+            href={shareWhatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex w-fit items-center gap-2 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2 text-xs font-bold text-zinc-800 transition hover:border-kairos-400 hover:text-kairos-700"
+          >
+            Bagikan ke WhatsApp
+          </a>
+        </div>
       </article>
 
+      <!-- Artikel Terkait -->
       {related.length > 0 && (
         <section class="border-t border-zinc-200 bg-zinc-50">
           <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-            <h2 class="font-display text-2xl font-extrabold tracking-tight text-zinc-950">Artikel Terkait</h2>
+            <h2 class="font-display text-2xl font-extrabold tracking-tight text-zinc-950">
+              Artikel Terkait
+            </h2>
 
             <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((a) => (
-                <article class="group flex flex-col overflow-hidden rounded-[22px] border border-zinc-200/80 bg-white shadow-panel">
-                  <a href={`/artikel/${a.slug}`} class="block overflow-hidden" tabindex="-1" aria-hidden="true">
-                    {a.cover_image ? (
+              {related.map((item) => (
+                <article class="group flex flex-col overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-panel">
+                  <a href={`/artikel/${item.slug}`} class="block overflow-hidden" tabindex="-1" aria-hidden="true">
+                    {item.cover_image ? (
                       <img
-                        src={a.cover_image}
-                        alt={a.thumbnail_alt || a.title}
+                        src={item.cover_image}
+                        alt={item.thumbnail_alt || item.title}
                         class="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-105"
                         loading="lazy"
                         decoding="async"
@@ -165,11 +318,17 @@ const jsonLd = article
                     )}
                   </a>
                   <div class="flex flex-1 flex-col p-4">
-                    <div class="text-xs text-zinc-500">{formatDate(a.published_at ?? a.created_at)}</div>
+                    <div class="text-xs text-zinc-500">
+                      {formatDate(item.published_at ?? item.created_at)}
+                    </div>
                     <h3 class="mt-2 line-clamp-2 text-base font-extrabold leading-snug text-zinc-950">
-                      <a href={`/artikel/${a.slug}`} class="transition hover:text-kairos-700">{a.title}</a>
+                      <a href={`/artikel/${item.slug}`} class="transition hover:text-kairos-700">
+                        {item.title}
+                      </a>
                     </h3>
-                    {a.excerpt && <p class="mt-2 line-clamp-2 text-sm leading-6 text-zinc-600">{a.excerpt}</p>}
+                    {item.excerpt && (
+                      <p class="mt-2 line-clamp-2 text-sm leading-6 text-zinc-600">{item.excerpt}</p>
+                    )}
                   </div>
                 </article>
               ))}
@@ -180,42 +339,152 @@ const jsonLd = article
     </main>
   ) : (
     <main class="mx-auto max-w-xl px-4 py-24 text-center">
-      <h1 class="font-display text-3xl font-extrabold text-zinc-950">Artikel tidak ditemukan</h1>
+      <h1 class="font-display text-3xl font-extrabold text-zinc-950">Artikel Tidak Ditemukan</h1>
       <p class="mt-3 text-sm text-zinc-600">Artikel yang Anda cari tidak tersedia atau sudah dihapus.</p>
-      <a href="/" class="mt-6 inline-flex rounded-xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-5 py-3 text-sm font-bold text-white">Kembali ke Beranda</a>
+      <a
+        href="/"
+        class="mt-6 inline-flex rounded-xl bg-kairos-500 px-5 py-3 text-sm font-bold text-white transition hover:brightness-110"
+      >
+        Kembali ke Beranda
+      </a>
     </main>
   )}
 
   <footer class="bg-kairos-950 py-6 text-center text-xs text-white/60">
-    © {new Date().getFullYear()} Kairos Geo. All rights reserved.
+    &copy; {new Date().getFullYear()} Kairos Geo. All rights reserved.
   </footer>
 </BaseLayout>
 
 <style is:global>
-  .article-content { font-size: 1.0625rem; line-height: 1.85; color: #3f3f46; overflow-wrap: anywhere; }
-  .article-content > * + * { margin-top: 1.25rem; }
+  .article-content {
+    font-size: 1.03125rem;
+    line-height: 1.85;
+    color: #3f3f46;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .article-content > * + * {
+    margin-top: 1.15rem;
+  }
   .article-content h1,
   .article-content h2,
-  .article-content h3 { font-family: "Manrope", "Plus Jakarta Sans", sans-serif; font-weight: 800; line-height: 1.3; color: #18181b; letter-spacing: -0.01em; }
-  .article-content h1 { font-size: 1.75rem; margin-top: 2.5rem; }
-  .article-content h2 { font-size: 1.5rem; margin-top: 2.25rem; }
-  .article-content h3 { font-size: 1.25rem; margin-top: 2rem; }
-  .article-content a { color: #7c3aed; text-decoration: underline; text-underline-offset: 3px; }
-  .article-content strong { color: #18181b; }
-  .article-content ul,
-  .article-content ol { padding-left: 1.5rem; }
-  .article-content ol { list-style: decimal; }
-  .article-content li + li { margin-top: 0.4rem; }
-  .article-content li[data-list="bullet"] { list-style-type: disc; }
-  .article-content li[data-list="ordered"] { list-style-type: decimal; }
-  .article-content .ql-ui { display: none; }
-  .article-content .ql-indent-1 { margin-left: 1.5rem; }
-  .article-content .ql-indent-2 { margin-left: 3rem; }
-  .article-content .ql-indent-3 { margin-left: 4.5rem; }
-  .article-content blockquote { border-left: 4px solid #a78bfa; padding: 0.25rem 0 0.25rem 1.1rem; color: #52525b; font-style: italic; }
-  .article-content img { max-width: 100%; height: auto; border-radius: 14px; }
-  .article-content .ql-align-center { text-align: center; }
-  .article-content .ql-align-right { text-align: right; }
-  .article-content .ql-align-justify { text-align: justify; }
-  @media (max-width: 640px) { .article-content { font-size: 1rem; line-height: 1.8; } }
+  .article-content h3,
+  .article-content h4 {
+    font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #18181b;
+    letter-spacing: -0.01em;
+  }
+  .article-content h1 {
+    font-size: 1.65rem;
+    margin-top: 2.25rem;
+  }
+  .article-content h2 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+  }
+  .article-content h3 {
+    font-size: 1.175rem;
+    margin-top: 1.75rem;
+  }
+  .article-content h4 {
+    font-size: 1.05rem;
+    margin-top: 1.5rem;
+  }
+  .article-content a {
+    color: #7c3aed;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .article-content a:hover {
+    color: #5b21b6;
+  }
+  .article-content strong {
+    color: #18181b;
+    font-weight: 700;
+  }
+  .article-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+  .article-content ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+  }
+  .article-content li + li {
+    margin-top: 0.4rem;
+  }
+  .article-content li[data-list="bullet"] {
+    list-style-type: disc;
+  }
+  .article-content li[data-list="ordered"] {
+    list-style-type: decimal;
+  }
+  .article-content .ql-ui {
+    display: none;
+  }
+  .article-content .ql-indent-1 {
+    padding-left: 1.5rem;
+  }
+  .article-content .ql-indent-2 {
+    padding-left: 3rem;
+  }
+  .article-content .ql-indent-3 {
+    padding-left: 4.5rem;
+  }
+  .article-content .ql-align-left {
+    text-align: left;
+  }
+  .article-content .ql-align-center {
+    text-align: center;
+  }
+  .article-content .ql-align-right {
+    text-align: right;
+  }
+  .article-content .ql-align-justify {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  .article-content blockquote {
+    border-left: 4px solid #8b5cf6;
+    background-color: #fafafa;
+    padding: 0.75rem 1.15rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+    color: #52525b;
+    font-style: italic;
+  }
+  .article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.875rem;
+    border: 1px solid #e4e4e7;
+    display: block;
+  }
+  .article-content table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+  .article-content th,
+  .article-content td {
+    border: 1px solid #e4e4e7;
+    padding: 0.6rem 0.85rem;
+    text-align: left;
+  }
+  .article-content th {
+    background-color: #f4f4f5;
+    font-weight: 700;
+    color: #18181b;
+  }
+  @media (max-width: 640px) {
+    .article-content {
+      font-size: 0.975rem;
+      line-height: 1.8;
+    }
+  }
 </style>
