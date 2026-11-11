@@ -12,12 +12,9 @@ const error = Astro.url.searchParams.get("error");
     <div class="absolute inset-0 hero-grid opacity-40" aria-hidden="true"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-kairos-950 via-kairos-950/40 to-kairos-950/80" aria-hidden="true"></div>
 
-    <!-- Container Utama: Single column di mobile, 2 kolom di desktop -->
-    <div class="relative grid w-full max-w-md overflow-hidden rounded-[28px] border border-white/15 bg-white shadow-panel lg:max-w-4xl lg:grid-cols-12">
-      
+    <div class="relative grid w-full max-w-md overflow-hidden rounded-[28px] bg-white shadow-panel lg:max-w-4xl lg:grid-cols-12">
       <!-- Kolom Kiri: Form Login -->
       <div class="flex flex-col justify-center p-7 sm:p-10 lg:col-span-6">
-        <!-- Brand Header -->
         <div class="mb-7 flex items-center gap-3">
           <div class="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-kairos-950 ring-1 ring-zinc-200">
             <img src="/kairoslogo.png" alt="Kairos Geo" class="h-full w-full object-cover" />
@@ -88,7 +85,6 @@ const error = Astro.url.searchParams.get("error");
                 aria-pressed="false"
                 class="absolute inset-y-0 right-0 flex items-center px-3.5 text-zinc-400 transition hover:text-zinc-700 focus:outline-none"
               >
-                <!-- Ikon Mata Terbuka (Show) -->
                 <svg
                   id="icon-eye"
                   xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +100,6 @@ const error = Astro.url.searchParams.get("error");
                   <circle cx="12" cy="12" r="3" />
                 </svg>
 
-                <!-- Ikon Mata Dicoret (Hide) -->
                 <svg
                   id="icon-eye-off"
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,9 +129,8 @@ const error = Astro.url.searchParams.get("error");
         </form>
       </div>
 
-      <!-- Kolom Kanan: Visual Geomembrane & Geotextile (Tampil di layar lg ke atas) -->
-      <div class="relative hidden flex-col justify-between overflow-hidden bg-kairos-950 p-8 text-white lg:col-span-6 lg:flex">
-        <!-- INI BAGIAN YANG DIGANTI (Foto Unsplash) -->
+      <!-- Kolom Kanan: Visual Geomembrane & Geotextile -->
+      <div class="relative hidden flex-col justify-end overflow-hidden bg-kairos-950 p-8 text-white lg:col-span-6 lg:flex">
         <img
           src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80"
           alt="Instalasi Geomembrane dan Geotextile Kairos Geo"
@@ -145,43 +139,21 @@ const error = Astro.url.searchParams.get("error");
           onerror="this.style.display='none'"
         />
 
-        <!-- Pola Tekstil/Grid Halus + Overlay Gradasi agar teks selalu terbaca -->
         <div class="absolute inset-0 hero-grid opacity-30" aria-hidden="true"></div>
         <div
-          class="absolute inset-0 bg-gradient-to-t from-kairos-950 via-kairos-950/55 to-kairos-950/30"
+          class="absolute inset-0 bg-gradient-to-t from-kairos-950 via-kairos-950/60 to-transparent"
           aria-hidden="true"
         ></div>
 
-        <!-- Badge Atas -->
-        <div class="relative z-10">
-          <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-white backdrop-blur-md">
-            <span class="h-2 w-2 rounded-full bg-kairos-400"></span>
-            Geosynthetics Engineering
-          </span>
-        </div>
-
-        <!-- Informasi Produk di Bagian Bawah Gambar -->
-        <div class="relative z-10 rounded-2xl border border-white/10 bg-kairos-950/60 p-5 backdrop-blur-md">
+        <div class="relative z-10 rounded-2xl bg-kairos-950/70 p-5 backdrop-blur-md">
           <h2 class="font-display text-lg font-bold leading-snug text-white">
             Solusi Proteksi &amp; Rekayasa Lahan Terpadu
           </h2>
           <p class="mt-1.5 text-xs leading-relaxed text-zinc-300">
             Pengelolaan data proyek, spesifikasi teknis, dan dokumentasi aplikasi material geosintetik dalam satu dashboard.
           </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="rounded-lg bg-white/10 px-2.5 py-1 text-[11px] font-semibold text-zinc-200">
-              Geomembrane HDPE
-            </span>
-            <span class="rounded-lg bg-white/10 px-2.5 py-1 text-[11px] font-semibold text-zinc-200">
-              Geotextile Woven &amp; Non-Woven
-            </span>
-            <span class="rounded-lg bg-white/10 px-2.5 py-1 text-[11px] font-semibold text-zinc-200">
-              Geogrid
-            </span>
-          </div>
         </div>
       </div>
-
     </div>
   </main>
 </AdminLayout>

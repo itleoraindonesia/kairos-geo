@@ -1,6 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { products } from "../data/products";
+import { supabasePublic } from "../lib/supabase";
+
+// Homepage dirender di server supaya artikel baru otomatis muncul,
+// lalu di-cache CDN 60 detik supaya tetap cepat.
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, s-maxage=60, stale-while-revalidate=300");
+
+let latestArticles: any[] = [];
+try {
+  const { data } = await supabasePublic
+    .from("articles")
+    .select("id, title, slug, excerpt, cover_image, thumbnail_alt, published_at, created_at, reading_time, category:categories(name)")
+    .eq("is_published", true)
+    .or(`published_at.is.null,published_at.lte.${new Date().toISOString()}`)
+    .order("published_at", { ascending: false, nullsFirst: false })
+    .limit(6);
+  latestArticles = data ?? [];
+} catch {
+  latestArticles = [];
+}
+
+const formatDate = (d?: string | null) =>
+  d ? new Date(d).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" }) : "";
 
 const description =
   "Kairos Geo menyediakan produk geosintetik, konsultasi teknis, dukungan instalasi, dan solusi lingkungan untuk kebutuhan proyek infrastruktur dan pengelolaan air.";
@@ -637,6 +660,62 @@ const contactWhatsappUrl =
           </aside>
         </div>
       </section>
+
+            {latestArticles.length > 0 && (
+        <section id="artikel" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+              <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl">Artikel Terbaru</h2>
+            </div>
+            <a href="/artikel" class="hidden text-sm font-bold text-kairos-500 transition hover:text-kairos-700 sm:inline-flex">Lihat semua artikel -&gt;</a>
+          </div>
+
+          <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {latestArticles.map((a) => (
+              <article class="group flex flex-col overflow-hidden rounded-[26px] border border-zinc-200/80 bg-white shadow-panel">
+                <a href={`/artikel/${a.slug}`} class="block overflow-hidden" tabindex="-1" aria-hidden="true">
+                  {a.cover_image ? (
+                    <img
+                      src={a.cover_image}
+                      alt={a.thumbnail_alt || a.title}
+                      class="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <div class="aspect-[16/9] w-full bg-gradient-to-br from-kairos-600 to-kairos-400"></div>
+                  )}
+                </a>
+
+                <div class="flex flex-1 flex-col p-5">
+                  <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-zinc-500">
+                    {a.category?.name && (
+                      <span class="rounded-full bg-kairos-100 px-3 py-1 font-bold text-kairos-700">{a.category.name}</span>
+                    )}
+                    <span>{formatDate(a.published_at ?? a.created_at)}</span>
+                    {a.reading_time && <span>· {a.reading_time} menit baca</span>}
+                  </div>
+
+                  <h3 class="mt-3 line-clamp-2 text-lg font-extrabold leading-snug text-zinc-950">
+                    <a href={`/artikel/${a.slug}`} class="transition hover:text-kairos-700">{a.title}</a>
+                  </h3>
+
+                  {a.excerpt && <p class="mt-2 line-clamp-3 text-sm leading-6 text-zinc-600">{a.excerpt}</p>}
+
+                  <a href={`/artikel/${a.slug}`} class="mt-auto inline-flex pt-4 text-sm font-bold text-kairos-500 transition hover:text-kairos-700">
+                    Baca Selengkapnya -&gt;
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div class="mt-6 sm:hidden">
+            <a href="/artikel" class="inline-flex text-sm font-bold text-kairos-500">Lihat semua artikel -&gt;</a>
+          </div>
+        </section>
+      )}
     </main>
 
     <footer id="kontak" class="mt-10 bg-kairos-950 text-white">
