@@ -3,9 +3,15 @@ import "../styles/global.css";
 
 type Props = {
   title: string;
+  nav?: boolean;
+  active?: "dashboard" | "artikel";
 };
 
-const { title } = Astro.props;
+const { title, nav = false, active = "dashboard" } = Astro.props;
+const user = Astro.locals.user;
+
+const link = (on: boolean) =>
+  `rounded-lg px-3 py-2 text-sm font-bold transition ${on ? "bg-white/15 text-white" : "text-white/70 hover:text-white"}`;
 ---
 
 <!doctype html>
@@ -25,6 +31,43 @@ const { title } = Astro.props;
     />
   </head>
   <body class="font-sans text-zinc-900 selection:bg-kairos-300/60 selection:text-kairos-950">
-    <slot />
+    <div class={nav ? "min-h-screen bg-zinc-50" : ""}>
+      {nav && (
+        <header class="bg-kairos-950 text-white">
+          <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6">
+            <a href="/admin" class="flex items-center gap-3">
+              <div class="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/10 ring-1 ring-white/15">
+                <img src="/kairoslogo.png" alt="Kairos Geo" class="h-full w-full object-cover" />
+              </div>
+              <div class="leading-tight">
+                <div class="font-display text-base font-extrabold tracking-tight">Kairos Geo</div>
+                <div class="text-[11px] text-white/70">Panel Admin</div>
+              </div>
+            </a>
+
+            <nav class="flex items-center gap-1">
+              <a href="/admin" class={link(active === "dashboard")}>Dashboard</a>
+              <a href="/admin/artikel" class={link(active === "artikel")}>Artikel</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+              <span class="hidden text-sm text-white/75 md:inline">{user?.email}</span>
+              <form method="POST" action="/api/auth/logout">
+                <button
+                  type="submit"
+                  class="rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold text-white transition hover:bg-white/15"
+                >
+                  Keluar
+                </button>
+              </form>
+            </div>
+          </div>
+        </header>
+      )}
+
+      <div class={nav ? "mx-auto max-w-5xl px-4 py-10 sm:px-6" : ""}>
+        <slot />
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,86 @@
+---
+import AdminLayout from "../../../layouts/AdminLayout.astro";
+import { supabaseAdmin } from "../../../lib/supabase";
+
+export const prerender = false;
+
+const { data: articles, error } = await supabaseAdmin
+  .from("articles")
+  .select("id, title, slug, is_published, published_at, created_at, category:categories(name)")
+  .order("created_at", { ascending: false });
+
+const saved = Astro.url.searchParams.get("saved");
+const deleted = Astro.url.searchParams.get("deleted");
+const err = Astro.url.searchParams.get("error") ?? error?.message;
+
+const fmt = (d?: string | null) =>
+  d ? new Date(d).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" }) : "-";
+---
+
+<AdminLayout title="Artikel | Kairos Geo" nav active="artikel">
+  <div class="flex flex-wrap items-end justify-between gap-3">
+    <div>
+      <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+      <h1 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-zinc-950">Artikel</h1>
+    </div>
+    <a
+      href="/admin/artikel/baru"
+      class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-kairos-950/20 transition hover:brightness-110"
+    >
+      + Tambah Artikel
+    </a>
+  </div>
+
+  {saved && <div class="mt-5 rounded-xl bg-green-50 px-4 py-3 text-sm font-semibold text-green-700 ring-1 ring-green-100">Artikel berhasil disimpan.</div>}
+  {deleted && <div class="mt-5 rounded-xl bg-green-50 px-4 py-3 text-sm font-semibold text-green-700 ring-1 ring-green-100">Artikel berhasil dihapus.</div>}
+  {err && <div class="mt-5 rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700 ring-1 ring-red-100">{err}</div>}
+
+  <div class="mt-6 overflow-hidden rounded-[24px] border border-zinc-200/80 bg-white shadow-panel">
+    {!articles || articles.length === 0 ? (
+      <div class="px-6 py-14 text-center text-sm text-zinc-500">Belum ada artikel. Klik "Tambah Artikel" untuk mulai menulis.</div>
+    ) : (
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[640px] text-left text-sm">
+          <thead class="border-b border-zinc-200 bg-zinc-50 text-xs uppercase tracking-wider text-zinc-500">
+            <tr>
+              <th class="px-5 py-3 font-bold">Judul</th>
+              <th class="px-5 py-3 font-bold">Kategori</th>
+              <th class="px-5 py-3 font-bold">Status</th>
+              <th class="px-5 py-3 font-bold">Tanggal</th>
+              <th class="px-5 py-3 text-right font-bold">Aksi</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-100">
+            {articles.map((a: any) => (
+              <tr class="align-top">
+                <td class="px-5 py-4">
+                  <div class="font-bold text-zinc-950">{a.title}</div>
+                  <div class="mt-0.5 text-xs text-zinc-400">/artikel/{a.slug}</div>
+                </td>
+                <td class="px-5 py-4 text-zinc-600">{a.category?.name ?? "-"}</td>
+                <td class="px-5 py-4">
+                  {a.is_published ? (
+                    <span class="rounded-full bg-green-50 px-3 py-1 text-xs font-bold text-green-700">Publik</span>
+                  ) : (
+                    <span class="rounded-full bg-zinc-100 px-3 py-1 text-xs font-bold text-zinc-600">Draft</span>
+                  )}
+                </td>
+                <td class="px-5 py-4 text-zinc-600">{fmt(a.published_at ?? a.created_at)}</td>
+                <td class="px-5 py-4">
+                  <div class="flex items-center justify-end gap-3">
+                    <a href={`/admin/artikel/${a.id}`} class="text-sm font-bold text-kairos-500 transition hover:text-kairos-700">Edit</a>
+                    <form method="POST" action="/api/admin/articles" onsubmit="return confirm('Hapus artikel ini? Tindakan ini tidak bisa dibatalkan.')">
+                      <input type="hidden" name="_action" value="delete" />
+                      <input type="hidden" name="id" value={a.id} />
+                      <button type="submit" class="text-sm font-bold text-red-600 transition hover:text-red-800">Hapus</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )}
+  </div>
+</AdminLayout>
