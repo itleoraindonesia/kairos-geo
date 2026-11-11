@@ -1,0 +1,22 @@
+---
+export const prerender = false;
+const error = Astro.url.searchParams.get('error');
+---
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Login Admin — KairosGeo</title>
+  </head>
+  <body style="font-family:system-ui;max-width:360px;margin:15vh auto;padding:0 16px">
+    <h1>Login Admin</h1>
+    {error === 'invalid' && <p style="color:#b00">Email atau password salah.</p>}
+    {error === 'forbidden' && <p style="color:#b00">Akun ini tidak punya akses admin.</p>}
+    <form method="POST" action="/api/auth/login" style="display:grid;gap:12px">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Masuk</button>
+    </form>
+  </body>
+</html>

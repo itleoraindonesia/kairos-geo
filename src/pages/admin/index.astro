@@ -1,0 +1,17 @@
+---
+export const prerender = false;
+const { user } = Astro.locals;
+---
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Dashboard — KairosGeo</title>
+  </head>
+  <body style="font-family:system-ui;max-width:720px;margin:10vh auto;padding:0 16px">
+    <h1>Dashboard</h1>
+    <p>Login sebagai {user.email}</p>
+    <form method="POST" action="/api/auth/logout"><button>Keluar</button></form>
+  </body>
+</html>
