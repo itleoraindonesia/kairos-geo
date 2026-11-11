@@ -1,22 +1,69 @@
 ---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
 export const prerender = false;
-const error = Astro.url.searchParams.get('error');
+Astro.response.headers.set("X-Robots-Tag", "noindex, nofollow");
+
+const error = Astro.url.searchParams.get("error");
 ---
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Login Admin — KairosGeo</title>
-  </head>
-  <body style="font-family:system-ui;max-width:360px;margin:15vh auto;padding:0 16px">
-    <h1>Login Admin</h1>
-    {error === 'invalid' && <p style="color:#b00">Email atau password salah.</p>}
-    {error === 'forbidden' && <p style="color:#b00">Akun ini tidak punya akses admin.</p>}
-    <form method="POST" action="/api/auth/login" style="display:grid;gap:12px">
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <button type="submit">Masuk</button>
-    </form>
-  </body>
-</html>
+
+<BaseLayout title="Login Admin | Kairos Geo" description="Login admin Kairos Geo">
+  <main class="relative flex min-h-screen items-center justify-center overflow-hidden bg-kairos-950 px-4 py-10">
+    <div class="absolute inset-0 hero-grid opacity-40" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-kairos-950 via-kairos-950/40 to-kairos-950/80" aria-hidden="true"></div>
+
+    <div class="relative w-full max-w-sm">
+      <div class="mb-6 flex items-center justify-center gap-3">
+        <div class="grid h-12 w-12 place-items-center overflow-hidden rounded-full bg-white/10 ring-1 ring-white/15">
+          <img src="/kairoslogo.png" alt="Kairos Geo" class="h-full w-full object-cover" />
+        </div>
+        <div class="font-display text-xl font-extrabold tracking-tight text-white">Kairos Geo</div>
+      </div>
+
+      <div class="rounded-[28px] border border-zinc-200/80 bg-white p-7 shadow-panel">
+        <h1 class="font-display text-2xl font-extrabold tracking-tight text-zinc-950">Login Admin</h1>
+        <p class="mt-1 text-sm text-zinc-500">Masuk untuk mengelola konten website.</p>
+
+        {error === "invalid" && (
+          <div class="mt-5 rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700 ring-1 ring-red-100">
+            Email atau password salah.
+          </div>
+        )}
+        {error === "forbidden" && (
+          <div class="mt-5 rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700 ring-1 ring-red-100">
+            Akun ini tidak punya akses admin.
+          </div>
+        )}
+
+        <form method="POST" action="/api/auth/login" class="mt-6 grid gap-4">
+          <label class="grid gap-1.5 text-sm font-bold text-zinc-800">
+            Email
+            <input
+              type="email"
+              name="email"
+              required
+              autocomplete="username"
+              class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm font-normal text-zinc-900 outline-none transition focus:border-kairos-400 focus:ring-2 focus:ring-kairos-200"
+            />
+          </label>
+          <label class="grid gap-1.5 text-sm font-bold text-zinc-800">
+            Password
+            <input
+              type="password"
+              name="password"
+              required
+              autocomplete="current-password"
+              class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm font-normal text-zinc-900 outline-none transition focus:border-kairos-400 focus:ring-2 focus:ring-kairos-200"
+            />
+          </label>
+          <button
+            type="submit"
+            class="mt-2 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-kairos-500 to-kairos-400 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-kairos-950/20 transition hover:brightness-110"
+          >
+            Masuk
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

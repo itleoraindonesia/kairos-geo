@@ -1,17 +1,58 @@
 ---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
 export const prerender = false;
+Astro.response.headers.set("X-Robots-Tag", "noindex, nofollow");
+
 const { user } = Astro.locals;
 ---
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Dashboard — KairosGeo</title>
-  </head>
-  <body style="font-family:system-ui;max-width:720px;margin:10vh auto;padding:0 16px">
-    <h1>Dashboard</h1>
-    <p>Login sebagai {user.email}</p>
-    <form method="POST" action="/api/auth/logout"><button>Keluar</button></form>
-  </body>
-</html>
+
+<BaseLayout title="Dashboard | Kairos Geo" description="Dashboard admin Kairos Geo">
+  <div class="min-h-screen bg-zinc-50">
+    <header class="bg-kairos-950 text-white">
+      <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+        <a href="/admin" class="flex items-center gap-3">
+          <div class="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/10 ring-1 ring-white/15">
+            <img src="/kairoslogo.png" alt="Kairos Geo" class="h-full w-full object-cover" />
+          </div>
+          <div class="leading-tight">
+            <div class="font-display text-base font-extrabold tracking-tight">Kairos Geo</div>
+            <div class="text-[11px] text-white/70">Panel Admin</div>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-4">
+          <span class="hidden text-sm text-white/75 sm:inline">{user.email}</span>
+          <form method="POST" action="/api/auth/logout">
+            <button
+              type="submit"
+              class="rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold text-white transition hover:bg-white/15"
+            >
+              Keluar
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+      <div class="h-1 w-20 rounded-full bg-gradient-to-r from-kairos-500 to-kairos-300"></div>
+      <h1 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-zinc-950">Dashboard</h1>
+      <p class="mt-1 text-sm text-zinc-500">Selamat datang, {user.email}</p>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        <article class="rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel">
+          <h2 class="text-lg font-extrabold text-zinc-950">Artikel</h2>
+          <p class="mt-2 text-sm leading-6 text-zinc-600">Tulis dan kelola artikel website.</p>
+          <span class="mt-4 inline-flex rounded-full bg-kairos-100 px-3 py-1 text-xs font-bold text-kairos-700">Segera hadir</span>
+        </article>
+
+        <article class="rounded-[24px] border border-zinc-200/80 bg-white p-6 shadow-panel">
+          <h2 class="text-lg font-extrabold text-zinc-950">Kategori</h2>
+          <p class="mt-2 text-sm leading-6 text-zinc-600">Atur kategori untuk artikel.</p>
+          <span class="mt-4 inline-flex rounded-full bg-kairos-100 px-3 py-1 text-xs font-bold text-kairos-700">Segera hadir</span>
+        </article>
+      </div>
+    </main>
+  </div>
+</BaseLayout>
